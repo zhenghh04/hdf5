@@ -159,6 +159,7 @@ H5_DLL void *H5VL_datatype_open(const H5VL_object_t *vol_obj, const H5VL_loc_par
 H5_DLL herr_t H5VL_datatype_get(const H5VL_object_t *vol_obj, H5VL_datatype_get_t get_type, hid_t dxpl_id, void **req, ...);
 H5_DLL herr_t H5VL_datatype_specific(const H5VL_object_t *vol_obj, H5VL_datatype_specific_t specific_type, hid_t dxpl_id, void **req, ...);
 H5_DLL herr_t H5VL_datatype_optional(const H5VL_object_t *vol_obj, H5VL_datatype_optional_t opt_type, hid_t dxpl_id, void **req, ...);
+H5_DLL herr_t H5VL_datatype_optional_op(const H5VL_object_t *vol_obj, H5VL_datatype_optional_t opt_type, hid_t dxpl_id, void **req, va_list arguments);
 H5_DLL herr_t H5VL_datatype_close(const H5VL_object_t *vol_obj, hid_t dxpl_id, void **req);
 
 /* File functions */

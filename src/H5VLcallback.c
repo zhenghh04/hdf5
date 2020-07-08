@@ -35,6 +35,7 @@
 #include "H5Iprivate.h"         /* IDs                                              */
 #include "H5MMprivate.h"        /* Memory management                                */
 #include "H5Pprivate.h"         /* Property lists                                   */
+#include "H5Tprivate.h"         /* Datatypes                                        */
 #include "H5VLpkg.h"            /* Virtual Object Layer                             */
 
 
@@ -46,6 +47,10 @@
 /******************/
 /* Local Typedefs */
 /******************/
+
+/* Typedef for common callback form of registered optional operations */
+typedef herr_t (*H5VL_reg_opt_oper_t)(void *obj, const H5VL_class_t *cls,
+    int opt_type, hid_t dxpl_id, void **req, va_list arguments);
 
 
 /********************/
@@ -340,6 +345,48 @@ H5VLget_value(hid_t connector_id, H5VL_class_value_t *value)
 done:
     FUNC_LEAVE_API_NOINIT(ret_value)
 } /* H5VLget_value */
+
+
+/*-------------------------------------------------------------------------
+ * Function:    H5VL__common_optional_op
+ *
+ * Purpose:     Performs an optional connector-specific operation on an object
+ *
+ * Return:      Success:    Non-negative
+ *              Failure:    Negative
+ *
+ *-------------------------------------------------------------------------
+ */
+static herr_t
+H5VL__common_optional_op(hid_t id, H5I_type_t id_type, H5VL_reg_opt_oper_t reg_opt_op,
+    int opt_type, hid_t dxpl_id, void **req, va_list arguments)
+{
+    H5VL_object_t *vol_obj;             /* Attribute for this operation */
+    hbool_t vol_wrapper_set = FALSE;    /* Whether the VOL object wrapping context was set up */
+    herr_t ret_value = SUCCEED;         /* Return value */
+
+    FUNC_ENTER_STATIC
+
+    /* Check ID type & get VOL object */
+    if(NULL == (vol_obj = (H5VL_object_t *)H5I_object_verify(id, id_type)))
+        HGOTO_ERROR(H5E_ARGS, H5E_BADTYPE, FAIL, "invalid identifier")
+
+    /* Set wrapper info in API context */
+    if(H5VL_set_vol_wrapper(vol_obj) < 0)
+        HGOTO_ERROR(H5E_VOL, H5E_CANTSET, FAIL, "can't set VOL wrapper info")
+    vol_wrapper_set = TRUE;
+
+    /* Call the corresponding internal VOL routine */
+    if((ret_value = (*reg_opt_op)(vol_obj->data, vol_obj->connector->cls, opt_type, dxpl_id, req, arguments)) < 0)
+        HGOTO_ERROR(H5E_VOL, H5E_CANTOPERATE, FAIL, "unable to execute optional callback")
+
+done:
+    /* Reset object wrapping info in API context */
+    if(vol_wrapper_set && H5VL_reset_vol_wrapper() < 0)
+        HDONE_ERROR(H5E_VOL, H5E_CANTRESET, FAIL, "can't reset VOL wrapper info")
+
+    FUNC_LEAVE_NOAPI(ret_value)
+} /* end H5VL__common_optional_op() */
 
 
 /*-------------------------------------------------------------------------
@@ -1716,6 +1763,43 @@ done:
 
 
 /*-------------------------------------------------------------------------
+ * Function:    H5VLattr_optional_op
+ *
+ * Purpose:     Performs an optional connector-specific operation on an attribute
+ *
+ * Return:      Success:    Non-negative
+ *              Failure:    Negative
+ *
+ *-------------------------------------------------------------------------
+ */
+herr_t
+H5VLattr_optional_op(hid_t attr_id, H5VL_attr_optional_t opt_type,
+    hid_t dxpl_id, void **req, ...)
+{
+    va_list arguments;                  /* Argument list passed from the API call */
+    hbool_t arg_started = FALSE;        /* Whether the va_list has been started */
+    herr_t ret_value = SUCCEED;         /* Return value */
+
+    FUNC_ENTER_API(FAIL)
+    H5TRACE4("e", "iVsi**x", attr_id, opt_type, dxpl_id, req);
+
+    /* Call the common VOL connector optional routine */
+    HDva_start(arguments, req);
+    arg_started = TRUE;
+    if((ret_value = H5VL__common_optional_op(attr_id, H5I_ATTR, H5VL__attr_optional,
+            opt_type, dxpl_id, req, arguments)) < 0)
+        HGOTO_ERROR(H5E_VOL, H5E_CANTOPERATE, FAIL, "unable to execute attribute optional callback")
+
+done:
+    /* End access to the va_list, if we started it */
+    if(arg_started)
+        HDva_end(arguments);
+
+    FUNC_LEAVE_API(ret_value)
+} /* end H5VLattr_optional_op() */
+
+
+/*-------------------------------------------------------------------------
  * Function:    H5VL__attr_close
  *
  * Purpose:     Closes an attribute through the VOL
@@ -2568,6 +2652,43 @@ done:
 
 
 /*-------------------------------------------------------------------------
+ * Function:    H5VLdataset_optional_op
+ *
+ * Purpose:     Performs an optional connector-specific operation on a dataset
+ *
+ * Return:      Success:    Non-negative
+ *              Failure:    Negative
+ *
+ *-------------------------------------------------------------------------
+ */
+herr_t
+H5VLdataset_optional_op(hid_t dset_id, H5VL_dataset_optional_t opt_type, hid_t dxpl_id,
+    void **req, ...)
+{
+    va_list arguments;                  /* Argument list passed from the API call */
+    hbool_t arg_started = FALSE;        /* Whether the va_list has been started */
+    herr_t ret_value = SUCCEED;         /* Return value */
+
+    FUNC_ENTER_API(FAIL)
+    H5TRACE4("e", "iVti**x", dset_id, opt_type, dxpl_id, req);
+
+    /* Call the corresponding internal VOL routine */
+    HDva_start(arguments, req);
+    arg_started = TRUE;
+    if(H5VL__common_optional_op(dset_id, H5I_DATASET, H5VL__dataset_optional,
+            opt_type, dxpl_id, req, arguments) < 0)
+        HGOTO_ERROR(H5E_VOL, H5E_CANTOPERATE, FAIL, "unable to execute dataset optional callback")
+
+done:
+    /* End access to the va_list, if we started it */
+    if(arg_started)
+        HDva_end(arguments);
+
+    FUNC_LEAVE_API(ret_value)
+} /* end H5VLdataset_optional_op() */
+
+
+/*-------------------------------------------------------------------------
  * Function:    H5VL__dataset_close
  *
  * Purpose:     Closes a dataset through the VOL
@@ -3193,6 +3314,43 @@ done:
 
 
 /*-------------------------------------------------------------------------
+ * Function:	H5VL_datatype_optional_op
+ *
+ * Purpose:	Optional operation specific to connectors.
+ *
+ * Return:      Success:    Non-negative
+ *              Failure:    Negative
+ *
+ *-------------------------------------------------------------------------
+ */
+herr_t
+H5VL_datatype_optional_op(const H5VL_object_t *vol_obj, H5VL_datatype_optional_t opt_type,
+    hid_t dxpl_id, void **req, va_list arguments)
+{
+    hbool_t vol_wrapper_set = FALSE;    /* Whether the VOL object wrapping context was set up */
+    herr_t ret_value = SUCCEED;         /* Return value */
+
+    FUNC_ENTER_NOAPI(FAIL)
+
+    /* Set wrapper info in API context */
+    if(H5VL_set_vol_wrapper(vol_obj) < 0)
+        HGOTO_ERROR(H5E_VOL, H5E_CANTSET, FAIL, "can't set VOL wrapper info")
+    vol_wrapper_set = TRUE;
+
+    /* Call the corresponding internal VOL routine */
+    if(H5VL__datatype_optional(vol_obj->data, vol_obj->connector->cls, opt_type, dxpl_id, req, arguments) < 0)
+        HGOTO_ERROR(H5E_VOL, H5E_CANTOPERATE, FAIL, "unable to execute datatype optional callback")
+
+done:
+    /* Reset object wrapping info in API context */
+    if(vol_wrapper_set && H5VL_reset_vol_wrapper() < 0)
+        HDONE_ERROR(H5E_VOL, H5E_CANTRESET, FAIL, "can't reset VOL wrapper info")
+
+    FUNC_LEAVE_NOAPI(ret_value)
+} /* end H5VL_datatype_optional_op() */
+
+
+/*-------------------------------------------------------------------------
  * Function:    H5VLdatatype_optional
  *
  * Purpose:     Performs an optional connector-specific operation on a datatype
@@ -3226,6 +3384,47 @@ H5VLdatatype_optional(void *obj, hid_t connector_id, H5VL_datatype_optional_t op
 done:
     FUNC_LEAVE_API_NOINIT(ret_value)
 } /* end H5VLdatatype_optional() */
+
+
+/*-------------------------------------------------------------------------
+ * Function:    H5VLdatatype_optional_op
+ *
+ * Purpose:     Performs an optional connector-specific operation on a datatype
+ *
+ * Return:      Success:    Non-negative
+ *              Failure:    Negative
+ *
+ *-------------------------------------------------------------------------
+ */
+herr_t
+H5VLdatatype_optional_op(hid_t type_id, H5VL_datatype_optional_t opt_type,
+    hid_t dxpl_id, void **req, ...)
+{
+    H5T_t *dt;                          /* Datatype for this operation */
+    va_list arguments;                  /* Argument list passed from the API call */
+    hbool_t arg_started = FALSE;        /* Whether the va_list has been started */
+    herr_t ret_value = SUCCEED;         /* Return value */
+
+    FUNC_ENTER_API(FAIL)
+    H5TRACE4("e", "iVui**x", type_id, opt_type, dxpl_id, req);
+
+    /* Check args */
+    if(NULL == (dt = (H5T_t *)H5I_object_verify(type_id, H5I_DATATYPE)))
+        HGOTO_ERROR(H5E_ARGS, H5E_BADTYPE, FAIL, "not a datatype")
+
+    /* Only invoke callback if VOL object is set for the datatype */
+    HDva_start(arguments, req);
+    arg_started = TRUE;
+    if(H5T_invoke_vol_optional(dt, opt_type, dxpl_id, req, arguments) < 0)
+        HGOTO_ERROR(H5E_VOL, H5E_CANTOPERATE, FAIL, "unable to invoke datatype optional callback")
+
+done:
+    /* End access to the va_list, if we started it */
+    if(arg_started)
+        HDva_end(arguments);
+
+    FUNC_LEAVE_API(ret_value)
+} /* end H5VLdatatype_optional_op() */
 
 
 /*-------------------------------------------------------------------------
@@ -3917,6 +4116,43 @@ done:
 
 
 /*-------------------------------------------------------------------------
+ * Function:    H5VLfile_optional_op
+ *
+ * Purpose:     Performs an optional connector-specific operation on a file
+ *
+ * Return:      Success:    Non-negative
+ *              Failure:    Negative
+ *
+ *-------------------------------------------------------------------------
+ */
+herr_t
+H5VLfile_optional_op(hid_t file_id, H5VL_file_optional_t opt_type,
+    hid_t dxpl_id, void **req, ...)
+{
+    va_list arguments;                  /* Argument list passed from the API call */
+    hbool_t arg_started = FALSE;        /* Whether the va_list has been started */
+    herr_t ret_value = SUCCEED;         /* Return value */
+
+    FUNC_ENTER_API(FAIL)
+    H5TRACE4("e", "iVvi**x", file_id, opt_type, dxpl_id, req);
+
+    /* Call the corresponding internal VOL routine */
+    HDva_start(arguments, req);
+    arg_started = TRUE;
+    if(H5VL__common_optional_op(file_id, H5I_FILE, H5VL__file_optional,
+            opt_type, dxpl_id, req, arguments) < 0)
+        HGOTO_ERROR(H5E_VOL, H5E_CANTOPERATE, FAIL, "unable to execute file optional callback")
+
+done:
+    /* End access to the va_list, if we started it */
+    if(arg_started)
+        HDva_end(arguments);
+
+    FUNC_LEAVE_API(ret_value)
+} /* end H5VLfile_optional_op() */
+
+
+/*-------------------------------------------------------------------------
  * Function:    H5VL__file_close
  *
  * Purpose:     Closes a file through the VOL
@@ -4565,6 +4801,43 @@ H5VLgroup_optional(void *obj, hid_t connector_id, H5VL_group_optional_t opt_type
 done:
     FUNC_LEAVE_API_NOINIT(ret_value)
 } /* end H5VLgroup_optional() */
+
+
+/*-------------------------------------------------------------------------
+ * Function:    H5VLgroup_optional_op
+ *
+ * Purpose:     Performs an optional connector-specific operation on a group
+ *
+ * Return:      Success:    Non-negative
+ *              Failure:    Negative
+ *
+ *-------------------------------------------------------------------------
+ */
+herr_t
+H5VLgroup_optional_op(hid_t group_id, H5VL_group_optional_t opt_type,
+    hid_t dxpl_id, void **req, ...)
+{
+    va_list arguments;                  /* Argument list passed from the API call */
+    hbool_t arg_started = FALSE;        /* Whether the va_list has been started */
+    herr_t ret_value = SUCCEED;         /* Return value */
+
+    FUNC_ENTER_API(FAIL)
+    H5TRACE4("e", "iVwi**x", group_id, opt_type, dxpl_id, req);
+
+    /* Call the corresponding internal VOL routine */
+    HDva_start(arguments, req);
+    arg_started = TRUE;
+    if((ret_value = H5VL__common_optional_op(group_id, H5I_GROUP, H5VL__group_optional,
+            opt_type, dxpl_id, req, arguments)) < 0)
+        HGOTO_ERROR(H5E_VOL, H5E_CANTOPERATE, FAIL, "unable to execute group optional callback")
+
+done:
+    /* End access to the va_list, if we started it */
+    if(arg_started)
+        HDva_end(arguments);
+
+    FUNC_LEAVE_API(ret_value)
+} /* end H5VLgroup_optional_op() */
 
 
 /*-------------------------------------------------------------------------
