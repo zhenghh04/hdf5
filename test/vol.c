@@ -1349,7 +1349,6 @@ error:
 
 } /* end test_basic_datatype_operation() */
 
-<<<<<<< HEAD
 typedef herr_t (*reg_opt_oper_t)(hid_t obj_id, int opt_type, hid_t dxpl_id, void **req, ...);
 
 
@@ -1636,8 +1635,7 @@ error:
 } /* end test_register_opt_operation() */
 
 
-=======
->>>>>>> 76af74eeb6648f3f5d8db435e6234d964513dc3a
+
 /*-------------------------------------------------------------------------
  * Function:    main
  *
@@ -1662,14 +1660,9 @@ main(void)
 
     HDputs("Testing basic Virtual Object Layer (VOL) functionality.");
 
-<<<<<<< HEAD
     nerrors += test_vol_registration() < 0          ? 1 : 0;
     nerrors += test_register_opt_operation() < 0    ? 1 : 0;
     nerrors += test_native_vol_init() < 0           ? 1 : 0;
-=======
-    nerrors += test_vol_registration() < 0 ? 1 : 0;
-    nerrors += test_native_vol_init() < 0 ? 1 : 0;
->>>>>>> 76af74eeb6648f3f5d8db435e6234d964513dc3a
     nerrors += test_basic_file_operation(env_h5_drvr) < 0 ? 1 : 0;
     nerrors += test_basic_group_operation() < 0 ? 1 : 0;
     nerrors += test_basic_dataset_operation() < 0 ? 1 : 0;
