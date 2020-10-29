@@ -944,7 +944,6 @@ H5VLquery_optional(hid_t obj_id, H5VL_subclass_t subcls, int opt_type, hbool_t *
 done:
     FUNC_LEAVE_API(ret_value)
 } /* H5VLquery_optional() */
-<<<<<<< HEAD
 
 
 /*---------------------------------------------------------------------------
@@ -986,5 +985,4 @@ done:
     FUNC_LEAVE_API(ret_value)
 } /* H5VLregister_opt_operation() */
 
-=======
->>>>>>> 76af74eeb6648f3f5d8db435e6234d964513dc3a
+
