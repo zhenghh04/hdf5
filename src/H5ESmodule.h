@@ -11,7 +11,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /*
- * Programmer:	Quincey Koziol <koziol@lbl.gov>
+ * Programmer:	Quincey Koziol
  *		Monday, April  6, 2020
  *
  * Purpose:	This file contains declarations which define macros for the
@@ -25,9 +25,8 @@
  *      reporting macros.
  */
 #define H5ES_MODULE
-#define H5_MY_PKG       H5ES
-#define H5_MY_PKG_ERR   H5E_EVENTSET
-#define H5_MY_PKG_INIT  YES
+#define H5_MY_PKG      H5ES
+#define H5_MY_PKG_ERR  H5E_EVENTSET
+#define H5_MY_PKG_INIT YES
 
 #endif /* _H5ESmodule_H */
-

@@ -69,6 +69,7 @@ if (MINGW)
   set (WINDOWS 1) # MinGW tries to imitate Windows
   set (CMAKE_REQUIRED_FLAGS "-DWIN32_LEAN_AND_MEAN=1 -DNOGDI=1")
   set (${HDF_PREFIX}_HAVE_WINSOCK2_H 1)
+  set (__USE_MINGW_ANSI_STDIO 1)
 endif ()
 
 if (WIN32 AND NOT MINGW)
@@ -137,15 +138,11 @@ CHECK_INCLUDE_FILE_CONCAT ("stddef.h"        ${HDF_PREFIX}_HAVE_STDDEF_H)
 CHECK_INCLUDE_FILE_CONCAT ("stdint.h"        ${HDF_PREFIX}_HAVE_STDINT_H)
 CHECK_INCLUDE_FILE_CONCAT ("unistd.h"        ${HDF_PREFIX}_HAVE_UNISTD_H)
 
-# Darwin
-CHECK_INCLUDE_FILE_CONCAT ("mach/mach_time.h" ${HDF_PREFIX}_HAVE_MACH_MACH_TIME_H)
-
 # Windows
 CHECK_INCLUDE_FILE_CONCAT ("io.h"            ${HDF_PREFIX}_HAVE_IO_H)
 if (NOT CYGWIN)
   CHECK_INCLUDE_FILE_CONCAT ("winsock2.h"      ${HDF_PREFIX}_HAVE_WINSOCK2_H)
 endif ()
-CHECK_INCLUDE_FILE_CONCAT ("sys/timeb.h"     ${HDF_PREFIX}_HAVE_SYS_TIMEB_H)
 
 if (CMAKE_SYSTEM_NAME MATCHES "OSF")
   CHECK_INCLUDE_FILE_CONCAT ("sys/sysinfo.h" ${HDF_PREFIX}_HAVE_SYS_SYSINFO_H)
@@ -683,4 +680,3 @@ endif ()
 # the cache value is set in it's config file)
 #
 set (${HDF_PREFIX}_CONVERT_DENORMAL_FLOAT 1)
-

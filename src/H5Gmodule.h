@@ -11,7 +11,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /*
- * Programmer:	Quincey Koziol <koziol@hdfgroup.org>
+ * Programmer:	Quincey Koziol
  *		Saturday, September 12, 2015
  *
  * Purpose:	This file contains declarations which define macros for the
@@ -25,9 +25,8 @@
  *      reporting macros.
  */
 #define H5G_MODULE
-#define H5_MY_PKG       H5G
-#define H5_MY_PKG_ERR   H5E_SYM
-#define H5_MY_PKG_INIT  YES
+#define H5_MY_PKG      H5G
+#define H5_MY_PKG_ERR  H5E_SYM
+#define H5_MY_PKG_INIT YES
 
 #endif /* _H5Gmodule_H */
-

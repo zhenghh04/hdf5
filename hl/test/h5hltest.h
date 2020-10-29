@@ -12,7 +12,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /*
- * Programmer:  Quincey Koziol <koziol@ncsa.uiuc.edu>
+ * Programmer:  Quincey Koziol
  *              Friday, April 28, 2006
  *
  * Purpose:     Test support stuff.
@@ -28,13 +28,24 @@
 #include "H5HLprivate2.h"
 
 /* Macros used in HL tests */
-#define HL_TESTING2(WHAT)  {HDprintf("Testing %-62s", WHAT); HDfflush(stdout);}
-#define HL_TESTING3(WHAT)  {HDprintf("Testing %-62s", WHAT); HDfflush(stdout);}
+#define HL_TESTING2(WHAT)                                                                                    \
+    {                                                                                                        \
+        HDprintf("Testing %-62s", WHAT);                                                                     \
+        HDfflush(stdout);                                                                                    \
+    }
+#define HL_TESTING3(WHAT)                                                                                    \
+    {                                                                                                        \
+        HDprintf("Testing %-62s", WHAT);                                                                     \
+        HDfflush(stdout);                                                                                    \
+    }
 
 /* Implements verbose 'assert' with 'goto error' exit  */
-#define VERIFY(condition, string) do { if (!(condition)) FAIL_PUTS_ERROR(string) } while(0)
+#define VERIFY(condition, string)                                                                            \
+    do {                                                                                                     \
+        if (!(condition))                                                                                    \
+            FAIL_PUTS_ERROR(string)                                                                          \
+    } while (0)
 
 int test_packet_table_with_varlen(void);
 
 #endif /* _H5HLTEST_H */
-

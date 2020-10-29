@@ -14,7 +14,7 @@
  *
  * Created:		H5ESprivate.h
  *			Apr  6 2020
- *			Quincey Koziol <koziol@lbl.gov>
+ *			Quincey Koziol
  *
  * Purpose:		Private header for library accessible event set routines.
  *
@@ -25,16 +25,14 @@
 #define _H5ESprivate_H
 
 /* Include package's public header */
-#include "H5ESpublic.h"         /* Event Sets                  */
+#include "H5ESpublic.h" /* Event Sets                  */
 
 /* Private headers needed by this file */
-#include "H5VLprivate.h"        /* Virtual Object Layer        */
-
+#include "H5VLprivate.h" /* Virtual Object Layer        */
 
 /**************************/
 /* Library Private Macros */
 /**************************/
-
 
 /****************************/
 /* Library Private Typedefs */
@@ -43,17 +41,14 @@
 /* Typedef for event set objects */
 typedef struct H5ES_t H5ES_t;
 
-
 /*****************************/
 /* Library-private Variables */
 /*****************************/
 
-
 /***************************************/
 /* Library-private Function Prototypes */
 /***************************************/
-herr_t H5ES_insert(H5ES_t *es, H5VL_object_t *request);
-
+herr_t H5ES_insert(hid_t es_id, H5VL_t *connector, void *token,
+    const char *caller, const char *caller_args, ...);
 
 #endif /* _H5ESprivate_H */
-

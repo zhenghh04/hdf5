@@ -18,20 +18,19 @@
 #define _H5VLnative_H
 
 /* Public headers needed by this file */
-#include "H5VLpublic.h"        /* Virtual Object Layer                 */
-
+#include "H5VLpublic.h" /* Virtual Object Layer                 */
 
 /*****************/
 /* Public Macros */
 /*****************/
 
 /* Identifier for the native VOL connector */
-#define H5VL_NATIVE     (H5VL_native_register())
+#define H5VL_NATIVE (H5VL_native_register())
 
 /* Characteristics of the native VOL connector */
-#define H5VL_NATIVE_NAME        "native"
-#define H5VL_NATIVE_VALUE       H5_VOL_NATIVE   /* enum value */
-#define H5VL_NATIVE_VERSION     0
+#define H5VL_NATIVE_NAME    "native"
+#define H5VL_NATIVE_VALUE   H5_VOL_NATIVE /* enum value */
+#define H5VL_NATIVE_VERSION 0
 
 /* Values for VOL connector attribute optional VOL operations */
 #ifndef H5_NO_DEPRECATED_SYMBOLS
@@ -151,4 +150,3 @@ H5_DLL hid_t H5VL_native_register(void);
 #endif
 
 #endif /* _H5VLnative_H */
-

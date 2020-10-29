@@ -15,14 +15,17 @@ package hdf.hdf5lib.structs;
 
 import java.io.Serializable;
 
-// Information struct for native HDF5 object info, such as object header metadata (for H5Oget_info/H5Oget_info_by_name/H5Oget_info_by_idx).
+/**
+ * Information struct for native HDF5 object info, such as object header metadata (for H5Oget_info/H5Oget_info_by_name/H5Oget_info_by_idx).
+ *
+ */
 public class H5O_native_info_t implements Serializable {
     private static final long serialVersionUID = 7883826382952577189L;
 
     public H5O_hdr_info_t hdr_info; /* Object header information */
 
     /* Extra metadata storage for obj & attributes */
-    public H5_ih_info_t obj_info;   /* v1/v2 B-tree & local/fractal heap for groups, B-tree for chunked datasets */ 
+    public H5_ih_info_t obj_info;   /* v1/v2 B-tree & local/fractal heap for groups, B-tree for chunked datasets */
     public H5_ih_info_t attr_info;  /* v2 B-tree & heap for attributes */
 
     H5O_native_info_t (H5O_hdr_info_t oheader_info, H5_ih_info_t obj_info, H5_ih_info_t attr_info)
@@ -45,7 +48,7 @@ public class H5O_native_info_t implements Serializable {
         if (!this.hdr_info.equals(info.hdr_info)
          || !this.obj_info.equals(info.obj_info)
          || !this.attr_info.equals(info.attr_info))
-        	return false;
+            return false;
 
         return true;
     }
