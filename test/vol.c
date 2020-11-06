@@ -1401,7 +1401,7 @@ exercise_reg_opt_oper(hid_t fake_vol_id, hid_t reg_opt_vol_id,
 
     /* Pop the API context off the stack */
     if(H5VL_SUBCLS_DATATYPE == subcls)
-        H5CX_pop();
+        H5CX_pop(FALSE);
 
     /* Attempt to issue operation on fake VOL connector */
     fake_obj = -1;
@@ -1449,7 +1449,7 @@ exercise_reg_opt_oper(hid_t fake_vol_id, hid_t reg_opt_vol_id,
 
     /* Pop the API context off the stack */
     if(H5VL_SUBCLS_DATATYPE == subcls)
-        H5CX_pop();
+        H5CX_pop(FALSE);
 
     /* Issue first operation */
     fake_obj = -1;
