@@ -184,7 +184,7 @@ fi # production
 # Make sure that these versions of the autotools are in the path
 AUTOCONF_DIR=`dirname ${HDF5_AUTOCONF}`
 LIBTOOL_DIR=`dirname ${HDF5_LIBTOOL}`
-LIBTOOL_DIR=/usr/bin
+#LIBTOOL_DIR=/usr/bin
 M4_DIR=`dirname ${HDF5_M4}`
 PATH=${AUTOCONF_DIR}:${LIBTOOL_DIR}:${M4_DIR}:$PATH
 
