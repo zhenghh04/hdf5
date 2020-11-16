@@ -27,16 +27,14 @@
 /* Headers */
 /***********/
 
-
-#include "H5private.h"          /* Generic Functions                                */
-#include "H5Eprivate.h"         /* Error handling                                   */
-#include "H5Fprivate.h"		/* File access				            */
-#include "H5Iprivate.h"         /* IDs                                              */
-#include "H5MMprivate.h"        /* Memory management                                */
-#include "H5Pprivate.h"         /* Property lists                                   */
-#include "H5Tprivate.h"         /* Datatypes                                        */
-#include "H5VLpkg.h"            /* Virtual Object Layer                             */
-
+#include "H5private.h"   /* Generic Functions                                */
+#include "H5Eprivate.h"  /* Error handling                                   */
+#include "H5Fprivate.h"  /* File access				            */
+#include "H5Iprivate.h"  /* IDs                                              */
+#include "H5MMprivate.h" /* Memory management                                */
+#include "H5Pprivate.h"  /* Property lists                                   */
+#include "H5Tprivate.h"  /* Datatypes                                        */
+#include "H5VLpkg.h"     /* Virtual Object Layer                             */
 
 /****************/
 /* Local Macros */
@@ -49,7 +47,6 @@
 /* Typedef for common callback form of registered optional operations */
 typedef herr_t (*H5VL_reg_opt_oper_t)(void *obj, const H5VL_class_t *cls,
     int opt_type, hid_t dxpl_id, void **req, va_list arguments);
-
 
 /********************/
 /* Package Typedefs */
@@ -159,11 +156,10 @@ static herr_t H5VL__object_optional(void *obj, const H5VL_class_t *cls, H5VL_obj
                                     hid_t dxpl_id, void **req, va_list arguments);
 static herr_t H5VL__introspect_get_conn_cls(void *obj, const H5VL_class_t *cls, H5VL_get_conn_lvl_t lvl,
                                             const H5VL_class_t **conn_cls);
-static herr_t H5VL__introspect_opt_query(void *obj, const H5VL_class_t *cls, H5VL_subclass_t subcls,
-                                         int opt_type, hbool_t *supported);
-static herr_t H5VL__request_wait(void *req, const H5VL_class_t *cls, uint64_t timeout, H5ES_status_t *status);
+static herr_t H5VL__introspect_opt_query(void *obj, const H5VL_class_t *cls, H5VL_subclass_t subcls, int opt_type, uint64_t *flags);
+static herr_t H5VL__request_wait(void *req, const H5VL_class_t *cls, uint64_t timeout, H5VL_request_status_t *status);
 static herr_t H5VL__request_notify(void *req, const H5VL_class_t *cls, H5VL_request_notify_t cb, void *ctx);
-static herr_t H5VL__request_cancel(void *req, const H5VL_class_t *cls);
+static herr_t H5VL__request_cancel(void *req, const H5VL_class_t *cls, H5VL_request_status_t *status);
 static herr_t H5VL__request_specific(void *req, const H5VL_class_t *cls,
                                      H5VL_request_specific_t specific_type, va_list arguments);
 static herr_t H5VL__request_optional(void *req, const H5VL_class_t *cls, H5VL_request_optional_t opt_type,
@@ -363,7 +359,6 @@ done:
     FUNC_LEAVE_NOAPI(ret_value)
 } /* end H5VL__common_optional_op() */
 
-
 /*-------------------------------------------------------------------------
  * Function:    H5VL_copy_connector_info
  *
@@ -1703,14 +1698,14 @@ done:
  */
 herr_t
 H5VLattr_optional_op(hid_t attr_id, H5VL_attr_optional_t opt_type,
-    hid_t dxpl_id, void **req, ...)
+    hid_t dxpl_id, void **req/*out*/, ...)
 {
     va_list arguments;                  /* Argument list passed from the API call */
     hbool_t arg_started = FALSE;        /* Whether the va_list has been started */
     herr_t ret_value = SUCCEED;         /* Return value */
 
     FUNC_ENTER_API(FAIL)
-    H5TRACE4("e", "iVsi**x", attr_id, opt_type, dxpl_id, req);
+    H5TRACE4("e", "iVsix", attr_id, opt_type, dxpl_id, req);
 
     /* Call the common VOL connector optional routine */
     HDva_start(arguments, req);
@@ -1727,7 +1722,6 @@ done:
     FUNC_LEAVE_API(ret_value)
 } /* end H5VLattr_optional_op() */
 
-
 /*-------------------------------------------------------------------------
  * Function:    H5VL__attr_close
  *
@@ -2567,14 +2561,14 @@ done:
  */
 herr_t
 H5VLdataset_optional_op(hid_t dset_id, H5VL_dataset_optional_t opt_type, hid_t dxpl_id,
-    void **req, ...)
+    void **req/*out*/, ...)
 {
     va_list arguments;                  /* Argument list passed from the API call */
     hbool_t arg_started = FALSE;        /* Whether the va_list has been started */
     herr_t ret_value = SUCCEED;         /* Return value */
 
     FUNC_ENTER_API(FAIL)
-    H5TRACE4("e", "iVti**x", dset_id, opt_type, dxpl_id, req);
+    H5TRACE4("e", "iVtix", dset_id, opt_type, dxpl_id, req);
 
     /* Call the corresponding internal VOL routine */
     HDva_start(arguments, req);
@@ -2591,7 +2585,6 @@ done:
     FUNC_LEAVE_API(ret_value)
 } /* end H5VLdataset_optional_op() */
 
-
 /*-------------------------------------------------------------------------
  * Function:    H5VL__dataset_close
  *
@@ -3237,7 +3230,6 @@ done:
     FUNC_LEAVE_NOAPI(ret_value)
 } /* end H5VL_datatype_optional_op() */
 
-
 /*-------------------------------------------------------------------------
  * Function:    H5VLdatatype_optional
  *
@@ -3284,7 +3276,7 @@ done:
  */
 herr_t
 H5VLdatatype_optional_op(hid_t type_id, H5VL_datatype_optional_t opt_type,
-    hid_t dxpl_id, void **req, ...)
+    hid_t dxpl_id, void **req/*out*/, ...)
 {
     H5T_t *dt;                          /* Datatype for this operation */
     va_list arguments;                  /* Argument list passed from the API call */
@@ -3292,7 +3284,7 @@ H5VLdatatype_optional_op(hid_t type_id, H5VL_datatype_optional_t opt_type,
     herr_t ret_value = SUCCEED;         /* Return value */
 
     FUNC_ENTER_API(FAIL)
-    H5TRACE4("e", "iVui**x", type_id, opt_type, dxpl_id, req);
+    H5TRACE4("e", "iVuix", type_id, opt_type, dxpl_id, req);
 
     /* Check args */
     if(NULL == (dt = (H5T_t *)H5I_object_verify(type_id, H5I_DATATYPE)))
@@ -3312,7 +3304,6 @@ done:
     FUNC_LEAVE_API(ret_value)
 } /* end H5VLdatatype_optional_op() */
 
-
 /*-------------------------------------------------------------------------
  * Function:    H5VL__datatype_close
  *
@@ -3989,14 +3980,14 @@ done:
  */
 herr_t
 H5VLfile_optional_op(hid_t file_id, H5VL_file_optional_t opt_type,
-    hid_t dxpl_id, void **req, ...)
+    hid_t dxpl_id, void **req/*out*/, ...)
 {
     va_list arguments;                  /* Argument list passed from the API call */
     hbool_t arg_started = FALSE;        /* Whether the va_list has been started */
     herr_t ret_value = SUCCEED;         /* Return value */
 
     FUNC_ENTER_API(FAIL)
-    H5TRACE4("e", "iVvi**x", file_id, opt_type, dxpl_id, req);
+    H5TRACE4("e", "iVvix", file_id, opt_type, dxpl_id, req);
 
     /* Call the corresponding internal VOL routine */
     HDva_start(arguments, req);
@@ -4013,7 +4004,6 @@ done:
     FUNC_LEAVE_API(ret_value)
 } /* end H5VLfile_optional_op() */
 
-
 /*-------------------------------------------------------------------------
  * Function:    H5VL__file_close
  *
@@ -4657,14 +4647,14 @@ done:
  */
 herr_t
 H5VLgroup_optional_op(hid_t group_id, H5VL_group_optional_t opt_type,
-    hid_t dxpl_id, void **req, ...)
+    hid_t dxpl_id, void **req/*out*/, ...)
 {
     va_list arguments;                  /* Argument list passed from the API call */
     hbool_t arg_started = FALSE;        /* Whether the va_list has been started */
     herr_t ret_value = SUCCEED;         /* Return value */
 
     FUNC_ENTER_API(FAIL)
-    H5TRACE4("e", "iVwi**x", group_id, opt_type, dxpl_id, req);
+    H5TRACE4("e", "iVwix", group_id, opt_type, dxpl_id, req);
 
     /* Call the corresponding internal VOL routine */
     HDva_start(arguments, req);
@@ -4681,7 +4671,6 @@ done:
     FUNC_LEAVE_API(ret_value)
 } /* end H5VLgroup_optional_op() */
 
-
 /*-------------------------------------------------------------------------
  * Function:    H5VL__group_close
  *
@@ -6125,7 +6114,7 @@ done:
  */
 static herr_t
 H5VL__introspect_opt_query(void *obj, const H5VL_class_t *cls, H5VL_subclass_t subcls, int opt_type,
-                           hbool_t *supported)
+                           uint64_t *flags)
 {
     herr_t ret_value = SUCCEED; /* Return value */
 
@@ -6136,7 +6125,7 @@ H5VL__introspect_opt_query(void *obj, const H5VL_class_t *cls, H5VL_subclass_t s
         HGOTO_ERROR(H5E_VOL, H5E_UNSUPPORTED, FAIL, "VOL connector has no 'opt_query' method")
 
     /* Call the corresponding VOL callback */
-    if ((cls->introspect_cls.opt_query)(obj, subcls, opt_type, supported) < 0)
+    if((cls->introspect_cls.opt_query)(obj, subcls, opt_type, flags) < 0)
         HGOTO_ERROR(H5E_VOL, H5E_CANTGET, FAIL, "can't query optional operation support")
 
 done:
@@ -6156,7 +6145,7 @@ done:
  */
 herr_t
 H5VL_introspect_opt_query(const H5VL_object_t *vol_obj, H5VL_subclass_t subcls, int opt_type,
-                          hbool_t *supported)
+                          uint64_t *flags)
 {
     hbool_t vol_wrapper_set = FALSE;   /* Whether the VOL object wrapping context was set up */
     herr_t  ret_value       = SUCCEED; /* Return value */
@@ -6169,7 +6158,7 @@ H5VL_introspect_opt_query(const H5VL_object_t *vol_obj, H5VL_subclass_t subcls, 
     vol_wrapper_set = TRUE;
 
     /* Call the corresponding internal VOL routine */
-    if (H5VL__introspect_opt_query(vol_obj->data, vol_obj->connector->cls, subcls, opt_type, supported) < 0)
+    if (H5VL__introspect_opt_query(vol_obj->data, vol_obj->connector->cls, subcls, opt_type, flags) < 0)
         HGOTO_ERROR(H5E_VOL, H5E_CANTGET, FAIL, "can't query optional operation support")
 
 done:
@@ -6193,20 +6182,20 @@ done:
  */
 herr_t
 H5VLintrospect_opt_query(void *obj, hid_t connector_id, H5VL_subclass_t subcls, int opt_type,
-                         hbool_t *supported)
+                         uint64_t *flags/*out*/)
 {
     H5VL_class_t *cls;                 /* VOL connector's class struct */
     herr_t        ret_value = SUCCEED; /* Return value */
 
     FUNC_ENTER_API_NOINIT
-    H5TRACE5("e", "*xiVSIs*b", obj, connector_id, subcls, opt_type, supported);
+    H5TRACE5("e", "*xiVSIsx", obj, connector_id, subcls, opt_type, flags);
 
     /* Get class pointer */
     if (NULL == (cls = (H5VL_class_t *)H5I_object_verify(connector_id, H5I_VOL)))
         HGOTO_ERROR(H5E_ARGS, H5E_BADTYPE, FAIL, "not a VOL connector ID")
 
     /* Call the corresponding internal VOL routine */
-    if (H5VL__introspect_opt_query(obj, cls, subcls, opt_type, supported) < 0)
+    if (H5VL__introspect_opt_query(obj, cls, subcls, opt_type, flags) < 0)
         HGOTO_ERROR(H5E_VOL, H5E_CANTGET, FAIL, "can't query optional operation support")
 
 done:
@@ -6224,7 +6213,7 @@ done:
  *-------------------------------------------------------------------------
  */
 static herr_t
-H5VL__request_wait(void *req, const H5VL_class_t *cls, uint64_t timeout, H5ES_status_t *status)
+H5VL__request_wait(void *req, const H5VL_class_t *cls, uint64_t timeout, H5VL_request_status_t *status)
 {
     herr_t ret_value = SUCCEED; /* Return value */
 
@@ -6258,7 +6247,7 @@ done:
  *-------------------------------------------------------------------------
  */
 herr_t
-H5VL_request_wait(const H5VL_object_t *vol_obj, uint64_t timeout, H5ES_status_t *status)
+H5VL_request_wait(const H5VL_object_t *vol_obj, uint64_t timeout, H5VL_request_status_t *status)
 {
     hbool_t vol_wrapper_set = FALSE;   /* Whether the VOL object wrapping context was set up */
     herr_t  ret_value       = SUCCEED; /* Return value */
@@ -6296,13 +6285,13 @@ done:
  *-------------------------------------------------------------------------
  */
 herr_t
-H5VLrequest_wait(void *req, hid_t connector_id, uint64_t timeout, H5ES_status_t *status)
+H5VLrequest_wait(void *req, hid_t connector_id, uint64_t timeout, H5VL_request_status_t *status)
 {
     H5VL_class_t *cls;                 /* VOL connector's class struct */
     herr_t        ret_value = SUCCEED; /* Return value */
 
     FUNC_ENTER_API_NOINIT
-    H5TRACE4("e", "*xiUL*Es", req, connector_id, timeout, status);
+    H5TRACE4("e", "*xiUL*#", req, connector_id, timeout, status);
 
     /* Get class pointer */
     if (NULL == (cls = (H5VL_class_t *)H5I_object_verify(connector_id, H5I_VOL)))
@@ -6432,7 +6421,7 @@ done:
  *-------------------------------------------------------------------------
  */
 static herr_t
-H5VL__request_cancel(void *req, const H5VL_class_t *cls)
+H5VL__request_cancel(void *req, const H5VL_class_t *cls, H5VL_request_status_t *status)
 {
     herr_t ret_value = SUCCEED; /* Return value */
 
@@ -6447,7 +6436,7 @@ H5VL__request_cancel(void *req, const H5VL_class_t *cls)
         HGOTO_ERROR(H5E_VOL, H5E_UNSUPPORTED, FAIL, "VOL connector has no 'async cancel' method")
 
     /* Call the corresponding VOL callback */
-    if ((cls->request_cls.cancel)(req) < 0)
+    if ((cls->request_cls.cancel)(req, status) < 0)
         HGOTO_ERROR(H5E_VOL, H5E_CANTRELEASE, FAIL, "request cancel failed")
 
 done:
@@ -6465,7 +6454,7 @@ done:
  *-------------------------------------------------------------------------
  */
 herr_t
-H5VL_request_cancel(const H5VL_object_t *vol_obj)
+H5VL_request_cancel(const H5VL_object_t *vol_obj, H5VL_request_status_t *status)
 {
     hbool_t vol_wrapper_set = FALSE;   /* Whether the VOL object wrapping context was set up */
     herr_t  ret_value       = SUCCEED; /* Return value */
@@ -6481,7 +6470,7 @@ H5VL_request_cancel(const H5VL_object_t *vol_obj)
     vol_wrapper_set = TRUE;
 
     /* Call the corresponding internal VOL routine */
-    if (H5VL__request_cancel(vol_obj->data, vol_obj->connector->cls) < 0)
+    if (H5VL__request_cancel(vol_obj->data, vol_obj->connector->cls, status) < 0)
         HGOTO_ERROR(H5E_VOL, H5E_CANTRELEASE, FAIL, "request cancel failed")
 
 done:
@@ -6503,20 +6492,20 @@ done:
  *-------------------------------------------------------------------------
  */
 herr_t
-H5VLrequest_cancel(void *req, hid_t connector_id)
+H5VLrequest_cancel(void *req, hid_t connector_id, H5VL_request_status_t *status)
 {
     H5VL_class_t *cls;                 /* VOL connector's class struct */
     herr_t        ret_value = SUCCEED; /* Return value */
 
     FUNC_ENTER_API_NOINIT
-    H5TRACE2("e", "*xi", req, connector_id);
+    H5TRACE3("e", "*xi*#", req, connector_id, status);
 
     /* Get class pointer */
     if (NULL == (cls = (H5VL_class_t *)H5I_object_verify(connector_id, H5I_VOL)))
         HGOTO_ERROR(H5E_ARGS, H5E_BADTYPE, FAIL, "not a VOL connector ID")
 
     /* Call the corresponding internal VOL routine */
-    if (H5VL__request_cancel(req, cls) < 0)
+    if (H5VL__request_cancel(req, cls, status) < 0)
         HGOTO_ERROR(H5E_VOL, H5E_CANTRELEASE, FAIL, "unable to cancel request")
 
 done:

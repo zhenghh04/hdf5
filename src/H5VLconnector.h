@@ -186,11 +186,25 @@ typedef enum H5VL_object_specific_t {
 /* Typedef for VOL connector object optional VOL operations */
 typedef int H5VL_object_optional_t;
 
+/* Status values for async request operations */
+typedef enum H5VL_request_status_t {
+    H5VL_REQUEST_STATUS_IN_PROGRESS, /* Operation has not yet completed                       */
+    H5VL_REQUEST_STATUS_SUCCEED,     /* Operation has completed, successfully                 */
+    H5VL_REQUEST_STATUS_FAIL,        /* Operation has completed, but failed                   */
+    H5VL_REQUEST_STATUS_CANT_CANCEL, /* An attempt to cancel this operation was made, but it  */
+                                     /*  can't be canceled immediately.  The operation has    */
+                                     /*  not completed successfully or failed, and is not yet */
+                                     /*  in progress.  Another attempt to cancel it may be    */
+                                     /*  attempted and may (or may not) succeed.              */
+    H5VL_REQUEST_STATUS_CANCELED     /* Operation has not completed and was canceled          */
+} H5VL_request_status_t;
+
 /* types for async request SPECIFIC callback */
 typedef enum H5VL_request_specific_t {
     H5VL_REQUEST_WAITANY,  /* Wait until any request completes */
     H5VL_REQUEST_WAITSOME, /* Wait until at least one requesst completes */
-    H5VL_REQUEST_WAITALL   /* Wait until all requests complete */
+    H5VL_REQUEST_WAITALL,  /* Wait until all requests complete */
+    H5VL_REQUEST_GET_ERR_STACK  /* Retrieve error stack for failed operation */
 } H5VL_request_specific_t;
 
 /* Typedef and values for native VOL connector request optional VOL operations */
@@ -396,7 +410,7 @@ typedef struct H5VL_object_class_t {
 } H5VL_object_class_t;
 
 /* Asynchronous request 'notify' callback */
-typedef herr_t (*H5VL_request_notify_t)(void *ctx, H5ES_status_t status);
+typedef herr_t (*H5VL_request_notify_t)(void *ctx, H5VL_request_status_t status);
 
 /* "Levels" for 'get connector class' introspection callback */
 typedef enum H5VL_get_conn_lvl_t {
@@ -412,14 +426,14 @@ struct H5VL_class_t;
 /* Container/connector introspection routines */
 typedef struct H5VL_introspect_class_t {
     herr_t (*get_conn_cls)(void *obj, H5VL_get_conn_lvl_t lvl, const struct H5VL_class_t **conn_cls);
-    herr_t (*opt_query)(void *obj, H5VL_subclass_t cls, int opt_type, hbool_t *supported);
+    herr_t (*opt_query)(void *obj, H5VL_subclass_t cls, int opt_type, uint64_t *flags);
 } H5VL_introspect_class_t;
 
 /* Async request operation routines */
 typedef struct H5VL_request_class_t {
-    herr_t (*wait)(void *req, uint64_t timeout, H5ES_status_t *status);
+    herr_t (*wait)(void *req, uint64_t timeout, H5VL_request_status_t *status);
     herr_t (*notify)(void *req, H5VL_request_notify_t cb, void *ctx);
-    herr_t (*cancel)(void *req);
+    herr_t (*cancel)(void *req, H5VL_request_status_t *status);
     herr_t (*specific)(void *req, H5VL_request_specific_t specific_type, va_list arguments);
     herr_t (*optional)(void *req, H5VL_request_optional_t opt_type, va_list arguments);
     herr_t (*free)(void *req);
@@ -494,7 +508,11 @@ H5_DLL hid_t H5VLpeek_connector_id_by_name(const char *name);
 H5_DLL hid_t H5VLpeek_connector_id_by_value(H5VL_class_value_t value);
 
 /* User-defined optional operations */
-H5_DLL herr_t H5VLregister_opt_operation(H5VL_subclass_t subcls, int *op_val);
+H5_DLL herr_t H5VLregister_opt_operation(H5VL_subclass_t subcls, const char *op_name,
+    int *op_val);
+H5_DLL herr_t H5VLfind_opt_operation(H5VL_subclass_t subcls, const char *op_name,
+    int *op_val);
+H5_DLL herr_t H5VLunregister_opt_operation(H5VL_subclass_t subcls, const char *op_name);
 H5_DLL herr_t H5VLattr_optional_op(hid_t attr_id, H5VL_attr_optional_t opt_type, hid_t dxpl_id, void **req, ...);
 H5_DLL herr_t H5VLdataset_optional_op(hid_t dset_id, H5VL_dataset_optional_t opt_type, hid_t dxpl_id, void **req, ...);
 H5_DLL herr_t H5VLdatatype_optional_op(hid_t type_id, H5VL_datatype_optional_t opt_type, hid_t dxpl_id, void **req, ...);

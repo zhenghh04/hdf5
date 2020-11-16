@@ -1273,7 +1273,6 @@ H5T_already_vol_managed(const H5T_t *dt)
     FUNC_LEAVE_NOAPI(dt->vol_obj != NULL)
 } /* end H5T_already_vol_managed() */
 
-
 /*-------------------------------------------------------------------------
  * Function:    H5T_invoke_vol_optional
  *
