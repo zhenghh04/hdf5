@@ -24,48 +24,52 @@
  *-------------------------------------------------------------------------
  */
 
-#define F_FORMAT      "%-15g %-15g %-15g\n"
+#define F_FORMAT "%-15g %-15g %-15g\n"
 
-#if H5_SIZEOF_LONG_DOUBLE !=0
-#define LD_FORMAT     "%-15Lf %-15Lf %-15Lf\n"
+#if H5_SIZEOF_LONG_DOUBLE != 0
+#define LD_FORMAT "%-15Lf %-15Lf %-15Lf\n"
 #endif
 
-#define I_FORMAT      "%-15d %-15d %-15d\n"
-#define S_FORMAT      "%-16s %-17s\n"
-#define UI_FORMAT     "%-15u %-15u %-15u\n"
-#define LI_FORMAT     "%-15ld %-15ld %-15ld\n"
-#define ULI_FORMAT    "%-15lu %-15lu %-15lu\n"
-#define LLI_FORMAT    "%-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d\n"
-#define ULLI_FORMAT   "%-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "u\n"
+#define I_FORMAT    "%-15d %-15d %-15d\n"
+#define S_FORMAT    "%-16s %-17s\n"
+#define UI_FORMAT   "%-15u %-15u %-15u\n"
+#define LI_FORMAT   "%-15ld %-15ld %-15ld\n"
+#define ULI_FORMAT  "%-15lu %-15lu %-15lu\n"
+#define LLI_FORMAT  "%-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d\n"
+#define ULLI_FORMAT "%-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "u\n"
 
 /* with -p option */
-#define F_FORMAT_P    "%-15.10g %-15.10g %-15.10g %-14.10g\n"
+#define F_FORMAT_P "%-15.10g %-15.10g %-15.10g %-14.10g\n"
 
-#if H5_SIZEOF_LONG_DOUBLE !=0
-#define LD_FORMAT_P    "%-15.10Lf %-15.10Lf %-15.10Lf %-14.10Lf\n"
+#if H5_SIZEOF_LONG_DOUBLE != 0
+#define LD_FORMAT_P "%-15.10Lf %-15.10Lf %-15.10Lf %-14.10Lf\n"
 #endif
 
-#define I_FORMAT_P    "%-15d %-15d %-15d %-14f\n"
-#define UI_FORMAT_P   "%-15u %-15u %-15u %-14f\n"
-#define LI_FORMAT_P   "%-15ld %-15ld %-15ld %-14f\n"
-#define ULI_FORMAT_P  "%-15lu %-15lu %-15lu %-14f\n"
-#define LLI_FORMAT_P  "%-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d %-14f\n"
-#define ULLI_FORMAT_P "%-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "d %-14f\n"
-#define SPACES        "          "
+#define I_FORMAT_P   "%-15d %-15d %-15d %-14f\n"
+#define UI_FORMAT_P  "%-15u %-15u %-15u %-14f\n"
+#define LI_FORMAT_P  "%-15ld %-15ld %-15ld %-14f\n"
+#define ULI_FORMAT_P "%-15lu %-15lu %-15lu %-14f\n"
+#define LLI_FORMAT_P                                                                                         \
+    "%-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d %-14f\n"
+#define ULLI_FORMAT_P                                                                                        \
+    "%-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "d %-14f\n"
+#define SPACES "          "
 
 /* not comparable */
-#define F_FORMAT_P_NOTCOMP  "%-15.10g %-15.10g %-15.10g not comparable\n"
+#define F_FORMAT_P_NOTCOMP "%-15.10g %-15.10g %-15.10g not comparable\n"
 
-#if H5_SIZEOF_LONG_DOUBLE !=0
-#define LD_FORMAT_P_NOTCOMP  "%-15.10Lf %-15.10Lf %-15.10Lf not comparable\n"
+#if H5_SIZEOF_LONG_DOUBLE != 0
+#define LD_FORMAT_P_NOTCOMP "%-15.10Lf %-15.10Lf %-15.10Lf not comparable\n"
 #endif
 
-#define I_FORMAT_P_NOTCOMP  "%-15d %-15d %-15d not comparable\n"
-#define UI_FORMAT_P_NOTCOMP   "%-15u %-15u %-15u not comparable\n"
-#define LI_FORMAT_P_NOTCOMP   "%-15ld %-15ld %-15ld not comparable\n"
-#define ULI_FORMAT_P_NOTCOMP  "%-15lu %-15lu %-15lu not comparable\n"
-#define LLI_FORMAT_P_NOTCOMP  "%-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d not comparable\n"
-#define ULLI_FORMAT_P_NOTCOMP "%-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "d not comparable\n"
+#define I_FORMAT_P_NOTCOMP   "%-15d %-15d %-15d not comparable\n"
+#define UI_FORMAT_P_NOTCOMP  "%-15u %-15u %-15u not comparable\n"
+#define LI_FORMAT_P_NOTCOMP  "%-15ld %-15ld %-15ld not comparable\n"
+#define ULI_FORMAT_P_NOTCOMP "%-15lu %-15lu %-15lu not comparable\n"
+#define LLI_FORMAT_P_NOTCOMP                                                                                 \
+    "%-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d %-15" H5_PRINTF_LL_WIDTH "d not comparable\n"
+#define ULLI_FORMAT_P_NOTCOMP                                                                                \
+    "%-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "u %-15" H5_PRINTF_LL_WIDTH "d not comparable\n"
 
 /* if system EPSILON is defined, use the system EPSILON; otherwise, use
  constants that are close to most EPSILON values */
@@ -95,36 +99,38 @@
 
 static hbool_t not_comparable;
 
-#define PER(A,B) {                                                      \
-    per = -1;                                                           \
-    not_comparable = FALSE;                                             \
-    both_zero = FALSE;                                                  \
-    if(H5_DBL_ABS_EQUAL(0, (double)A) && H5_DBL_ABS_EQUAL(0, (double)B)) \
-        both_zero = TRUE;                                               \
-    if(!H5_DBL_ABS_EQUAL(0, (double)A))                                 \
-        per = (double)ABS((double)((B) - (A)) / (double)(A));           \
-    else                                                                \
-        not_comparable = TRUE;                                          \
-}
+#define PER(A, B)                                                                                            \
+    {                                                                                                        \
+        per            = -1;                                                                                 \
+        not_comparable = FALSE;                                                                              \
+        both_zero      = FALSE;                                                                              \
+        if (H5_DBL_ABS_EQUAL(0, (double)A) && H5_DBL_ABS_EQUAL(0, (double)B))                                \
+            both_zero = TRUE;                                                                                \
+        if (!H5_DBL_ABS_EQUAL(0, (double)A))                                                                 \
+            per = (double)ABS((double)((B) - (A)) / (double)(A));                                            \
+        else                                                                                                 \
+            not_comparable = TRUE;                                                                           \
+    }
 
-#define PER_UNSIGN(TYPE,A,B) {                                          \
-    per = -1;                                                           \
-    not_comparable = FALSE;                                             \
-    both_zero = FALSE;                                                  \
-    if(H5_DBL_ABS_EQUAL(0, (double)A) && H5_DBL_ABS_EQUAL(0, (double)B)) \
-        both_zero = TRUE;                                               \
-    if(!H5_DBL_ABS_EQUAL(0, (double)A))                                 \
-        per = ABS((double)((TYPE)((B) - (A))) / (double)(A)) ;          \
-    else                                                                \
-        not_comparable = TRUE;                                          \
-}
+#define PER_UNSIGN(TYPE, A, B)                                                                               \
+    {                                                                                                        \
+        per            = -1;                                                                                 \
+        not_comparable = FALSE;                                                                              \
+        both_zero      = FALSE;                                                                              \
+        if (H5_DBL_ABS_EQUAL(0, (double)A) && H5_DBL_ABS_EQUAL(0, (double)B))                                \
+            both_zero = TRUE;                                                                                \
+        if (!H5_DBL_ABS_EQUAL(0, (double)A))                                                                 \
+            per = ABS((double)((TYPE)((B) - (A))) / (double)(A));                                            \
+        else                                                                                                 \
+            not_comparable = TRUE;                                                                           \
+    }
 
-#define PDIFF(a,b)    (((b) > (a)) ? ((b) - (a)) : ((a) -(b)))
+#define PDIFF(a, b) (((b) > (a)) ? ((b) - (a)) : ((a) - (b)))
 
 typedef struct mcomp_t {
-    unsigned n; /* number of members */
-    hid_t *ids; /* member type id */
-    size_t *offsets;
+    unsigned         n;   /* number of members */
+    hid_t *          ids; /* member type id */
+    size_t *         offsets;
     struct mcomp_t **m; /* members */
 } mcomp_t;
 
@@ -132,117 +138,65 @@ typedef struct mcomp_t {
  * local prototypes
  *-------------------------------------------------------------------------
  */
-static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id,
-        hid_t region2_id, diff_opt_t *opts);
 static hbool_t all_zero(const void *_mem, size_t size);
-static int ull2float(unsigned long long ull_value, float *f_value);
-static hsize_t character_compare(char *mem1, char *mem2, hsize_t i, size_t u,
-        int rank, hsize_t *dims, hsize_t *acc, hsize_t *pos,
-        diff_opt_t *opts, const char *obj1, const char *obj2, int *ph);
-static hsize_t character_compare_opt(unsigned char *mem1, unsigned char *mem2,
-        hsize_t i, int rank, hsize_t *dims, hsize_t *acc, hsize_t *pos,
-        diff_opt_t *opts, const char *obj1, const char *obj2, int *ph);
+static int     ull2float(unsigned long long ull_value, float *f_value);
+static hsize_t character_compare(char *mem1, char *mem2, hsize_t elemtno, size_t u, diff_opt_t *opts);
+static hsize_t character_compare_opt(unsigned char *mem1, unsigned char *mem2, hsize_t elemtno,
+                                     diff_opt_t *opts);
 static hbool_t equal_float(float value, float expected, diff_opt_t *opts);
 static hbool_t equal_double(double value, double expected, diff_opt_t *opts);
-#if H5_SIZEOF_LONG_DOUBLE !=0
+#if H5_SIZEOF_LONG_DOUBLE != 0
 static hbool_t equal_ldouble(long double value, long double expected, diff_opt_t *opts);
 #endif
-static int print_data(diff_opt_t *opts);
-static void print_pos(int *ph, int pp, hsize_t curr_pos, hsize_t *acc,
-        hsize_t *pos, int rank, hsize_t *dims, const char *obj1,
-        const char *obj2);
-static void print_char_pos(int *ph, int pp, hsize_t curr_pos, size_t u,
-        hsize_t *acc, hsize_t *pos, int rank, hsize_t *dims, const char *obj1,
-        const char *obj2);
+
+static int  print_data(diff_opt_t *opts);
+static void print_pos(diff_opt_t *opts, hsize_t elemtno, size_t u);
 static void h5diff_print_char(char ch);
-static hsize_t diff_datum(void *_mem1, void *_mem2, hid_t m_type, hsize_t idx,
-        int rank, hsize_t *dims, hsize_t *acc, hsize_t *pos,
-        diff_opt_t *opts, const char *obj1, const char *obj2,
-        hid_t container1_id, hid_t container2_id, /*where the reference came from*/
-        int *ph, /*print header */
-        mcomp_t *members); /*compound members */
-static hsize_t diff_float(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-static hsize_t diff_double(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-#if H5_SIZEOF_LONG_DOUBLE !=0
-static hsize_t diff_ldouble(unsigned char *mem1,
-        unsigned char *mem2,
-        hsize_t nelmts,
-        hsize_t hyper_start,
-        int rank,
-        hsize_t *dims,
-        hsize_t *acc,
-        hsize_t *pos,
-        diff_opt_t *opts,
-        const char *obj1,
-        const char *obj2,
-        int *ph);
+
+static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t region2_id,
+                           diff_opt_t *opts);
+static hsize_t diff_datum(void *_mem1, void *_mem2, hsize_t elemtno, diff_opt_t *opts, hid_t container1_id,
+                          hid_t container2_id, mcomp_t *members);
+/* element diffs */
+static hsize_t diff_float_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                  diff_opt_t *opts);
+static hsize_t diff_double_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                   diff_opt_t *opts);
+#if H5_SIZEOF_LONG_DOUBLE != 0
+static hsize_t diff_ldouble_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                    diff_opt_t *opts);
 #endif
-static hsize_t diff_schar(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-static hsize_t diff_uchar(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-static hsize_t diff_short(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-static hsize_t diff_ushort(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-static hsize_t diff_int(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-static hsize_t diff_uint(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-static hsize_t diff_long(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-static hsize_t diff_ulong(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-static hsize_t diff_llong(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
-static hsize_t diff_ullong(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph);
+static hsize_t diff_schar_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                  diff_opt_t *opts);
+static hsize_t diff_uchar_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                  diff_opt_t *opts);
+static hsize_t diff_short_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                  diff_opt_t *opts);
+static hsize_t diff_ushort_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                   diff_opt_t *opts);
+static hsize_t diff_int_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts);
+static hsize_t diff_uint_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                 diff_opt_t *opts);
+static hsize_t diff_long_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                 diff_opt_t *opts);
+static hsize_t diff_ulong_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                  diff_opt_t *opts);
+static hsize_t diff_llong_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                  diff_opt_t *opts);
+static hsize_t diff_ullong_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx,
+                                   diff_opt_t *opts);
 
 /*-------------------------------------------------------------------------
  * NaN detection
  *-------------------------------------------------------------------------
  */
 
-#if H5_SIZEOF_LONG_DOUBLE !=0
-typedef enum dtype_t
-{
-    FLT_FLOAT,
-    FLT_DOUBLE,
-    FLT_LDOUBLE
-}dtype_t;
+#if H5_SIZEOF_LONG_DOUBLE != 0
+typedef enum dtype_t { FLT_FLOAT, FLT_DOUBLE, FLT_LDOUBLE } dtype_t;
 #else
 
-typedef enum dtype_t {
-    FLT_FLOAT, FLT_DOUBLE
-} dtype_t;
+typedef enum dtype_t { FLT_FLOAT, FLT_DOUBLE } dtype_t;
 #endif
-
 
 /*-------------------------------------------------------------------------
  * XCAO, 11/10/2010
@@ -260,116 +214,210 @@ static void close_member_types(mcomp_t *members);
  *-------------------------------------------------------------------------
  */
 
-hsize_t diff_array(void *_mem1, void *_mem2, hsize_t nelmts, hsize_t hyper_start,
-        int rank, hsize_t *dims, diff_opt_t *opts, const char *name1, const char *name2,
-        hid_t m_type, hid_t container1_id, hid_t container2_id)
+hsize_t
+diff_array(void *_mem1, void *_mem2, diff_opt_t *opts, hid_t container1_id, hid_t container2_id)
 {
-    hsize_t         nfound = 0; /* number of differences found */
-    size_t          size; /* size of datum */
-    unsigned char  *mem1 = (unsigned char*) _mem1;
-    unsigned char  *mem2 = (unsigned char*) _mem2;
-    hsize_t         acc[32]; /* accumulator position */
-    hsize_t         pos[32]; /* matrix position */
-    int             ph = 1; /* print header  */
-    hsize_t         i;
-    int             j;
-    mcomp_t         members;
-    H5T_class_t     type_class;
+    hsize_t        nfound = 0; /* number of differences found */
+    size_t         size;       /* size of datum */
+    unsigned char *mem1 = (unsigned char *)_mem1;
+    unsigned char *mem2 = (unsigned char *)_mem2;
+    hsize_t        i;
+    mcomp_t        members;
+    H5T_class_t    type_class;
 
-    H5TOOLS_START_DEBUG(" - errstat:%d", opts->err_stat);
+    H5TOOLS_START_DEBUG(" - rank:%d hs_nelmts:%ld errstat:%d", opts->rank, opts->hs_nelmts, opts->err_stat);
+    opts->print_header = 1; /* enable print header  */
+
     /* get the size. */
-    size = H5Tget_size(m_type);
-    type_class = H5Tget_class(m_type);
+    size       = H5Tget_size(opts->m_tid);
+    type_class = H5Tget_class(opts->m_tid);
 
     /* Fast comparison first for atomic type by memcmp().
      * It is OK not to list non-atomic type here because it will not be caught
      * by the condition, but it gives more clarity for code planning
      */
-    if (type_class != H5T_REFERENCE &&
-            type_class != H5T_COMPOUND &&
-            type_class != H5T_STRING &&
-            type_class != H5T_VLEN &&
-            HDmemcmp(mem1, mem2, size*nelmts) == 0)
+    if (type_class != H5T_REFERENCE && type_class != H5T_COMPOUND && type_class != H5T_STRING &&
+        type_class != H5T_VLEN && HDmemcmp(mem1, mem2, size * opts->hs_nelmts) == 0) {
+        H5TOOLS_ENDDEBUG(":Fast comparison - errstat:%d", opts->err_stat);
         return 0;
-
-    if (rank > 0) {
-        acc[rank - 1] = 1;
-        for (j = (rank - 2); j >= 0; j--) {
-            acc[j] = acc[j + 1] * dims[j + 1];
-        }
-        for (j = 0; j < rank; j++)
-            pos[j] = 0;
     }
 
-    H5TOOLS_DEBUG("diff_array type_class:%d", type_class);
+    H5TOOLS_DEBUG("type_class:%d", type_class);
     switch (type_class) {
-    case H5T_NO_CLASS:
-    case H5T_TIME:
-    case H5T_NCLASSES:
-    default:
-        HDassert(0);
-        break;
+        case H5T_NO_CLASS:
+        case H5T_TIME:
+        case H5T_NCLASSES:
+        default:
+            H5TOOLS_DEBUG("type_class:INVALID");
+            HDassert(0);
+            break;
 
-    /*-------------------------------------------------------------------------
-     * float and integer atomic types
-     *-------------------------------------------------------------------------
-     */
-    case H5T_FLOAT:
-        if (H5Tequal(m_type, H5T_NATIVE_FLOAT))
-            nfound = diff_float(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        else if (H5Tequal(m_type, H5T_NATIVE_DOUBLE))
-            nfound = diff_double(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
+        /*-------------------------------------------------------------------------
+         * float and integer atomic types
+         *-------------------------------------------------------------------------
+         */
+        case H5T_FLOAT:
+            H5TOOLS_DEBUG("type_class:H5T_FLOAT");
+            if (H5Tequal(opts->m_tid, H5T_NATIVE_FLOAT)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_float_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(float);
+                    mem2 += sizeof(float);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_DOUBLE)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_double_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(double);
+                    mem2 += sizeof(double);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
 #if H5_SIZEOF_LONG_DOUBLE != 0
-        else if (H5Tequal(m_type, H5T_NATIVE_LDOUBLE))
-        nfound = diff_ldouble(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_LDOUBLE)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_ldouble_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(long double);
+                    mem2 += sizeof(long double);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
 #endif
-        break;
+            break;
 
-    case H5T_INTEGER:
-        if (H5Tequal(m_type, H5T_NATIVE_SCHAR))
-            nfound = diff_schar(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        else if (H5Tequal(m_type, H5T_NATIVE_UCHAR))
-            nfound = diff_uchar(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        else if (H5Tequal(m_type, H5T_NATIVE_SHORT))
-            nfound = diff_short(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        else if (H5Tequal(m_type, H5T_NATIVE_USHORT))
-            nfound = diff_ushort(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        else if (H5Tequal(m_type, H5T_NATIVE_INT))
-            nfound = diff_int(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        else if (H5Tequal(m_type, H5T_NATIVE_UINT))
-            nfound = diff_uint(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        else if (H5Tequal(m_type, H5T_NATIVE_LONG))
-            nfound = diff_long(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        else if (H5Tequal(m_type, H5T_NATIVE_ULONG))
-            nfound = diff_ulong(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        else if (H5Tequal(m_type, H5T_NATIVE_LLONG))
-            nfound = diff_llong(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        else if (H5Tequal(m_type, H5T_NATIVE_ULLONG))
-            nfound = diff_ullong(mem1, mem2, nelmts, hyper_start, rank, dims, acc, pos, opts, name1, name2, &ph);
-        break;
+        case H5T_INTEGER:
+            H5TOOLS_DEBUG("type_class:H5T_INTEGER");
+            if (H5Tequal(opts->m_tid, H5T_NATIVE_SCHAR)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_schar_element(mem1, mem2, i, opts);
+                    mem1 += sizeof(char);
+                    mem2 += sizeof(char);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_UCHAR)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_uchar_element(mem1, mem2, i, opts);
 
-    /*-------------------------------------------------------------------------
-     * Other types than float and integer
-     *-------------------------------------------------------------------------
-     */
-    case H5T_COMPOUND:
-    case H5T_STRING:
-    case H5T_BITFIELD:
-    case H5T_OPAQUE:
-    case H5T_ENUM:
-    case H5T_ARRAY:
-    case H5T_VLEN:
-    case H5T_REFERENCE:
-        HDmemset(&members, 0, sizeof(mcomp_t));
-        get_member_types(m_type, &members);
-        H5TOOLS_DEBUG("call diff_datum nelmts:%d - errstat:%d", nelmts, opts->err_stat);
-        for (i = 0; i < nelmts; i++) {
-            nfound += diff_datum(mem1 + i * size, mem2 + i * size, m_type, i, rank, dims, acc, pos, opts,
-                    name1, name2, container1_id, container2_id, &ph, &members);
-            if (opts->n && nfound >= opts->count)
-                break;
-        } /* i */
-        close_member_types(&members);
+                    mem1 += sizeof(unsigned char);
+                    mem2 += sizeof(unsigned char);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_SHORT)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_short_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(short);
+                    mem2 += sizeof(short);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_USHORT)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_ushort_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(unsigned short);
+                    mem2 += sizeof(unsigned short);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_INT)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_int_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(int);
+                    mem2 += sizeof(int);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_UINT)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_int_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(unsigned int);
+                    mem2 += sizeof(unsigned int);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_LONG)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_long_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(long);
+                    mem2 += sizeof(long);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_ULONG)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_ulong_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(unsigned long);
+                    mem2 += sizeof(unsigned long);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_LLONG)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_llong_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(long long);
+                    mem2 += sizeof(long long);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            else if (H5Tequal(opts->m_tid, H5T_NATIVE_ULLONG)) {
+                for (i = 0; i < opts->hs_nelmts; i++) {
+                    nfound += diff_ullong_element(mem1, mem2, i, opts);
+
+                    mem1 += sizeof(unsigned long long);
+                    mem2 += sizeof(unsigned long long);
+                    if (opts->count_bool && nfound >= opts->count)
+                        return nfound;
+                } /* nelmts */
+            }
+            break;
+
+        /*-------------------------------------------------------------------------
+         * Other types than float and integer
+         *-------------------------------------------------------------------------
+         */
+        case H5T_COMPOUND:
+        case H5T_STRING:
+        case H5T_BITFIELD:
+        case H5T_OPAQUE:
+        case H5T_ENUM:
+        case H5T_ARRAY:
+        case H5T_VLEN:
+        case H5T_REFERENCE:
+            H5TOOLS_DEBUG("type_class:OTHER");
+            HDmemset(&members, 0, sizeof(mcomp_t));
+            get_member_types(opts->m_tid, &members);
+            for (i = 0; i < opts->hs_nelmts; i++) {
+                H5TOOLS_DEBUG("opts->pos[%ld]:%ld - nelmts:%ld", i, opts->pos[i], opts->hs_nelmts);
+                nfound += diff_datum(mem1 + i * size, mem2 + i * size, i, opts, container1_id, container2_id,
+                                     &members);
+                if (opts->count_bool && nfound >= opts->count)
+                    break;
+            } /* i */
+            close_member_types(&members);
     } /* switch */
     H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
     return nfound;
@@ -409,1805 +457,831 @@ hsize_t diff_array(void *_mem1, void *_mem2, hsize_t nelmts, hsize_t hyper_start
  *-------------------------------------------------------------------------
  */
 static hsize_t
-diff_datum(void *_mem1, void *_mem2, hid_t m_type, hsize_t idx, int rank,
-    hsize_t *dims, hsize_t *acc, hsize_t *pos, diff_opt_t *opts,
-    const char *obj1, const char *obj2,
-    hid_t container1_id, hid_t container2_id,
-        int *ph,             /*print header */
-        mcomp_t *members)    /*compound members */
+diff_datum(void *_mem1, void *_mem2, hsize_t elemtno, diff_opt_t *opts, hid_t container1_id,
+           hid_t container2_id, mcomp_t *members)
 {
-    unsigned char  *mem1 = (unsigned char*) _mem1;
-    unsigned char  *mem2 = (unsigned char*) _mem2;
-    size_t          u;
-    size_t          type_size;
-    H5T_sign_t      type_sign;
-    H5T_class_t     type_class;
-    size_t          offset;
-    unsigned        nmembs;
-    unsigned        j;
-    hsize_t         nelmts;
-    size_t          size = 0;
-    hbool_t         iszero1;
-    hbool_t         iszero2;
-    hsize_t         nfound = 0;    /* differences found */
-    double          per;
-    hbool_t         both_zero;
-    diff_err_t      ret_value = opts->err_stat;
+    unsigned char *mem1 = (unsigned char *)_mem1;
+    unsigned char *mem2 = (unsigned char *)_mem2;
+    size_t         u;
+    size_t         type_size;
+    H5T_sign_t     type_sign;
+    H5T_class_t    type_class;
+    size_t         offset;
+    unsigned       nmembs;
+    unsigned       j;
+    size_t         size = 0;
+    hbool_t        iszero1;
+    hbool_t        iszero2;
+    hsize_t        nfound = 0; /* differences found */
+    double         per;
+    hbool_t        both_zero;
+    diff_err_t     ret_value = opts->err_stat;
 
-    H5TOOLS_START_DEBUG(" - errstat:%d", opts->err_stat);
+    H5TOOLS_START_DEBUG("ph:%d elemtno:%d - errstat:%d", opts->print_header, elemtno, opts->err_stat);
 
-    type_size = H5Tget_size(m_type);
-    type_class = H5Tget_class(m_type);
+    type_size  = H5Tget_size(opts->m_tid);
+    type_class = H5Tget_class(opts->m_tid);
 
     /* Fast comparison first for atomic type by memcmp().
      * It is OK not to list non-atomic type here because it will not be caught
      * by the condition, but it gives more clarity for code planning
      */
-    if (type_class != H5T_REFERENCE &&
-            type_class != H5T_COMPOUND &&
-            type_class != H5T_STRING &&
-            type_class != H5T_VLEN &&
-            HDmemcmp(mem1, mem2, type_size) == 0)
+    if (type_class != H5T_REFERENCE && type_class != H5T_COMPOUND && type_class != H5T_STRING &&
+        type_class != H5T_VLEN && HDmemcmp(mem1, mem2, type_size) == 0)
         H5TOOLS_GOTO_DONE(opts->err_stat);
 
-    switch (H5Tget_class(m_type)) {
-    case H5T_NO_CLASS:
-    case H5T_TIME:
-    case H5T_NCLASSES:
-    default:
-        H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Invalid type class");
-        break;
+    switch (H5Tget_class(opts->m_tid)) {
+        case H5T_NO_CLASS:
+        case H5T_TIME:
+        case H5T_NCLASSES:
+        default:
+            H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Invalid type class");
+            break;
 
-    /*-------------------------------------------------------------------------
-     * H5T_COMPOUND
-     *-------------------------------------------------------------------------
-     */
-    case H5T_COMPOUND:
-        H5TOOLS_DEBUG("diff_datum H5T_COMPOUND");
-        {
-            hid_t memb_type = H5I_INVALID_HID;
-            nmembs = members->n;
-
-            for (j = 0; j < nmembs; j++) {
-                offset = members->offsets[j];
-                memb_type = members->ids[j];
-
-                nfound += diff_datum(mem1 + offset, mem2 + offset, memb_type, idx,
-                        rank, dims, acc, pos, opts, obj1, obj2, container1_id, container2_id, ph, members->m[j]);
-            }
-        }
-        break;
-
-    /*-------------------------------------------------------------------------
-     * H5T_STRING
-     *-------------------------------------------------------------------------
-     */
-    case H5T_STRING:
-        H5TOOLS_DEBUG("diff_datum H5T_STRING");
-        {
-            char *s = NULL;
-            char *sx = NULL;
-            char *s1 = NULL;
-            char *s2 = NULL;
-            size_t size1;
-            size_t size2;
-            size_t sizex;
-            size_t size_mtype = H5Tget_size(m_type);
-            H5T_str_t pad = H5Tget_strpad(m_type);
-
-            /* if variable length string */
-            if (H5Tis_variable_str(m_type)) {
-                H5TOOLS_DEBUG("diff_datum H5T_STRING variable");
-                /* Get pointer to first string */
-                s1 = *(char **)((void *)mem1);
-                if (s1)
-                    size1 = HDstrlen(s1);
-                else
-                    size1 = 0;
-
-                /* Get pointer to second string */
-                s2 = *(char **)((void *)mem2);
-                if (s2)
-                    size2 = HDstrlen(s2);
-                else
-                    size2 = 0;
-            }
-            else if (H5T_STR_NULLTERM == pad) {
-                H5TOOLS_DEBUG("diff_datum H5T_STRING null term");
-                /* Get pointer to first string */
-                s1 = (char*) mem1;
-                if (s1)
-                    size1 = HDstrlen(s1);
-                else
-                    size1 = 0;
-
-                if (size1 > size_mtype)
-                    size1 = size_mtype;
-
-                /* Get pointer to second string */
-                s2 = (char*) mem2;
-                if (s2)
-                    size2 = HDstrlen(s2);
-                else
-                    size2 = 0;
-
-                if (size2 > size_mtype)
-                    size2 = size_mtype;
-            }
-            else {
-                /* Get pointer to first string */
-                s1 = (char *) mem1;
-                size1 = size_mtype;
-
-                /* Get pointer to second string */
-                s2 = (char *) mem2;
-                size2 = size_mtype;
-            }
-
-            /*
-             * compare for shorter string
-             * TODO: this code need to be improved to handle the difference
-             *       of length of strings.
-             *       For now mimic the previous way.
-             */
-            H5TOOLS_DEBUG("diff_datum string size:%d", size1);
-            H5TOOLS_DEBUG("diff_datum string size:%d", size2);
-            if (size1 != size2) {
-                H5TOOLS_DEBUG("diff_datum string sizes difference");
-                nfound++;
-            }
-            if (size1 < size2) {
-                size = size1;
-                s = s1;
-                sizex = size2;
-                sx = s2;
-            }
-            else {
-                size = size2;
-                s = s2;
-                sizex = size1;
-                sx = s1;
-            }
-
-            /* check for NULL pointer for string */
-            if (s != NULL) {
-                /* try fast compare first */
-                if (HDmemcmp(s, sx, size) == 0) {
-                    if (size1 != size2)
-                        if (print_data(opts))
-                            for (u = size; u < sizex; u++)
-                                character_compare(s + u, sx + u, idx, u, rank, dims, acc, pos, opts, obj1, obj2, ph);
-                }
-                else
-                    for (u = 0; u < size; u++)
-                        nfound += character_compare(s + u, sx + u, idx, u, rank, dims, acc, pos, opts, obj1, obj2, ph);
-            } /* end check for NULL pointer for string */
-        }
-        break;
-
-    /*-------------------------------------------------------------------------
-     * H5T_BITFIELD
-     *-------------------------------------------------------------------------
-     */
-    case H5T_BITFIELD:
-        H5TOOLS_DEBUG("diff_datum H5T_BITFIELD");
-        /* byte-by-byte comparison */
-        for (u = 0; u < type_size; u++)
-            nfound += character_compare_opt(mem1 + u, mem2 + u, idx, rank, dims, acc, pos, opts, obj1, obj2, ph);
-        break;
-
-    /*-------------------------------------------------------------------------
-     * H5T_OPAQUE
-     *-------------------------------------------------------------------------
-     */
-    case H5T_OPAQUE:
-        H5TOOLS_DEBUG("diff_datum H5T_OPAQUE");
-        /* byte-by-byte comparison */
-        for (u = 0; u < type_size; u++)
-            nfound += character_compare_opt(mem1 + u, mem2 + u, idx, rank, dims, acc, pos, opts, obj1, obj2, ph);
-        break;
-
-    /*-------------------------------------------------------------------------
-     * H5T_ENUM
-     *-------------------------------------------------------------------------
-     */
-    case H5T_ENUM:
-        /* For enumeration types we compare the names instead of the
-         * integer values.  For each pair of elements being
-         * compared, we convert both bit patterns to their corresponding
-         * enumeration constant and do a string comparison
+        /*-------------------------------------------------------------------------
+         * H5T_COMPOUND
+         *-------------------------------------------------------------------------
          */
-        H5TOOLS_DEBUG("diff_datum H5T_ENUM");
-        {
-            char enum_name1[1024];
-            char enum_name2[1024];
-            herr_t err1;
-            herr_t err2;
+        case H5T_COMPOUND:
+            H5TOOLS_DEBUG("H5T_COMPOUND");
+            {
+                diff_opt_t cmpd_opts;
 
-            /* disable error reporting */
-            H5E_BEGIN_TRY {
-                /* If the enum value cannot be converted to a string
-                 * it is set to an error string for later output.
-                 */
-                err1 = H5Tenum_nameof(m_type, mem1, enum_name1, sizeof enum_name1);
-                if (err1 < 0)
-                    HDsnprintf(enum_name1, sizeof(enum_name1), "**INVALID VALUE**");
+                cmpd_opts = *opts;
+                nmembs    = members->n;
 
-                err2 = H5Tenum_nameof(m_type, mem2, enum_name2, sizeof enum_name2);
-                if (err2 < 0)
-                    HDsnprintf(enum_name2, sizeof(enum_name2), "**INVALID VALUE**");
+                for (j = 0; j < nmembs; j++) {
+                    offset          = members->offsets[j];
+                    cmpd_opts.m_tid = members->ids[j];
 
-                /* One or more bad enum values */
-                if (err1 < 0 || err2 < 0) {
-                    /* If the two values cannot be converted to a string
-                     * (probably due to them being invalid enum values),
-                     * don't attempt to convert them - just report errors.
-                     */
-                    nfound += 1;
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(S_FORMAT, enum_name1, enum_name2);
-                    }
+                    nfound += diff_datum(mem1 + offset, mem2 + offset, elemtno, &cmpd_opts, container1_id,
+                                         container2_id, members->m[j]);
+                }
+                opts->err_stat     = opts->err_stat | cmpd_opts.err_stat;
+                opts->print_header = cmpd_opts.print_header;
+                opts->not_cmp      = cmpd_opts.not_cmp;
+            }
+            break;
+
+        /*-------------------------------------------------------------------------
+         * H5T_STRING
+         *-------------------------------------------------------------------------
+         */
+        case H5T_STRING:
+            H5TOOLS_DEBUG("H5T_STRING");
+            {
+                char *    s  = NULL;
+                char *    sx = NULL;
+                char *    s1 = NULL;
+                char *    s2 = NULL;
+                size_t    size1;
+                size_t    size2;
+                size_t    sizex;
+                size_t    size_mtype = H5Tget_size(opts->m_tid);
+                H5T_str_t pad        = H5Tget_strpad(opts->m_tid);
+
+                /* if variable length string */
+                if (H5Tis_variable_str(opts->m_tid)) {
+                    H5TOOLS_DEBUG("H5T_STRING variable");
+                    /* Get pointer to first string */
+                    s1 = *(char **)((void *)mem1);
+                    if (s1)
+                        size1 = HDstrlen(s1);
+                    else
+                        size1 = 0;
+
+                    /* Get pointer to second string */
+                    s2 = *(char **)((void *)mem2);
+                    if (s2)
+                        size2 = HDstrlen(s2);
+                    else
+                        size2 = 0;
+                }
+                else if (H5T_STR_NULLTERM == pad) {
+                    H5TOOLS_DEBUG("H5T_STRING null term");
+                    /* Get pointer to first string */
+                    s1 = (char *)mem1;
+                    if (s1)
+                        size1 = HDstrlen(s1);
+                    else
+                        size1 = 0;
+
+                    if (size1 > size_mtype)
+                        size1 = size_mtype;
+
+                    /* Get pointer to second string */
+                    s2 = (char *)mem2;
+                    if (s2)
+                        size2 = HDstrlen(s2);
+                    else
+                        size2 = 0;
+
+                    if (size2 > size_mtype)
+                        size2 = size_mtype;
                 }
                 else {
-                    /* Both enum values were valid */
-                    if (HDstrcmp(enum_name1, enum_name2) != 0) {
-                        nfound = 1;
+                    /* Get pointer to first string */
+                    s1    = (char *)mem1;
+                    size1 = size_mtype;
+
+                    /* Get pointer to second string */
+                    s2    = (char *)mem2;
+                    size2 = size_mtype;
+                }
+
+                /*
+                 * compare for shorter string
+                 * TODO: this code need to be improved to handle the difference
+                 *       of length of strings.
+                 *       For now mimic the previous way.
+                 */
+                H5TOOLS_DEBUG("string size:%d", size1);
+                H5TOOLS_DEBUG("string size:%d", size2);
+                if (size1 != size2) {
+                    H5TOOLS_DEBUG("string sizes difference");
+                    nfound++;
+                }
+                if (size1 < size2) {
+                    size  = size1;
+                    s     = s1;
+                    sizex = size2;
+                    sx    = s2;
+                }
+                else {
+                    size  = size2;
+                    s     = s2;
+                    sizex = size1;
+                    sx    = s1;
+                }
+
+                /* check for NULL pointer for string */
+                if (s != NULL) {
+                    /* try fast compare first */
+                    if ((HDmemcmp(s, sx, size) == 0) && (size1 != size2)) {
+                        for (u = size; u < sizex; u++)
+                            character_compare(s + u, sx + u, elemtno, u, opts);
+                    }
+                    else
+                        for (u = 0; u < size; u++)
+                            nfound += character_compare(s + u, sx + u, elemtno, u, opts);
+                } /* end check for NULL pointer for string */
+            }
+            break;
+
+        /*-------------------------------------------------------------------------
+         * H5T_BITFIELD
+         *-------------------------------------------------------------------------
+         */
+        case H5T_BITFIELD:
+            H5TOOLS_DEBUG("H5T_BITFIELD");
+            /* byte-by-byte comparison */
+            for (u = 0; u < type_size; u++)
+                nfound += character_compare_opt(mem1 + u, mem2 + u, elemtno, opts);
+            break;
+
+        /*-------------------------------------------------------------------------
+         * H5T_OPAQUE
+         *-------------------------------------------------------------------------
+         */
+        case H5T_OPAQUE:
+            H5TOOLS_DEBUG("H5T_OPAQUE");
+            /* byte-by-byte comparison */
+            for (u = 0; u < type_size; u++)
+                nfound += character_compare_opt(mem1 + u, mem2 + u, elemtno, opts);
+            break;
+
+        /*-------------------------------------------------------------------------
+         * H5T_ENUM
+         *-------------------------------------------------------------------------
+         */
+        case H5T_ENUM:
+            /* For enumeration types we compare the names instead of the
+             * integer values.  For each pair of elements being
+             * compared, we convert both bit patterns to their corresponding
+             * enumeration constant and do a string comparison
+             */
+            H5TOOLS_DEBUG("H5T_ENUM");
+            {
+                char   enum_name1[1024];
+                char   enum_name2[1024];
+                herr_t err1;
+                herr_t err2;
+
+                /* disable error reporting */
+                H5E_BEGIN_TRY
+                {
+                    /* If the enum value cannot be converted to a string
+                     * it is set to an error string for later output.
+                     */
+                    err1 = H5Tenum_nameof(opts->m_tid, mem1, enum_name1, sizeof enum_name1);
+                    if (err1 < 0)
+                        HDsnprintf(enum_name1, sizeof(enum_name1), "**INVALID VALUE**");
+
+                    err2 = H5Tenum_nameof(opts->m_tid, mem2, enum_name2, sizeof enum_name2);
+                    if (err2 < 0)
+                        HDsnprintf(enum_name2, sizeof(enum_name2), "**INVALID VALUE**");
+
+                    /* One or more bad enum values */
+                    if (err1 < 0 || err2 < 0) {
+                        /* If the two values cannot be converted to a string
+                         * (probably due to them being invalid enum values),
+                         * don't attempt to convert them - just report errors.
+                         */
+                        nfound += 1;
+                        opts->print_percentage = 0;
+                        print_pos(opts, elemtno, 0);
                         if (print_data(opts)) {
-                            print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
                             parallel_print(S_FORMAT, enum_name1, enum_name2);
                         }
                     }
                     else {
-                        for (u = 0; u < type_size; u++)
-                            nfound += character_compare_opt(mem1 + u, mem2 + u, idx, rank, dims, acc, pos, opts, obj1, obj2, ph);
+                        /* Both enum values were valid */
+                        if (HDstrcmp(enum_name1, enum_name2) != 0) {
+                            nfound                 = 1;
+                            opts->print_percentage = 0;
+                            print_pos(opts, elemtno, 0);
+                            if (print_data(opts)) {
+                                parallel_print(S_FORMAT, enum_name1, enum_name2);
+                            }
+                        }
+                        else {
+                            for (u = 0; u < type_size; u++)
+                                nfound += character_compare_opt(mem1 + u, mem2 + u, elemtno, opts);
+                        }
                     }
+                    /* enable error reporting */
                 }
-                /* enable error reporting */
-            } H5E_END_TRY;
-        }
-        break;
+                H5E_END_TRY;
+            }
+            break;
 
-    /*-------------------------------------------------------------------------
-     * H5T_ARRAY
-     *-------------------------------------------------------------------------
-     */
-    case H5T_ARRAY:
-        {
-            hid_t   memb_type = H5I_INVALID_HID;
-            hsize_t adims[H5S_MAX_RANK];
-            int     ndims;
+        /*-------------------------------------------------------------------------
+         * H5T_ARRAY
+         *-------------------------------------------------------------------------
+         */
+        case H5T_ARRAY: {
+            hsize_t    adims[H5S_MAX_RANK];
+            int        ndims;
+            diff_opt_t arr_opts;
 
-            H5TOOLS_DEBUG("diff_datum H5T_ARRAY");
+            H5TOOLS_DEBUG("H5T_ARRAY ph=%d", opts->print_header);
+
+            arr_opts = *opts;
+            H5TOOLS_DEBUG("Check opts: hs_nelmts:%ld to %ld rank:%d to %ld", opts->hs_nelmts,
+                          arr_opts.hs_nelmts, opts->rank, arr_opts.rank);
             /* get the array's base datatype for each element */
-            memb_type = H5Tget_super(m_type);
-            size = H5Tget_size(memb_type);
-            ndims = H5Tget_array_ndims(m_type);
-            H5Tget_array_dims2(m_type, adims);
+            arr_opts.m_tid = H5Tget_super(opts->m_tid);
+            size           = H5Tget_size(arr_opts.m_tid);
+            ndims          = H5Tget_array_ndims(opts->m_tid);
+            H5Tget_array_dims2(opts->m_tid, adims);
             HDassert(ndims >= 1 && ndims <= H5S_MAX_RANK);
+            H5TOOLS_DEBUG("attr ph=%d", arr_opts.print_header);
 
             /* calculate the number of array elements */
-            for (u = 0, nelmts = 1; u < (unsigned) ndims; u++)
-                nelmts *= adims[u];
-            for (u = 0; u < nelmts; u++) {
-                nfound += diff_datum(mem1 + u * size, mem2 + u * size, memb_type, idx,
-                        rank, dims, acc, pos, opts, obj1, obj2, container1_id, container2_id, ph, members);
+            for (u = 0, arr_opts.hs_nelmts = 1; u < (unsigned)ndims; u++)
+                arr_opts.hs_nelmts *= adims[u];
+            for (u = 0; u < arr_opts.hs_nelmts; u++) {
+                nfound += diff_datum(mem1 + u * size, mem2 + u * size, elemtno, &arr_opts, container1_id,
+                                     container2_id, members);
             }
-            H5Tclose(memb_type);
-        }
-        break;
+            opts->err_stat     = opts->err_stat | arr_opts.err_stat;
+            opts->print_header = arr_opts.print_header;
+            opts->not_cmp      = arr_opts.not_cmp;
+            H5Tclose(arr_opts.m_tid);
+        } break;
 
-    /*-------------------------------------------------------------------------
-     * H5T_REFERENCE
-     *-------------------------------------------------------------------------
-     */
-    case H5T_REFERENCE:
-        H5TOOLS_DEBUG("diff_datum H5T_REFERENCE");
-        iszero1 = all_zero(_mem1, H5Tget_size(m_type));
-        iszero2 = all_zero(_mem2, H5Tget_size(m_type));
-        if (iszero1 != iszero2) {
-            nfound++;
-            H5TOOLS_GOTO_DONE(opts->err_stat);
-        }
-        else if (!iszero1 && !iszero2) {
-            hid_t obj1_id = H5I_INVALID_HID;
-            hid_t obj2_id = H5I_INVALID_HID;
+        /*-------------------------------------------------------------------------
+         * H5T_REFERENCE
+         *-------------------------------------------------------------------------
+         */
+        case H5T_REFERENCE:
+            H5TOOLS_DEBUG("H5T_REFERENCE");
+            iszero1 = all_zero(_mem1, H5Tget_size(opts->m_tid));
+            iszero2 = all_zero(_mem2, H5Tget_size(opts->m_tid));
+            if (iszero1 != iszero2) {
+                nfound++;
+                H5TOOLS_GOTO_DONE(opts->err_stat);
+            }
+            else if (!iszero1 && !iszero2) {
+                hid_t      obj1_id = H5I_INVALID_HID;
+                hid_t      obj2_id = H5I_INVALID_HID;
+                diff_opt_t ref_opts;
 
-            /*-------------------------------------------------------------------------
-             * H5T_STD_REF
-             * Reference
-             *-------------------------------------------------------------------------
-             */
-            if (H5Tequal(m_type, H5T_STD_REF)) {
-                /* if (type_size == H5R_STD_REF_SIZE) */
-                hid_t region1_id = H5I_INVALID_HID;
-                hid_t region2_id = H5I_INVALID_HID;
-                H5R_ref_t *ref1_buf = (H5R_ref_t *)_mem1;
-                H5R_ref_t *ref2_buf = (H5R_ref_t *)_mem2;
-                H5O_type_t obj1_type = -1;   /* Object type */
-                H5O_type_t obj2_type = -1;   /* Object type */
-                H5R_type_t ref_type;   /* Reference type */
+                /*-------------------------------------------------------------------------
+                 * H5T_STD_REF
+                 * Reference
+                 *-------------------------------------------------------------------------
+                 */
+                ref_opts             = *opts;
+                ref_opts.obj_name[0] = NULL;
+                ref_opts.obj_name[1] = NULL;
+                if (H5Tequal(ref_opts.m_tid, H5T_STD_REF)) {
+                    /* if (type_size == H5R_STD_REF_SIZE) */
+                    hid_t      region1_id = H5I_INVALID_HID;
+                    hid_t      region2_id = H5I_INVALID_HID;
+                    H5R_ref_t *ref1_buf   = (H5R_ref_t *)_mem1;
+                    H5R_ref_t *ref2_buf   = (H5R_ref_t *)_mem2;
+                    H5O_type_t obj1_type  = -1; /* Object type */
+                    H5O_type_t obj2_type  = -1; /* Object type */
+                    H5R_type_t ref_type;        /* Reference type */
 
-                H5TOOLS_DEBUG("diff_datum H5T_REFERENCE - H5T_STD_REF");
-                ref_type = H5Rget_type(ref1_buf);
-                switch (ref_type) {
-                    case H5R_OBJECT1:
-                        H5TOOLS_DEBUG("ref_type is H5R_OBJECT1");
-                        if (H5Rget_obj_type3(ref1_buf, H5P_DEFAULT, &obj1_type) < 0) {
-                            opts->err_stat = H5DIFF_ERR;
-                            H5TOOLS_INFO("H5Rget_obj_type3 object 1 failed");
-                        }
-                        if (H5Rget_obj_type3(ref2_buf, H5P_DEFAULT, &obj2_type) < 0) {
-                            opts->err_stat = H5DIFF_ERR;
-                            H5TOOLS_INFO("H5Rget_obj_type3 object 2 failed");
-                        }
+                    H5TOOLS_DEBUG("H5T_REFERENCE - H5T_STD_REF");
+                    ref_type = H5Rget_type(ref1_buf);
+                    switch (ref_type) {
+                        case H5R_OBJECT1:
+                            H5TOOLS_DEBUG("ref_type is H5R_OBJECT1");
+                            if (H5Rget_obj_type3(ref1_buf, H5P_DEFAULT, &obj1_type) >= 0) {
+                                if (H5Rget_obj_type3(ref2_buf, H5P_DEFAULT, &obj2_type) >= 0) {
+                                    /* check object type */
+                                    if (obj1_type == obj2_type) {
+                                        switch (obj1_type) {
+                                            case H5O_TYPE_DATASET:
+                                                if ((obj1_id = H5Ropen_object(ref1_buf, H5P_DEFAULT,
+                                                                              H5P_DEFAULT)) >= 0) {
+                                                    if ((obj2_id = H5Ropen_object(ref2_buf, H5P_DEFAULT,
+                                                                                  H5P_DEFAULT)) >= 0) {
+                                                        nfound = diff_datasetid(obj1_id, obj2_id,
+                                                                                opts->obj_name[0],
+                                                                                opts->obj_name[1], &ref_opts);
+                                                        if (H5Dclose(obj2_id) < 0) {
+                                                            ref_opts.err_stat = H5DIFF_ERR;
+                                                            H5TOOLS_INFO("H5Dclose H5R_OBJECT1 failed");
+                                                        }
+                                                    }
+                                                    else {
+                                                        ref_opts.err_stat = H5DIFF_ERR;
+                                                        H5TOOLS_INFO("H5Ropen_object object 2 failed");
+                                                    }
+                                                    if (H5Dclose(obj1_id) < 0) {
+                                                        ref_opts.err_stat = H5DIFF_ERR;
+                                                        H5TOOLS_INFO("H5Dclose H5R_OBJECT1 failed");
+                                                    }
+                                                }
+                                                else {
+                                                    ref_opts.err_stat = H5DIFF_ERR;
+                                                    H5TOOLS_INFO("H5Ropen_object object 1 failed");
+                                                }
+                                                break;
 
-                        /* check object type */
-                        if (obj1_type != obj2_type) {
-                            parallel_print("Different object types referenced: <%s> and <%s>", obj1, obj2);
-                            opts->not_cmp = 1;
-                            H5TOOLS_GOTO_DONE(opts->err_stat);
-                        }
-
-                        if((obj1_id = H5Ropen_object(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) < 0) {
-                            opts->err_stat = H5DIFF_ERR;
-                            H5TOOLS_INFO("H5Ropen_object object 1 failed");
-                        }
-                        if((obj2_id = H5Ropen_object(ref2_buf, H5P_DEFAULT, H5P_DEFAULT)) < 0) {
-                            opts->err_stat = H5DIFF_ERR;
-                            H5TOOLS_INFO("H5Ropen_object object 2 failed");
-                        }
-
-                        switch (obj1_type) {
-                            case H5O_TYPE_DATASET:
-                                nfound = diff_datasetid(obj1_id, obj2_id, NULL, NULL, opts);
-                                break;
-
-                            case H5O_TYPE_GROUP:
-                            case H5O_TYPE_NAMED_DATATYPE:
-                            case H5O_TYPE_MAP:
-                            case H5O_TYPE_UNKNOWN:
-                            case H5O_TYPE_NTYPES:
-                            default:
-                                if (opts->m_verbose)
-                                    parallel_print("Warning: Comparison not possible of object types referenced: <%s> and <%s>\n", obj1, obj2);
-                                opts->not_cmp = 1;
-                                break;
-                        } /* end switch */
-                        if(obj1_id >= 0)
-                            if(H5Oclose(obj1_id) < 0) {
-                                opts->err_stat = H5DIFF_ERR;
-                                H5TOOLS_INFO("H5Oclose H5R_OBJECT1 failed");
-                            }
-                        if(obj2_id >= 0)
-                            if(H5Oclose(obj2_id) < 0) {
-                                opts->err_stat = H5DIFF_ERR;
-                                H5TOOLS_INFO("H5Oclose H5R_OBJECT1 failed");
-                            }
-                        if(H5Rdestroy(ref2_buf) < 0)
-                            H5TOOLS_ERROR(H5DIFF_ERR, "H5Rdestroy H5R_OBJECT1 failed");
-                        if(H5Rdestroy(ref1_buf) < 0)
-                            H5TOOLS_ERROR(H5DIFF_ERR, "H5Rdestroy H5R_OBJECT1 failed");
-                        break;
-                    case H5R_DATASET_REGION1:
-                        H5TOOLS_DEBUG("ref_type is H5R_DATASET_REGION1");
-                        if((obj1_id = H5Ropen_object(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
-                            if((obj2_id = H5Ropen_object(ref2_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
-                                if((region1_id = H5Ropen_region(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
-                                    if((region2_id = H5Ropen_region(ref2_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
-                                        nfound = diff_region(obj1_id, obj2_id, region1_id, region2_id, opts);
-                                        if(H5Sclose(region2_id) < 0)
-                                            H5TOOLS_ERROR(H5DIFF_ERR, "H5Sclose H5R_DATASET_REGION1 failed");
+                                            case H5O_TYPE_GROUP:
+                                            case H5O_TYPE_NAMED_DATATYPE:
+                                            case H5O_TYPE_MAP:
+                                            case H5O_TYPE_UNKNOWN:
+                                            case H5O_TYPE_NTYPES:
+                                            default:
+                                                if (ref_opts.mode_verbose)
+                                                    parallel_print("Warning: Comparison not possible of "
+                                                                   "object types referenced: <%s> and <%s>\n",
+                                                                   opts->obj_name[0], opts->obj_name[1]);
+                                                ref_opts.not_cmp = 1;
+                                                break;
+                                        } /* end switch */
                                     }
-                                    if(H5Sclose(region1_id) < 0)
-                                        H5TOOLS_ERROR(H5DIFF_ERR, "H5Sclose H5R_DATASET_REGION1 failed");
-                                }
-                                if(H5Oclose(obj2_id) < 0)
-                                    H5TOOLS_ERROR(H5DIFF_ERR, "H5Oclose H5R_DATASET_REGION1 failed");
-                            }
-                            else {
-                                H5TOOLS_ERROR(H5DIFF_ERR, "H5Ropen_object H5R_DATASET_REGION1 failed");
-                            }
-                            if(H5Oclose(obj1_id) < 0)
-                                H5TOOLS_ERROR(H5DIFF_ERR, "H5Oclose H5R_DATASET_REGION1 failed");
-                        }
-                        else {
-                            H5TOOLS_ERROR(H5DIFF_ERR, "H5Ropen_object H5R_DATASET_REGION1 failed");
-                        }
-                        if(H5Rdestroy(ref2_buf) < 0)
-                            H5TOOLS_ERROR(H5DIFF_ERR, "H5Rdestroy H5R_DATASET_REGION1 failed");
-                        if(H5Rdestroy(ref1_buf) < 0)
-                            H5TOOLS_ERROR(H5DIFF_ERR, "H5Rdestroy H5R_DATASET_REGION1 failed");
-                        break;
-                    case H5R_OBJECT2:
-                        H5TOOLS_DEBUG("ref_type is H5R_OBJECT2");
-                        if (H5Rget_obj_type3(ref1_buf, H5P_DEFAULT, &obj1_type) < 0) {
-                            opts->err_stat = H5DIFF_ERR;
-                            H5TOOLS_INFO("H5Rget_obj_type3 object 1 failed");
-                        }
-                        if (H5Rget_obj_type3(ref2_buf, H5P_DEFAULT, &obj2_type) < 0) {
-                            opts->err_stat = H5DIFF_ERR;
-                            H5TOOLS_INFO("H5Rget_obj_type3 object 2 failed");
-                        }
-
-                        /* check object type */
-                        if (obj1_type != obj2_type) {
-                            parallel_print("Different object types referenced: <%s> and <%s>", obj1, obj2);
-                            opts->not_cmp = 1;
-                            H5TOOLS_GOTO_DONE(opts->err_stat);
-                        }
-
-                        if((obj1_id = H5Ropen_object(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) < 0) {
-                            opts->err_stat = H5DIFF_ERR;
-                            H5TOOLS_INFO("H5Ropen_object object 1 failed");
-                        }
-                        if((obj2_id = H5Ropen_object(ref2_buf, H5P_DEFAULT, H5P_DEFAULT)) < 0) {
-                            opts->err_stat = H5DIFF_ERR;
-                            H5TOOLS_INFO("H5Ropen_object object 2 failed");
-                        }
-
-                        switch (obj1_type) {
-                            case H5O_TYPE_DATASET:
-                                H5TOOLS_DEBUG("ref_type is H5R_OBJECT2 : DATASET");
-                                nfound = diff_datasetid(obj1_id, obj2_id, NULL, NULL, opts);
-                                break;
-
-                            case H5O_TYPE_GROUP:
-                                H5TOOLS_DEBUG("ref_type is H5R_OBJECT2 : GROUP");
-                                if (opts->m_verbose)
-                                    parallel_print("Warning: Comparison not possible of group object types referenced: <%s> and <%s>\n", obj1, obj2);
-                                opts->not_cmp = 1;
-                                break;
-
-                            case H5O_TYPE_NAMED_DATATYPE:
-                                H5TOOLS_DEBUG("ref_type is H5R_OBJECT2 : NAMED");
-                                if (opts->m_verbose)
-                                    parallel_print("Warning: Comparison not possible of named datatypes object types referenced: <%s> and <%s>\n", obj1, obj2);
-                                opts->not_cmp = 1;
-                                break;
-
-                            case H5O_TYPE_MAP:
-                            case H5O_TYPE_UNKNOWN:
-                            case H5O_TYPE_NTYPES:
-                            default:
-                                if (opts->m_verbose)
-                                    parallel_print("Warning: Comparison not possible of object types referenced: <%s> and <%s>\n", obj1, obj2);
-                                opts->not_cmp = 1;
-                                break;
-                        } /* end switch */
-                        if(obj1_id >= 0)
-                            if(H5Oclose(obj1_id) < 0) {
-                                opts->err_stat = H5DIFF_ERR;
-                                H5TOOLS_INFO("H5Oclose H5R_OBJECT2 failed");
-                            }
-                        if(obj2_id >= 0)
-                            if(H5Oclose(obj2_id) < 0) {
-                                opts->err_stat = H5DIFF_ERR;
-                                H5TOOLS_INFO("H5Oclose H5R_OBJECT2 failed");
-                            }
-                        if(H5Rdestroy(ref2_buf) < 0)
-                            H5TOOLS_ERROR(H5DIFF_ERR, "H5Rdestroy H5R_OBJECT2 failed");
-                        if(H5Rdestroy(ref1_buf) < 0)
-                            H5TOOLS_ERROR(H5DIFF_ERR, "H5Rdestroy H5R_OBJECT2 failed");
-                        break;
-                    case H5R_DATASET_REGION2:
-                        H5TOOLS_DEBUG("ref_type is H5R_DATASET_REGION2");
-
-                        /* if (obj_id < 0) - could mean that no reference was written do not throw failure */
-                        obj1_id = H5Ropen_object(ref1_buf, H5P_DEFAULT, H5P_DEFAULT);
-                        obj2_id = H5Ropen_object(ref2_buf, H5P_DEFAULT, H5P_DEFAULT);
-                        if((obj1_id  < 0) || (obj2_id  < 0)) {
-                            H5TOOLS_INFO("H5Ropen_object H5R_DATASET_REGION2 failed");
-                        }
-                        else {
-                            H5TOOLS_DEBUG("open_region - H5R_DATASET_REGION2");
-                            if((region1_id = H5Ropen_region(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
-                                if (h5tools_is_zero(ref1_buf, H5Tget_size(H5T_STD_REF))) {
-                                    H5TOOLS_DEBUG("NULL H5R_DATASET_REGION2");
+                                    else {
+                                        parallel_print("Different object types referenced: <%s> and <%s>",
+                                                       opts->obj_name[0], opts->obj_name[1]);
+                                        ref_opts.not_cmp  = 1;
+                                        ref_opts.err_stat = H5DIFF_ERR;
+                                    }
                                 }
                                 else {
-                                    if((region2_id = H5Ropen_region(ref2_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
-                                        if (h5tools_is_zero(ref2_buf, H5Tget_size(H5T_STD_REF))) {
+                                    ref_opts.err_stat = H5DIFF_ERR;
+                                    H5TOOLS_INFO("H5Rget_obj_type3 object 2 failed");
+                                }
+                            }
+                            else {
+                                ref_opts.err_stat = H5DIFF_ERR;
+                                H5TOOLS_INFO("H5Rget_obj_type3 object 1 failed");
+                            }
+                            break;
+                        case H5R_DATASET_REGION1:
+                            H5TOOLS_DEBUG("ref_type is H5R_DATASET_REGION1");
+                            if ((obj1_id = H5Ropen_object(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
+                                if ((obj2_id = H5Ropen_object(ref2_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
+                                    if ((region1_id = H5Ropen_region(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) >=
+                                        0) {
+                                        if ((region2_id =
+                                                 H5Ropen_region(ref2_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
+                                            nfound = diff_region(obj1_id, obj2_id, region1_id, region2_id,
+                                                                 &ref_opts);
+                                            if (H5Sclose(region2_id) < 0)
+                                                H5TOOLS_INFO("H5Sclose H5R_DATASET_REGION1 failed");
+                                        }
+                                        if (H5Sclose(region1_id) < 0)
+                                            H5TOOLS_INFO("H5Sclose H5R_DATASET_REGION1 failed");
+                                    }
+                                    if (H5Dclose(obj2_id) < 0)
+                                        H5TOOLS_INFO("H5Oclose H5R_DATASET_REGION1 failed");
+                                }
+                                else {
+                                    H5TOOLS_INFO("H5Ropen_object H5R_DATASET_REGION1 failed");
+                                }
+                                if (H5Dclose(obj1_id) < 0)
+                                    H5TOOLS_INFO("H5Oclose H5R_DATASET_REGION1 failed");
+                            }
+                            else {
+                                H5TOOLS_INFO("H5Ropen_object H5R_DATASET_REGION1 failed");
+                            }
+                            break;
+                        case H5R_OBJECT2:
+                            H5TOOLS_DEBUG("ref_type is H5R_OBJECT2");
+                            if (H5Rget_obj_type3(ref1_buf, H5P_DEFAULT, &obj1_type) >= 0) {
+                                if (H5Rget_obj_type3(ref2_buf, H5P_DEFAULT, &obj2_type) >= 0) {
+                                    /* check object type */
+                                    if (obj1_type == obj2_type) {
+                                        if ((obj1_id = H5Ropen_object(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) >=
+                                            0) {
+                                            if ((obj2_id = H5Ropen_object(ref2_buf, H5P_DEFAULT,
+                                                                          H5P_DEFAULT)) >= 0) {
+                                                switch (obj1_type) {
+                                                    case H5O_TYPE_DATASET:
+                                                        H5TOOLS_DEBUG("ref_type is H5R_OBJECT2 : DATASET");
+                                                        nfound = diff_datasetid(obj1_id, obj2_id,
+                                                                                opts->obj_name[0],
+                                                                                opts->obj_name[1], &ref_opts);
+                                                        break;
+
+                                                    case H5O_TYPE_GROUP:
+                                                        H5TOOLS_DEBUG("ref_type is H5R_OBJECT2 : GROUP");
+                                                        if (ref_opts.mode_verbose)
+                                                            parallel_print(
+                                                                "Warning: Comparison not possible of group "
+                                                                "object types referenced: <%s> and <%s>\n",
+                                                                opts->obj_name[0], opts->obj_name[1]);
+                                                        ref_opts.not_cmp = 1;
+                                                        break;
+
+                                                    case H5O_TYPE_NAMED_DATATYPE:
+                                                        H5TOOLS_DEBUG("ref_type is H5R_OBJECT2 : NAMED");
+                                                        if (ref_opts.mode_verbose)
+                                                            parallel_print("Warning: Comparison not possible "
+                                                                           "of named datatypes object types "
+                                                                           "referenced: <%s> and <%s>\n",
+                                                                           opts->obj_name[0],
+                                                                           opts->obj_name[1]);
+                                                        ref_opts.not_cmp = 1;
+                                                        break;
+
+                                                    case H5O_TYPE_MAP:
+                                                    case H5O_TYPE_UNKNOWN:
+                                                    case H5O_TYPE_NTYPES:
+                                                    default:
+                                                        if (ref_opts.mode_verbose)
+                                                            parallel_print(
+                                                                "Warning: Comparison not possible of object "
+                                                                "types referenced: <%s> and <%s>\n",
+                                                                opts->obj_name[0], opts->obj_name[1]);
+                                                        ref_opts.not_cmp = 1;
+                                                        break;
+                                                } /* end switch */
+                                                if (H5Oclose(obj2_id) < 0) {
+                                                    ref_opts.err_stat = H5DIFF_ERR;
+                                                    H5TOOLS_INFO("H5Oclose H5R_OBJECT2 failed");
+                                                }
+                                            }
+                                            else {
+                                                ref_opts.err_stat = H5DIFF_ERR;
+                                                H5TOOLS_INFO("H5Ropen_object object 2 failed");
+                                            }
+                                            if (H5Oclose(obj1_id) < 0) {
+                                                ref_opts.err_stat = H5DIFF_ERR;
+                                                H5TOOLS_INFO("H5Oclose H5R_OBJECT2 failed");
+                                            }
+                                        }
+                                        else {
+                                            ref_opts.err_stat = H5DIFF_ERR;
+                                            H5TOOLS_INFO("H5Ropen_object object 1 failed");
+                                        }
+                                    }
+                                    else {
+                                        parallel_print("Different object types referenced: <%s> and <%s>",
+                                                       opts->obj_name[0], opts->obj_name[1]);
+                                        ref_opts.not_cmp  = 1;
+                                        ref_opts.err_stat = H5DIFF_ERR;
+                                    }
+                                }
+                                else {
+                                    ref_opts.err_stat = H5DIFF_ERR;
+                                    H5TOOLS_INFO("H5Rget_obj_type3 object 2 failed");
+                                }
+                            }
+                            else {
+                                ref_opts.err_stat = H5DIFF_ERR;
+                                H5TOOLS_INFO("H5Rget_obj_type3 object 1 failed");
+                            }
+                            break;
+                        case H5R_DATASET_REGION2:
+                            H5TOOLS_DEBUG("ref_type is H5R_DATASET_REGION2");
+
+                            /* if (obj_id < 0) - could mean that no reference was written do not throw failure
+                             */
+                            if ((obj1_id = H5Ropen_object(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) < 0) {
+                                H5TOOLS_INFO("H5Ropen_object H5R_DATASET_REGION2 object 1 failed");
+                            }
+                            else {
+                                if ((obj2_id = H5Ropen_object(ref2_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
+                                    H5TOOLS_DEBUG("open_region - H5R_DATASET_REGION2");
+                                    if ((region1_id = H5Ropen_region(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) >=
+                                        0) {
+                                        if (h5tools_is_zero(ref1_buf, H5Tget_size(H5T_STD_REF))) {
                                             H5TOOLS_DEBUG("NULL H5R_DATASET_REGION2");
                                         }
                                         else {
-                                            nfound = diff_region(obj1_id, obj2_id, region1_id, region2_id, opts);
-                                        }
-                                        if(H5Sclose(region2_id) < 0)
-                                            H5TOOLS_ERROR(H5DIFF_ERR, "H5Sclose H5R_DATASET_REGION2 failed");
+                                            if ((region2_id = H5Ropen_region(ref2_buf, H5P_DEFAULT,
+                                                                             H5P_DEFAULT)) >= 0) {
+                                                if (h5tools_is_zero(ref2_buf, H5Tget_size(H5T_STD_REF))) {
+                                                    H5TOOLS_DEBUG("NULL H5R_DATASET_REGION2");
+                                                }
+                                                else {
+                                                    nfound = diff_region(obj1_id, obj2_id, region1_id,
+                                                                         region2_id, &ref_opts);
+                                                }
+                                                if (H5Sclose(region2_id) < 0)
+                                                    H5TOOLS_INFO("H5Sclose H5R_DATASET_REGION2 failed");
+                                            }
+                                            else
+                                                H5TOOLS_INFO("H5Ropen_region H5R_DATASET_REGION2 failed");
+                                        } /* end else to if (h5tools_is_zero(... */
+                                        if (H5Sclose(region1_id) < 0)
+                                            H5TOOLS_INFO("H5Sclose H5R_DATASET_REGION2 failed");
                                     }
                                     else
-                                        H5TOOLS_ERROR(H5DIFF_ERR, "H5Ropen_region H5R_DATASET_REGION2 failed");
-                                } /* end else to if (h5tools_is_zero(... */
-                                if(H5Sclose(region1_id) < 0)
-                                    H5TOOLS_ERROR(H5DIFF_ERR, "H5Sclose H5R_DATASET_REGION2 failed");
+                                        H5TOOLS_ERROR(H5DIFF_ERR,
+                                                      "H5Ropen_region H5R_DATASET_REGION2 failed");
+                                    if (H5Dclose(obj2_id) < 0) {
+                                        ref_opts.err_stat = H5DIFF_ERR;
+                                        H5TOOLS_INFO("H5Dclose H5R_DATASET_REGION2 failed");
+                                    }
+                                }
+                                else {
+                                    H5TOOLS_INFO("H5Ropen_object H5R_DATASET_REGION2 object 2 failed");
+                                }
+                                if (H5Dclose(obj1_id) < 0) {
+                                    ref_opts.err_stat = H5DIFF_ERR;
+                                    H5TOOLS_INFO("H5Dclose H5R_DATASET_REGION2 failed");
+                                }
                             }
-                            else
-                                H5TOOLS_ERROR(H5DIFF_ERR, "H5Ropen_region H5R_DATASET_REGION2 failed");
-                            if (obj1_id >= 0)
-                                if(H5Dclose(obj1_id) < 0) {
-                                    opts->err_stat = H5DIFF_ERR;
-                                    H5TOOLS_INFO("H5Dclose H5R_DATASET_REGION2 failed");
-                                }
-                            if (obj2_id >= 0)
-                                if(H5Dclose(obj2_id) < 0) {
-                                    opts->err_stat = H5DIFF_ERR;
-                                    H5TOOLS_INFO("H5Dclose H5R_DATASET_REGION2 failed");
-                                }
-                            if(H5Rdestroy(ref1_buf) < 0)
-                                H5TOOLS_ERROR(H5DIFF_ERR, "H5Rdestroy H5R_DATASET_REGION2 failed");
-                            if(H5Rdestroy(ref2_buf) < 0)
-                                H5TOOLS_ERROR(H5DIFF_ERR, "H5Rdestroy H5R_DATASET_REGION2 failed");
-                        }
-                        break;
-                    case H5R_ATTR:
-                        {
-                            char       name1[ATTR_NAME_MAX];
-                            char       name2[ATTR_NAME_MAX];
+                            break;
+                        case H5R_ATTR: {
+                            char name1[ATTR_NAME_MAX];
+                            char name2[ATTR_NAME_MAX];
 
                             H5TOOLS_DEBUG("ref_type is H5R_ATTR");
-                            if((obj1_id = H5Ropen_attr(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) < 0) {
-                                parallel_print("Warning: Cannot open referenced attribute: attribute 1\n");
-                                H5TOOLS_INFO("H5Ropen_attr object 1 failed");
-                            }
-                            if((obj2_id = H5Ropen_attr(ref2_buf, H5P_DEFAULT, H5P_DEFAULT)) < 0) {
-                                parallel_print("Warning: Cannot open referenced attribute: attribute 2\n");
-                                H5TOOLS_INFO("H5Ropen_attr object 2 failed");
-                            }
+                            if ((obj1_id = H5Ropen_attr(ref1_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
+                                if ((obj2_id = H5Ropen_attr(ref2_buf, H5P_DEFAULT, H5P_DEFAULT)) >= 0) {
+                                    /* get name */
+                                    if (H5Aget_name(obj1_id, (size_t)ATTR_NAME_MAX, name1) >= 0) {
+                                        /* get name */
+                                        if (H5Aget_name(obj2_id, (size_t)ATTR_NAME_MAX, name2) >= 0) {
+                                            H5TOOLS_DEBUG("H5R_ATTR diff_attr_data - name1=%s, name2=%s",
+                                                          name1, name2);
+                                            nfound = diff_attr_data(obj1_id, obj2_id, name1, name2,
+                                                                    opts->obj_name[0], opts->obj_name[1],
+                                                                    &ref_opts);
+                                        }
+                                        else {
+                                            ref_opts.err_stat = H5DIFF_ERR;
+                                            H5TOOLS_INFO("H5Aget_name second attribute failed");
+                                        }
+                                    }
+                                    else {
+                                        ref_opts.err_stat = H5DIFF_ERR;
+                                        H5TOOLS_INFO("H5Aget_name first attribute failed");
+                                    }
 
-                            if((obj1_id < 0) || (obj2_id < 0)) {
-                                H5TOOLS_INFO("H5Ropen_attr H5R_ATTR failed");
+                                    if (H5Aclose(obj2_id) < 0) {
+                                        ref_opts.err_stat = H5DIFF_ERR;
+                                        H5TOOLS_INFO("H5Aclose H5R_ATTR failed");
+                                    }
+                                }
+                                else {
+                                    parallel_print("Warning: Cannot open referenced attribute2\n");
+                                    H5TOOLS_INFO("H5Ropen_attr object 2 failed");
+                                }
+                                if (H5Aclose(obj1_id) < 0) {
+                                    H5TOOLS_INFO("H5Aclose H5R_ATTR failed");
+                                }
                             }
                             else {
-                                /* get name */
-                                if(H5Aget_name(obj1_id, (size_t)ATTR_NAME_MAX, name1) < 0)
-                                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "H5Aget_name first attribute failed");
-                                /* get name */
-                                if(H5Aget_name(obj2_id, (size_t)ATTR_NAME_MAX, name2) < 0)
-                                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "H5Aget_name second attribute failed");
-
-                                H5TOOLS_DEBUG("H5R_ATTR diff_attr_data - name1=%s, name2=%s", name1, name2);
-                                nfound = diff_attr_data(obj1_id, obj2_id, name1, name2, NULL, NULL, opts);
+                                parallel_print("Warning: Cannot open referenced attribute1\n");
+                                H5TOOLS_INFO("H5Ropen_attr object 1 failed");
                             }
-
-                            if(obj1_id >= 0)
-                                if(H5Aclose(obj1_id) < 0) {
-                                    opts->err_stat = H5DIFF_ERR;
-                                    H5TOOLS_INFO("H5Aclose H5R_ATTR failed");
-                                }
-                            if(obj2_id >= 0)
-                                if(H5Aclose(obj2_id) < 0) {
-                                    opts->err_stat = H5DIFF_ERR;
-                                    H5TOOLS_INFO("H5Aclose H5R_ATTR failed");
-                                }
-                            if(H5Rdestroy(ref2_buf) < 0)
-                                H5TOOLS_ERROR(H5DIFF_ERR, "H5Rdestroy H5R_ATTR failed");
-                            if(H5Rdestroy(ref1_buf) < 0)
-                                H5TOOLS_ERROR(H5DIFF_ERR, "H5Rdestroy H5R_ATTR failed");
-                        }
-                        break;
-                    case H5R_BADTYPE:
-                    case H5R_MAXTYPE:
-                    default:
-                        break;
-                } /* end switch */
-                H5TOOLS_DEBUG("diff_datum H5T_REFERENCE - H5T_STD_REF complete nfound:%d - errstat:%d", nfound, opts->err_stat);
-            }
-            /*-------------------------------------------------------------------------
-             * H5T_STD_REF_DSETREG
-             * Dataset region reference
-             *-------------------------------------------------------------------------
-             */
-            else if (H5Tequal(m_type, H5T_STD_REF_DSETREG)) {
-                /* if (type_size == H5R_DSET_REG_REF_BUF_SIZE) */
-                hid_t region1_id = H5I_INVALID_HID;
-                hid_t region2_id = H5I_INVALID_HID;
-
-                H5TOOLS_INFO("H5T_STD_REF_DSETREG reference type");
-
-                if ((obj1_id = H5Rdereference2(container1_id, H5P_DEFAULT, H5R_DATASET_REGION, _mem1)) < 0) {
-                    opts->err_stat = H5DIFF_ERR;
-                    H5TOOLS_INFO("H5Rdereference2 object 1 failed");
+                        } break;
+                        case H5R_BADTYPE:
+                        case H5R_MAXTYPE:
+                        default:
+                            break;
+                    } /* end switch */
+                    if (H5Rdestroy(ref2_buf) < 0)
+                        H5TOOLS_INFO("H5Rdestroy H5R_OBJECT1 failed");
+                    if (H5Rdestroy(ref1_buf) < 0)
+                        H5TOOLS_INFO("H5Rdestroy H5R_OBJECT1 failed");
+                    H5TOOLS_DEBUG("H5T_REFERENCE - H5T_STD_REF complete nfound:%d - errstat:%d", nfound,
+                                  ref_opts.err_stat);
                 }
-                if ((obj2_id = H5Rdereference2(container2_id, H5P_DEFAULT, H5R_DATASET_REGION, _mem2)) < 0) {
-                    opts->err_stat = H5DIFF_ERR;
-                    H5TOOLS_INFO("H5Rdereference2 object 2 failed");
-                }
-                if ((region1_id = H5Rget_region(container1_id, H5R_DATASET_REGION, _mem1)) < 0) {
-                    opts->err_stat = H5DIFF_ERR;
-                    H5TOOLS_INFO("H5Rget_region object 1 failed");
-                }
-                if ((region2_id = H5Rget_region(container2_id, H5R_DATASET_REGION, _mem2)) < 0) {
-                    opts->err_stat = H5DIFF_ERR;
-                    H5TOOLS_INFO("H5Rget_region object 2 failed");
-                }
+                /*-------------------------------------------------------------------------
+                 * H5T_STD_REF_DSETREG
+                 * Dataset region reference
+                 *-------------------------------------------------------------------------
+                 */
+                else if (H5Tequal(ref_opts.m_tid, H5T_STD_REF_DSETREG)) {
+                    /* if (type_size == H5R_DSET_REG_REF_BUF_SIZE) */
+                    H5TOOLS_DEBUG("H5T_STD_REF_DSETREG");
+                } /*dataset reference*/
 
-                nfound = diff_region(obj1_id, obj2_id, region1_id, region2_id, opts);
+                /*-------------------------------------------------------------------------
+                 * H5T_STD_REF_OBJ
+                 * Object references. get the type and OID of the referenced object
+                 *-------------------------------------------------------------------------
+                 */
+                else if (H5Tequal(ref_opts.m_tid, H5T_STD_REF_OBJ)) {
+                    /* if (type_size == H5R_OBJ_REF_BUF_SIZE) */
+                    H5TOOLS_DEBUG("H5T_STD_REF_OBJ");
+                } /*object reference*/
+                opts->print_header = ref_opts.print_header;
+                opts->not_cmp      = ref_opts.not_cmp;
+                opts->err_stat     = ref_opts.err_stat | ret_value;
+            } /*is zero*/
+            H5TOOLS_DEBUG("H5T_REFERENCE complete");
+            break;
 
-                H5Oclose(obj1_id);
-                H5Oclose(obj2_id);
-                H5Sclose(region1_id);
-                H5Sclose(region2_id);
-            }/*dataset reference*/
+        /*-------------------------------------------------------------------------
+         * H5T_VLEN
+         *-------------------------------------------------------------------------
+         */
+        case H5T_VLEN: {
+            diff_opt_t vl_opts;
 
-            /*-------------------------------------------------------------------------
-             * H5T_STD_REF_OBJ
-             * Object references. get the type and OID of the referenced object
-             *-------------------------------------------------------------------------
-             */
-            else if (H5Tequal(m_type, H5T_STD_REF_OBJ)) {
-                /* if (type_size == H5R_OBJ_REF_BUF_SIZE) */
-                H5O_type_t obj1_type;
-                H5O_type_t obj2_type;
+            H5TOOLS_DEBUG("H5T_VLEN");
 
-                H5TOOLS_INFO("H5T_STD_REF_OBJ reference type");
-
-                if (H5Rget_obj_type2(container1_id, H5R_OBJECT, _mem1, &obj1_type) < 0) {
-                    opts->err_stat = H5DIFF_ERR;
-                    H5TOOLS_INFO("H5Rget_obj_type2 object 1 failed");
-                }
-                if (H5Rget_obj_type2(container2_id, H5R_OBJECT, _mem2, &obj2_type) < 0) {
-                    opts->err_stat = H5DIFF_ERR;
-                    H5TOOLS_INFO("H5Rget_obj_type2 object 2 failed");
-                }
-
-                /* check object type */
-                if (obj1_type != obj2_type) {
-                    parallel_print("Different object types referenced: <%s> and <%s>", obj1, obj2);
-                    opts->not_cmp = 1;
-                    H5TOOLS_GOTO_DONE(opts->err_stat);
-                }
-
-                if ((obj1_id = H5Rdereference2(container1_id, H5P_DEFAULT, H5R_OBJECT, _mem1)) < 0) {
-                    opts->err_stat = H5DIFF_ERR;
-                    H5TOOLS_INFO("H5Rdereference2 object 1 failed");
-                }
-                if ((obj2_id = H5Rdereference2(container2_id, H5P_DEFAULT, H5R_OBJECT, _mem2)) < 0) {
-                    opts->err_stat = H5DIFF_ERR;
-                    H5TOOLS_INFO("H5Rdereference2 object 2 failed");
-                }
-
-                /* compare */
-                if (obj1_type == H5O_TYPE_DATASET)
-                    nfound = diff_datasetid(obj1_id, obj2_id, NULL, NULL, opts);
-                else {
-                    if (opts->m_verbose)
-                        parallel_print("Warning: Comparison not possible of object types referenced: <%s> and <%s>\n", obj1, obj2);
-                    opts->not_cmp = 1;
-                }
-
-                H5Oclose(obj1_id);
-                H5Oclose(obj2_id);
-            }/*object reference*/
-        }/*is zero*/
-        H5TOOLS_DEBUG("diff_datum H5T_REFERENCE complete");
-        break;
-
-    /*-------------------------------------------------------------------------
-     * H5T_VLEN
-     *-------------------------------------------------------------------------
-     */
-    case H5T_VLEN:
-        {
-            hid_t memb_type = H5I_INVALID_HID;
-
-            H5TOOLS_DEBUG("diff_datum H5T_VLEN");
+            vl_opts = *opts;
             /* get the VL sequences's base datatype for each element */
-            memb_type = H5Tget_super(m_type);
-            size = H5Tget_size(memb_type);
+            vl_opts.m_tid = H5Tget_super(opts->m_tid);
+            size          = H5Tget_size(vl_opts.m_tid);
 
             /* get the number of sequence elements */
-            nelmts = ((hvl_t *)((void *)mem1))->len;
+            vl_opts.hs_nelmts = ((hvl_t *)((void *)mem1))->len;
 
-            for (j = 0; j < nelmts; j++)
-                nfound += diff_datum(((char *) (((hvl_t *)((void *)mem1))->p)) + j * size, ((char *) (((hvl_t *)((void *)mem2))->p)) + j * size, memb_type, idx,      /* Extra (void *) cast to quiet "cast to create alignment" warning - 2019/07/05, QAK */
-                        rank, dims, acc, pos, opts, obj1, obj2, container1_id, container2_id, ph, members);
+            for (j = 0; j < vl_opts.hs_nelmts; j++)
+                nfound += diff_datum(((char *)(((hvl_t *)((void *)mem1))->p)) + j * size,
+                                     ((char *)(((hvl_t *)((void *)mem2))->p)) + j * size,
+                                     elemtno, /* Extra (void *) cast to quiet "cast to create alignment"
+                                                 warning - 2019/07/05, QAK */
+                                     &vl_opts, container1_id, container2_id, members);
+            opts->print_header = vl_opts.print_header;
+            opts->not_cmp      = vl_opts.not_cmp;
+            opts->err_stat     = opts->err_stat | vl_opts.err_stat;
 
-            H5Tclose(memb_type);
-        }
-        break;
-
-    /*-------------------------------------------------------------------------
-     * H5T_INTEGER
-     *-------------------------------------------------------------------------
-     */
-    case H5T_INTEGER:
-        H5TOOLS_DEBUG("diff_datum H5T_INTEGER");
-        type_sign = H5Tget_sign(m_type);
-        /*-------------------------------------------------------------------------
-         * H5T_NATIVE_SCHAR
-         *-------------------------------------------------------------------------
-         */
-        if (type_size == 1 && type_sign != H5T_SGN_NONE) {
-            char temp1_char;
-            char temp2_char;
-
-            if(type_size != sizeof(char))
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not char size");
-            HDmemcpy(&temp1_char, mem1, sizeof(char));
-            HDmemcpy(&temp2_char, mem2, sizeof(char));
-            /* -d and !-p */
-            if (opts->d && !opts->p) {
-                if (ABS(temp1_char-temp2_char) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
-                    }
-                    nfound++;
-                }
-            }
-            /* !-d and -p */
-            else if (!opts->d && opts->p) {
-                PER(temp1_char, temp2_char);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P_NOTCOMP, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P, temp1_char, temp2_char, ABS(temp1_char - temp2_char), per);
-                    }
-                    nfound++;
-                }
-            }
-            /* -d and -p */
-            else if (opts->d && opts->p) {
-                PER(temp1_char, temp2_char);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P_NOTCOMP, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && ABS(temp1_char - temp2_char) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P, temp1_char, temp2_char, ABS(temp1_char - temp2_char), per);
-                    }
-                    nfound++;
-                }
-            }
-            else if (temp1_char != temp2_char) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_SCHAR*/
+            H5Tclose(vl_opts.m_tid);
+        } break;
 
         /*-------------------------------------------------------------------------
-         * H5T_NATIVE_UCHAR
+         * H5T_INTEGER
          *-------------------------------------------------------------------------
          */
-        else if (type_size == 1 && type_sign == H5T_SGN_NONE) {
-            unsigned char temp1_uchar;
-            unsigned char temp2_uchar;
-
-            if(type_size != sizeof(unsigned char))
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not unsigned char size");
-
-            HDmemcpy(&temp1_uchar, mem1, sizeof(unsigned char));
-            HDmemcpy(&temp2_uchar, mem2, sizeof(unsigned char));
-            /* -d and !-p */
-            if (opts->d && !opts->p) {
-                if (PDIFF(temp1_uchar, temp2_uchar) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
-                    }
-                    nfound++;
-                }
-            }
-            /* !-d and -p */
-            else if (!opts->d && opts->p) {
-                PER_UNSIGN(signed char, temp1_uchar, temp2_uchar);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P_NOTCOMP, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar), per);
-                    }
-                    nfound++;
-                }
-            }
-            /* -d and -p */
-            else if (opts->d && opts->p) {
-                PER_UNSIGN(signed char, temp1_uchar, temp2_uchar);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P_NOTCOMP, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && PDIFF(temp1_uchar, temp2_uchar) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar), per);
-                    }
-                    nfound++;
-                }
-            }
-            else if (temp1_uchar != temp2_uchar) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_UCHAR*/
-
-        /*-------------------------------------------------------------------------
-         * H5T_NATIVE_SHORT
-         *-------------------------------------------------------------------------
-         */
-        else if (type_size == 2 && type_sign != H5T_SGN_NONE) {
-            short temp1_short;
-            short temp2_short;
-
-            if(type_size != sizeof(short))
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not short size");
-
-            HDmemcpy(&temp1_short, mem1, sizeof(short));
-            HDmemcpy(&temp2_short, mem2, sizeof(short));
-            /* -d and !-p */
-            if (opts->d && !opts->p) {
-                if (ABS(temp1_short - temp2_short) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
-                    }
-                    nfound++;
-                }
-            }
-            /* !-d and -p */
-            else if (!opts->d && opts->p) {
-                PER(temp1_short, temp2_short);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P_NOTCOMP, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P, temp1_short, temp2_short, ABS(temp1_short - temp2_short), per);
-                    }
-                    nfound++;
-                }
-            }
-            /* -d and -p */
-            else if (opts->d && opts->p) {
-                PER(temp1_short, temp2_short);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P_NOTCOMP, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && ABS(temp1_short - temp2_short) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P, temp1_short, temp2_short, ABS(temp1_short - temp2_short), per);
-                    }
-                    nfound++;
-                }
-            }
-            else if (temp1_short != temp2_short) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_SHORT*/
-
-        /*-------------------------------------------------------------------------
-         * H5T_NATIVE_USHORT
-         *-------------------------------------------------------------------------
-         */
-        else if (type_size == 2 && type_sign == H5T_SGN_NONE) {
-            unsigned short temp1_ushort;
-            unsigned short temp2_ushort;
-
-            if(type_size != sizeof(unsigned short))
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not unsigned short size");
-
-            HDmemcpy(&temp1_ushort, mem1, sizeof(unsigned short));
-            HDmemcpy(&temp2_ushort, mem2, sizeof(unsigned short));
-            /* -d and !-p */
-            if (opts->d && !opts->p) {
-                if (PDIFF(temp1_ushort, temp2_ushort) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort));
-                    }
-                    nfound++;
-                }
-            }
-            /* !-d and -p */
-            else if (!opts->d && opts->p) {
-                PER_UNSIGN(signed short, temp1_ushort, temp2_ushort);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P_NOTCOMP, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort), per);
-                    }
-                    nfound++;
-                }
-            }
-            /* -d and -p */
-            else if (opts->d && opts->p) {
-                PER_UNSIGN(signed short, temp1_ushort, temp2_ushort);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P_NOTCOMP, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && PDIFF(temp1_ushort, temp2_ushort) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort), per);
-                    }
-                    nfound++;
-                }
-            }
-            else if (temp1_ushort != temp2_ushort) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_USHORT*/
-
-        /*-------------------------------------------------------------------------
-         * H5T_NATIVE_INT
-         *-------------------------------------------------------------------------
-         */
-        else if (type_size == 4 && type_sign != H5T_SGN_NONE) {
-            int temp1_int;
-            int temp2_int;
-
-            if(type_size != sizeof(int))
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not int size");
-
-            HDmemcpy(&temp1_int, mem1, sizeof(int));
-            HDmemcpy(&temp2_int, mem2, sizeof(int));
-            /* -d and !-p */
-            if (opts->d && !opts->p) {
-                if (ABS(temp1_int-temp2_int) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
-                    }
-                    nfound++;
-                }
-            }
-            /* !-d and -p */
-            else if (!opts->d && opts->p) {
-                PER(temp1_int, temp2_int);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P_NOTCOMP, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P, temp1_int, temp2_int, ABS(temp1_int - temp2_int), per);
-                    }
-                    nfound++;
-                }
-            }
-            /* -d and -p */
-            else if (opts->d && opts->p) {
-                PER(temp1_int, temp2_int);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P_NOTCOMP, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && ABS(temp1_int - temp2_int) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(I_FORMAT_P, temp1_int, temp2_int, ABS(temp1_int - temp2_int), per);
-                    }
-                    nfound++;
-                }
-            }
-            else if (temp1_int != temp2_int) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_INT*/
-
-        /*-------------------------------------------------------------------------
-         * H5T_NATIVE_UINT
-         *-------------------------------------------------------------------------
-         */
-        else if (type_size == 4 && type_sign == H5T_SGN_NONE) {
-            unsigned int temp1_uint;
-            unsigned int temp2_uint;
-
-            if(type_size != sizeof(unsigned int))
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not unsigned int size");
-
-            HDmemcpy(&temp1_uint, mem1, sizeof(unsigned int));
-            HDmemcpy(&temp2_uint, mem2, sizeof(unsigned int));
-            /* -d and !-p */
-            if (opts->d && !opts->p) {
-                if (PDIFF(temp1_uint, temp2_uint) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(UI_FORMAT, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
-                    }
-                    nfound++;
-                }
-            }
-            /* !-d and -p */
-            else if (!opts->d && opts->p) {
-                PER_UNSIGN(signed int, temp1_uint, temp2_uint);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(UI_FORMAT_P_NOTCOMP, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(UI_FORMAT_P, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint), per);
-                    }
-                    nfound++;
-                }
-            }
-            /* -d and -p */
-            else if (opts->d && opts->p) {
-                PER_UNSIGN(signed int, temp1_uint, temp2_uint);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(UI_FORMAT_P_NOTCOMP, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && PDIFF(temp1_uint,temp2_uint) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(UI_FORMAT_P, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint), per);
-                    }
-                    nfound++;
-                }
-            }
-            else if (temp1_uint != temp2_uint) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(UI_FORMAT, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_UINT*/
-
-        /*-------------------------------------------------------------------------
-         * H5T_NATIVE_LONG
-         *-------------------------------------------------------------------------
-         */
-        else if (type_size == 8 && type_sign != H5T_SGN_NONE) {
-            long temp1_long;
-            long temp2_long;
-
-            if(type_size != sizeof(long))
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not long size");
-
-            HDmemcpy(&temp1_long, mem1, sizeof(long));
-            HDmemcpy(&temp2_long, mem2, sizeof(long));
-            /* -d and !-p */
-            if (opts->d && !opts->p) {
-                if (ABS(temp1_long-temp2_long) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(LI_FORMAT, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
-                    }
-                    nfound++;
-                }
-            }
-            /* !-d and -p */
-            else if (!opts->d && opts->p) {
-                PER(temp1_long, temp2_long);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(LI_FORMAT_P_NOTCOMP, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(LI_FORMAT_P, temp1_long, temp2_long, ABS(temp1_long - temp2_long), per);
-                    }
-                    nfound++;
-                }
-            }
-            /* -d and -p */
-            else if (opts->d && opts->p) {
-                PER(temp1_long, temp2_long);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(LI_FORMAT_P_NOTCOMP, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && ABS(temp1_long-temp2_long) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(LI_FORMAT_P, temp1_long, temp2_long, ABS(temp1_long - temp2_long), per);
-                    }
-                    nfound++;
-                }
-            }
-            else if (temp1_long != temp2_long) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LI_FORMAT, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_LONG*/
-
-        /*-------------------------------------------------------------------------
-         * H5T_NATIVE_ULONG
-         *-------------------------------------------------------------------------
-         */
-        else if (type_size == 8 && type_sign == H5T_SGN_NONE) {
-            unsigned long temp1_ulong;
-            unsigned long temp2_ulong;
-
-            if(type_size != sizeof(unsigned long))
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not unsigned long size");
-
-            HDmemcpy(&temp1_ulong, mem1, sizeof(unsigned long));
-            HDmemcpy(&temp2_ulong, mem2, sizeof(unsigned long));
-            /* -d and !-p */
-            if (opts->d && !opts->p) {
-                if (PDIFF(temp1_ulong, temp2_ulong) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(ULI_FORMAT, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong));
-                    }
-                    nfound++;
-                }
-            }
-            /* !-d and -p */
-            else if (!opts->d && opts->p) {
-                PER_UNSIGN(signed long, temp1_ulong, temp2_ulong);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(ULI_FORMAT_P_NOTCOMP, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(ULI_FORMAT_P, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong), per);
-                    }
-                    nfound++;
-                }
-            }
-            /* -d and -p */
-            else if (opts->d && opts->p) {
-                PER_UNSIGN(signed long, temp1_ulong, temp2_ulong);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(ULI_FORMAT_P_NOTCOMP, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && PDIFF(temp1_ulong,temp2_ulong) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(ULI_FORMAT_P, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong), per);
-                    }
-                    nfound++;
-                }
-            }
-            else if (temp1_ulong != temp2_ulong) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(ULI_FORMAT, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_ULONG*/
-        break; /* H5T_INTEGER class */
-
-    /*-------------------------------------------------------------------------
-     * H5T_FLOAT
-     *-------------------------------------------------------------------------
-     */
-    case H5T_FLOAT:
-        /*-------------------------------------------------------------------------
-         * H5T_NATIVE_FLOAT
-         *-------------------------------------------------------------------------
-         */
-        H5TOOLS_DEBUG("diff_datum H5T_FLOAT");
-        if (type_size == 4) {
-            float temp1_float;
-            float temp2_float;
-            hbool_t isnan1 = FALSE;
-            hbool_t isnan2 = FALSE;
-
-            if(type_size != sizeof(float))
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not float size");
-
-            HDmemcpy(&temp1_float, mem1, sizeof(float));
-            HDmemcpy(&temp2_float, mem2, sizeof(float));
-
-            /* logic for detecting NaNs is different with opts -d, -p and no opts */
-
+        case H5T_INTEGER:
+            H5TOOLS_DEBUG("H5T_INTEGER");
+            type_sign = H5Tget_sign(opts->m_tid);
             /*-------------------------------------------------------------------------
-             * -d and !-p
+             * H5T_NATIVE_SCHAR
              *-------------------------------------------------------------------------
              */
-            if (opts->d && !opts->p) {
-                /*-------------------------------------------------------------------------
-                 * detect NaNs
-                 *-------------------------------------------------------------------------
-                 */
-                if (opts->do_nans) {
-                    isnan1 = HDisnan(temp1_float);
-                    isnan2 = HDisnan(temp2_float);
-                }
+            if (type_size == 1 && type_sign != H5T_SGN_NONE) {
+                if (type_size != sizeof(char))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not char size");
+                nfound += diff_schar_element(mem1, mem2, elemtno, opts);
+            } /*H5T_NATIVE_SCHAR*/
 
-                /* both not NaN, do the comparison */
-                if (!isnan1 && !isnan2) {
-                    if (ABS(temp1_float-temp2_float) > (float) opts->delta) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(F_FORMAT, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                        }
-                        nfound++;
-                    }
-                }
-                /* only one is NaN, assume difference */
-                else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                    }
-                    nfound++;
-                }
-            }
             /*-------------------------------------------------------------------------
-             * !-d and -p
+             * H5T_NATIVE_UCHAR
              *-------------------------------------------------------------------------
              */
-            else if (!opts->d && opts->p) {
-                /*-------------------------------------------------------------------------
-                 * detect NaNs
-                 *-------------------------------------------------------------------------
-                 */
-                if (opts->do_nans) {
-                    isnan1 = HDisnan(temp1_float);
-                    isnan2 = HDisnan(temp2_float);
-                }
+            else if (type_size == 1 && type_sign == H5T_SGN_NONE) {
+                if (type_size != sizeof(unsigned char))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not unsigned char size");
+                nfound += diff_uchar_element(mem1, mem2, elemtno, opts);
+            } /*H5T_NATIVE_UCHAR*/
 
-                /* both not NaN, do the comparison */
-                if (!isnan1 && !isnan2) {
-                    PER(temp1_float, temp2_float);
-
-                    if (not_comparable && !both_zero) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(F_FORMAT_P_NOTCOMP, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                        }
-                        nfound++;
-                    }
-                    else if (per > opts->percent && (double) ABS(temp1_float - temp2_float) > opts->delta) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(F_FORMAT_P, (double) temp1_float, (double) temp2_float,
-                                    (double) ABS(temp1_float - temp2_float), (double) ABS(1 - temp2_float / temp1_float));
-                        }
-                        nfound++;
-                    }
-                }
-                /* only one is NaN, assume difference */
-                else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                    }
-                    nfound++;
-                }
-            }
             /*-------------------------------------------------------------------------
-             * -d and -p
+             * H5T_NATIVE_SHORT
              *-------------------------------------------------------------------------
              */
-            else if (opts->d && opts->p) {
-                /*-------------------------------------------------------------------------
-                 * detect NaNs
-                 *-------------------------------------------------------------------------
-                 */
-                if (opts->do_nans) {
-                    isnan1 = HDisnan(temp1_float);
-                    isnan2 = HDisnan(temp2_float);
-                }
+            else if (type_size == 2 && type_sign != H5T_SGN_NONE) {
+                if (type_size != sizeof(short))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not short size");
+                nfound += diff_short_element(mem1, mem2, elemtno, opts);
+            } /*H5T_NATIVE_SHORT*/
 
-                /* both not NaN, do the comparison */
-                if (!isnan1 && !isnan2) {
-                    PER(temp1_float, temp2_float);
-
-                    if (not_comparable && !both_zero) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(F_FORMAT_P_NOTCOMP, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                        }
-                        nfound++;
-                    }
-                    else if (per > opts->percent) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(F_FORMAT_P, (double) temp1_float, (double) temp2_float,
-                                    (double) ABS(temp1_float - temp2_float), (double) ABS(1 - temp2_float / temp1_float));
-                        }
-                        nfound++;
-                    }
-                }
-                /* only one is NaN, assume difference */
-                else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                    }
-                    nfound++;
-                }
-            }
             /*-------------------------------------------------------------------------
-             * no -d and -p
+             * H5T_NATIVE_USHORT
              *-------------------------------------------------------------------------
              */
-            else if (equal_float(temp1_float, temp2_float, opts) == FALSE) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_FLOAT*/
+            else if (type_size == 2 && type_sign == H5T_SGN_NONE) {
+                if (type_size != sizeof(unsigned short))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not unsigned short size");
+                nfound += diff_ushort_element(mem1, mem2, elemtno, opts);
+            } /*H5T_NATIVE_USHORT*/
+
+            /*-------------------------------------------------------------------------
+             * H5T_NATIVE_INT
+             *-------------------------------------------------------------------------
+             */
+            else if (type_size == 4 && type_sign != H5T_SGN_NONE) {
+                if (type_size != sizeof(int))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not int size");
+                nfound += diff_int_element(mem1, mem2, elemtno, opts);
+            } /*H5T_NATIVE_INT*/
+
+            /*-------------------------------------------------------------------------
+             * H5T_NATIVE_UINT
+             *-------------------------------------------------------------------------
+             */
+            else if (type_size == 4 && type_sign == H5T_SGN_NONE) {
+                if (type_size != sizeof(unsigned int))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not unsigned int size");
+                nfound += diff_uint_element(mem1, mem2, elemtno, opts);
+            } /*H5T_NATIVE_UINT*/
+
+            /*-------------------------------------------------------------------------
+             * H5T_NATIVE_LONG
+             *-------------------------------------------------------------------------
+             */
+            else if (type_size == 8 && type_sign != H5T_SGN_NONE) {
+                if (type_size != sizeof(long))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not long size");
+                nfound += diff_long_element(mem1, mem2, elemtno, opts);
+            } /*H5T_NATIVE_LONG*/
+
+            /*-------------------------------------------------------------------------
+             * H5T_NATIVE_ULONG
+             *-------------------------------------------------------------------------
+             */
+            else if (type_size == 8 && type_sign == H5T_SGN_NONE) {
+                if (type_size != sizeof(unsigned long))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not unsigned long size");
+                nfound += diff_ulong_element(mem1, mem2, elemtno, opts);
+            } /*H5T_NATIVE_ULONG*/
+
+            /*-------------------------------------------------------------------------
+             * H5T_NATIVE_LLONG
+             *-------------------------------------------------------------------------
+             */
+            else if (type_size == 16 && type_sign != H5T_SGN_NONE) {
+                if (type_size != sizeof(long long))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not long long size");
+                nfound += diff_llong_element(mem1, mem2, elemtno, opts);
+            } /*H5T_NATIVE_LLONG*/
+
+            /*-------------------------------------------------------------------------
+             * H5T_NATIVE_ULLONG
+             *-------------------------------------------------------------------------
+             */
+            else if (type_size == 16 && type_sign == H5T_SGN_NONE) {
+                if (type_size != sizeof(unsigned long long))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not unsigned long long size");
+                nfound += diff_ullong_element(mem1, mem2, elemtno, opts);
+            }      /*H5T_NATIVE_ULLONG*/
+            break; /* H5T_INTEGER class */
 
         /*-------------------------------------------------------------------------
-         * H5T_NATIVE_DOUBLE
+         * H5T_FLOAT
          *-------------------------------------------------------------------------
          */
-        else if (type_size == 8) {
-            double temp1_double;
-            double temp2_double;
-            hbool_t isnan1 = FALSE;
-            hbool_t isnan2 = FALSE;
-
-            if(type_size != sizeof(double))
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not double size");
-
-            HDmemcpy(&temp1_double, mem1, sizeof(double));
-            HDmemcpy(&temp2_double, mem2, sizeof(double));
-
-            /* logic for detecting NaNs is different with opts -d, -p and no opts */
+        case H5T_FLOAT:
             /*-------------------------------------------------------------------------
-             * -d and !-p
+             * H5T_NATIVE_FLOAT
              *-------------------------------------------------------------------------
              */
-            if (opts->d && !opts->p) {
-                /*-------------------------------------------------------------------------
-                 * detect NaNs
-                 *-------------------------------------------------------------------------
-                 */
-                if (opts->do_nans) {
-                    isnan1 = HDisnan(temp1_double);
-                    isnan2 = HDisnan(temp2_double);
-                }
-
-                /* both not NaN, do the comparison */
-                if (!isnan1 && !isnan2) {
-                    if (ABS(temp1_double-temp2_double) > opts->delta) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                        }
-                        nfound++;
-                    }
-                }
-                /* only one is NaN, assume difference */
-                else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
-            } /* opts->d && !opts->p */
-            /*-------------------------------------------------------------------------
-             * !-d and -p
-             *-------------------------------------------------------------------------
-             */
-            else if (!opts->d && opts->p) {
-                /*-------------------------------------------------------------------------
-                 * detect NaNs
-                 *-------------------------------------------------------------------------
-                 */
-                if (opts->do_nans) {
-                    isnan1 = HDisnan(temp1_double);
-                    isnan2 = HDisnan(temp2_double);
-                }
-
-                /* both not NaN, do the comparison */
-                if (!isnan1 && !isnan2) {
-                    PER(temp1_double, temp2_double);
-
-                    if (not_comparable && !both_zero) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(F_FORMAT_P_NOTCOMP, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                        }
-                        nfound++;
-                    }
-                    else if (per > opts->percent) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(F_FORMAT_P, temp1_double, temp2_double, ABS(temp1_double - temp2_double), ABS(1 - temp2_double / temp1_double));
-                        }
-                        nfound++;
-                    }
-                }
-                /* only one is NaN, assume difference */
-                else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
+            H5TOOLS_DEBUG("H5T_FLOAT");
+            if (type_size == 4) {
+                if (type_size != sizeof(float))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not float size");
+                nfound += diff_float_element(mem1, mem2, elemtno, opts);
             }
             /*-------------------------------------------------------------------------
-             * -d and -p
+             * H5T_NATIVE_DOUBLE
              *-------------------------------------------------------------------------
              */
-            else if (opts->d && opts->p) {
-                /*-------------------------------------------------------------------------
-                * detect NaNs
-                *-------------------------------------------------------------------------
-                */
-                if (opts->do_nans) {
-                    isnan1 = HDisnan(temp1_double);
-                    isnan2 = HDisnan(temp2_double);
-                }
-
-                /* both not NaN, do the comparison */
-                if (!isnan1 && !isnan2) {
-                    PER(temp1_double, temp2_double);
-
-                    if (not_comparable && !both_zero) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(F_FORMAT_P_NOTCOMP, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                        }
-                        nfound++;
-                    }
-                    else if (per > opts->percent &&
-                    ABS(temp1_double-temp2_double) > opts->delta) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(F_FORMAT_P, temp1_double, temp2_double, ABS(temp1_double - temp2_double), ABS(1 - temp2_double / temp1_double));
-                        }
-                        nfound++;
-                    }
-                }
-                /* only one is NaN, assume difference */
-                else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
+            else if (type_size == 8) {
+                if (type_size != sizeof(double))
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not double size");
+                nfound += diff_double_element(mem1, mem2, elemtno, opts);
             }
-            /*-------------------------------------------------------------------------
-             * no -d and -p
-             *-------------------------------------------------------------------------
-             */
-            else if (equal_double(temp1_double, temp2_double, opts) == FALSE) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_DOUBLE*/
-
 #if H5_SIZEOF_LONG_DOUBLE != H5_SIZEOF_DOUBLE
 
-        /*-------------------------------------------------------------------------
-         * H5T_NATIVE_LDOUBLE
-         *-------------------------------------------------------------------------
-         */
-        else if (type_size == H5_SIZEOF_LONG_DOUBLE) {
-            long double temp1_double;
-            long double temp2_double;
-            hbool_t     isnan1 = FALSE;
-            hbool_t     isnan2 = FALSE;
-
-            if(type_size != sizeof(long double)) {
-                H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not long double size");
-            }
-
-            HDmemcpy(&temp1_double, mem1, sizeof(long double));
-            HDmemcpy(&temp2_double, mem2, sizeof(long double));
-
-            /* logic for detecting NaNs is different with options -d, -p and no options */
-
             /*-------------------------------------------------------------------------
-             * -d and !-p
+             * H5T_NATIVE_LDOUBLE
              *-------------------------------------------------------------------------
              */
-            if (opts->d && !opts->p) {
-                /*-------------------------------------------------------------------------
-                 * detect NaNs
-                 *-------------------------------------------------------------------------
-                 */
-                if (opts->do_nans) {
-                    isnan1 = HDisnan(temp1_double);
-                    isnan2 = HDisnan(temp2_double);
+            else if (type_size == H5_SIZEOF_LONG_DOUBLE) {
+                if (type_size != sizeof(long double)) {
+                    H5TOOLS_GOTO_ERROR(H5DIFF_ERR, "Type size is not long double size");
                 }
+                nfound += diff_ldouble_element(mem1, mem2, elemtno, opts);
+            } /*H5T_NATIVE_LDOUBLE*/
+#endif /* H5_SIZEOF_LONG_DOUBLE */
 
-                /* both not NaN, do the comparison */
-                if (!isnan1 && !isnan2) {
-                    if (ABS(temp1_double-temp2_double) > opts->delta) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(LD_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                        }
-                        nfound++;
-                    }
-                } /* NaN */
-                /* only one is NaN, assume difference */
-                else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
-            }
-            /*-------------------------------------------------------------------------
-             * !-d and -p
-             *-------------------------------------------------------------------------
-             */
-            else if (!opts->d && opts->p) {
-                /*-------------------------------------------------------------------------
-                 * detect NaNs
-                 *-------------------------------------------------------------------------
-                 */
-                if (opts->do_nans) {
-                    isnan1 = HDisnan(temp1_double);
-                    isnan2 = HDisnan(temp2_double);
-                }
-
-                /* both not NaN, do the comparison */
-                if (!isnan1 && !isnan2) {
-                    PER(temp1_double,temp2_double);
-
-                    if (not_comparable && !both_zero) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(LD_FORMAT_P_NOTCOMP, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                        }
-                        nfound++;
-                    }
-                    else if (per > opts->percent) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(LD_FORMAT_P, temp1_double, temp2_double, ABS(temp1_double - temp2_double), ABS(1 - temp2_double / temp1_double));
-                        }
-                        nfound++;
-                    }
-                } /* NaN */
-                /* only one is NaN, assume difference */
-                else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
-            }
-            /*-------------------------------------------------------------------------
-             * -d and -p
-             *-------------------------------------------------------------------------
-             */
-            else if (opts->d && opts->p) {
-                /*-------------------------------------------------------------------------
-                 * detect NaNs
-                 *-------------------------------------------------------------------------
-                 */
-                if (opts->do_nans) {
-                    isnan1 = HDisnan(temp1_double);
-                    isnan2 = HDisnan(temp2_double);
-                }
-
-                /* both not NaN, do the comparison */
-                if (!isnan1 && !isnan2) {
-                    PER(temp1_double,temp2_double);
-
-                    if (not_comparable && !both_zero) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(LD_FORMAT_P_NOTCOMP, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                        }
-                        nfound++;
-                    }
-                    else if (per > opts->percent && ABS(temp1_double-temp2_double) > opts->delta) {
-                        if (print_data(opts)) {
-                            print_pos(ph, 1, idx, acc, pos, rank, dims, obj1, obj2);
-                            parallel_print(SPACES);
-                            parallel_print(LD_FORMAT_P, temp1_double, temp2_double, ABS(temp1_double - temp2_double), ABS(1 - temp2_double / temp1_double));
-                        }
-                        nfound++;
-                    }
-                } /* NaN */
-                /* only one is NaN, assume difference */
-                else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
-            }
-            /*-------------------------------------------------------------------------
-             * no -d and -p
-             *-------------------------------------------------------------------------
-             */
-            else if (equal_ldouble(temp1_double, temp2_double, opts) == FALSE) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, idx, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LD_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                }
-                nfound++;
-            }
-        } /*H5T_NATIVE_LDOUBLE*/
-#endif  /* H5_SIZEOF_LONG_DOUBLE */
-
-        break; /* H5T_FLOAT class */
+            break; /* H5T_FLOAT class */
 
     } /* switch */
 
@@ -2227,8 +1301,10 @@ done:
  *-------------------------------------------------------------------------
  */
 
-static hbool_t all_zero(const void *_mem, size_t size) {
-    const unsigned char *mem = (const unsigned char *) _mem;
+static hbool_t
+all_zero(const void *_mem, size_t size)
+{
+    const unsigned char *mem = (const unsigned char *)_mem;
 
     while (size-- > 0)
         if (mem[size])
@@ -2246,17 +1322,17 @@ static hbool_t all_zero(const void *_mem, size_t size) {
  *-------------------------------------------------------------------------
  */
 
-static
-void print_region_block(int i, hsize_t *ptdata, int ndims) {
+static void
+print_region_block(int i, hsize_t *ptdata, int ndims)
+{
     int j;
 
     parallel_print("        ");
     for (j = 0; j < ndims; j++)
-        parallel_print("%s%lu", j ? "," : "   (", (unsigned long) ptdata[i * 2 * ndims + j]);
+        parallel_print("%s%lu", j ? "," : "   (", (unsigned long)ptdata[i * 2 * ndims + j]);
     for (j = 0; j < ndims; j++)
-        parallel_print("%s%lu", j ? "," : ")-(", (unsigned long) ptdata[i * 2 * ndims + j + ndims]);
+        parallel_print("%s%lu", j ? "," : ")-(", (unsigned long)ptdata[i * 2 * ndims + j + ndims]);
     parallel_print(")");
-
 }
 
 /*-------------------------------------------------------------------------
@@ -2268,15 +1344,15 @@ void print_region_block(int i, hsize_t *ptdata, int ndims) {
  *-------------------------------------------------------------------------
  */
 
-static
-void print_points(int i, hsize_t *ptdata, int ndims) {
+static void
+print_points(int i, hsize_t *ptdata, int ndims)
+{
     int j;
 
     parallel_print("              ");
     for (j = 0; j < ndims; j++)
-        parallel_print("%s%lu", j ? "," : "(", (unsigned long) (ptdata[i * ndims + j]));
+        parallel_print("%s%lu", j ? "," : "(", (unsigned long)(ptdata[i * ndims + j]));
     parallel_print(")");
-
 }
 
 /*-------------------------------------------------------------------------
@@ -2288,7 +1364,8 @@ void print_points(int i, hsize_t *ptdata, int ndims) {
  *-------------------------------------------------------------------------
  */
 
-static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t region2_id, diff_opt_t *opts)
+static hsize_t
+diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t region2_id, diff_opt_t *opts)
 
 {
     hssize_t nblocks1, npoints1;
@@ -2299,8 +1376,8 @@ static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t
     int      ndims1;
     int      ndims2;
     int      i, j;
-    hsize_t  nfound_b = 0; /* block differences found */
-    hsize_t  nfound_p = 0; /* point differences found */
+    hsize_t  nfound_b  = 0; /* block differences found */
+    hsize_t  nfound_p  = 0; /* point differences found */
     hsize_t  ret_value = 0;
 
     H5TOOLS_START_DEBUG("");
@@ -2313,15 +1390,17 @@ static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t
      * respectively. They do not currently know how to translate from one to
      * the other.
      */
-    H5E_BEGIN_TRY {
+    H5E_BEGIN_TRY
+    {
         nblocks1 = H5Sget_select_hyper_nblocks(region1_id);
         nblocks2 = H5Sget_select_hyper_nblocks(region2_id);
 
         npoints1 = H5Sget_select_elem_npoints(region1_id);
         npoints2 = H5Sget_select_elem_npoints(region2_id);
-    } H5E_END_TRY;
-    H5TOOLS_DEBUG("diff_region blocks: 1=%ld-2=%ld", nblocks1, nblocks2);
-    H5TOOLS_DEBUG("diff_region points: 1=%ld-2=%ld", npoints1, npoints2);
+    }
+    H5E_END_TRY;
+    H5TOOLS_DEBUG("blocks: 1=%ld-2=%ld", nblocks1, nblocks2);
+    H5TOOLS_DEBUG("points: 1=%ld-2=%ld", npoints1, npoints2);
 
     if (nblocks1 != nblocks2 || npoints1 != npoints2 || ndims1 != ndims2) {
         opts->not_cmp = 1;
@@ -2335,24 +1414,24 @@ static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t
     if (nblocks1 > 0) {
         H5TOOLS_DEBUG("region compare blocks");
         HDassert(ndims1 > 0);
-        alloc_size = (hsize_t) nblocks1 * (unsigned) ndims1 * 2 * sizeof(ptdata1[0]);
-        HDassert(alloc_size == (hsize_t)((size_t )alloc_size)); /*check for overflow*/
+        alloc_size = (hsize_t)nblocks1 * (unsigned)ndims1 * 2 * sizeof(ptdata1[0]);
+        HDassert(alloc_size == (hsize_t)((size_t)alloc_size)); /*check for overflow*/
 
-        if((ptdata1 = (hsize_t *) HDmalloc((size_t )alloc_size)) == NULL) {
+        if ((ptdata1 = (hsize_t *)HDmalloc((size_t)alloc_size)) == NULL) {
             opts->err_stat = H5DIFF_ERR;
             H5TOOLS_INFO("Buffer allocation failed");
         }
         else {
             H5_CHECK_OVERFLOW(nblocks1, hssize_t, hsize_t);
-            H5Sget_select_hyper_blocklist(region1_id, (hsize_t) 0, (hsize_t) nblocks1, ptdata1);
+            H5Sget_select_hyper_blocklist(region1_id, (hsize_t)0, (hsize_t)nblocks1, ptdata1);
 
-            if((ptdata2 = (hsize_t *) HDmalloc((size_t )alloc_size)) == NULL) {
+            if ((ptdata2 = (hsize_t *)HDmalloc((size_t)alloc_size)) == NULL) {
                 opts->err_stat = H5DIFF_ERR;
                 H5TOOLS_INFO("Buffer allocation failed");
             }
             else {
                 H5_CHECK_OVERFLOW(nblocks2, hssize_t, hsize_t);
-                H5Sget_select_hyper_blocklist(region2_id, (hsize_t) 0, (hsize_t) nblocks2, ptdata2);
+                H5Sget_select_hyper_blocklist(region2_id, (hsize_t)0, (hsize_t)nblocks2, ptdata2);
 
                 for (i = 0; i < nblocks1; i++) {
                     /* start coordinates and opposite corner */
@@ -2361,17 +1440,17 @@ static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t
 
                         start1 = ptdata1[i * 2 * ndims1 + j];
                         start2 = ptdata2[i * 2 * ndims1 + j];
-                        end1 = ptdata1[i * 2 * ndims1 + j + ndims1];
-                        end2 = ptdata2[i * 2 * ndims1 + j + ndims1];
+                        end1   = ptdata1[i * 2 * ndims1 + j + ndims1];
+                        end2   = ptdata2[i * 2 * ndims1 + j + ndims1];
                         if (start1 != start2 || end1 != end2)
                             nfound_b++;
                     }
                 }
 
                 /* print differences if found */
-                if (nfound_b && opts->m_verbose) {
+                if (nfound_b && opts->mode_verbose) {
                     H5O_info2_t oi1, oi2;
-                    char *obj1_str = NULL, *obj2_str = NULL;
+                    char *      obj1_str = NULL, *obj2_str = NULL;
 
                     H5Oget_info3(obj1_id, &oi1, H5O_INFO_BASIC);
                     H5Oget_info3(obj2_id, &oi2, H5O_INFO_BASIC);
@@ -2381,7 +1460,7 @@ static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t
                     H5Otoken_to_str(obj2_id, &oi2.token, &obj2_str);
 
                     parallel_print("Referenced dataset      %s            %s\n", obj1_str, obj2_str);
-                    parallel_print( "------------------------------------------------------------\n");
+                    parallel_print("------------------------------------------------------------\n");
 
                     H5free_memory(obj1_str);
                     H5free_memory(obj2_str);
@@ -2407,24 +1486,24 @@ static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t
      */
     if (npoints1 > 0) {
         H5TOOLS_DEBUG("region compare points");
-        alloc_size = (hsize_t) npoints1 * (unsigned) ndims1 * sizeof(ptdata1[0]);
-        HDassert(alloc_size == (hsize_t)((size_t )alloc_size)); /*check for overflow*/
+        alloc_size = (hsize_t)npoints1 * (unsigned)ndims1 * sizeof(ptdata1[0]);
+        HDassert(alloc_size == (hsize_t)((size_t)alloc_size)); /*check for overflow*/
 
-        if((ptdata1 = (hsize_t *) HDmalloc((size_t )alloc_size)) == NULL) {
+        if ((ptdata1 = (hsize_t *)HDmalloc((size_t)alloc_size)) == NULL) {
             opts->err_stat = H5DIFF_ERR;
             H5TOOLS_INFO("Buffer allocation failed");
         }
         else {
             H5_CHECK_OVERFLOW(npoints1, hssize_t, hsize_t);
-            H5Sget_select_elem_pointlist(region1_id, (hsize_t) 0, (hsize_t) npoints1, ptdata1);
+            H5Sget_select_elem_pointlist(region1_id, (hsize_t)0, (hsize_t)npoints1, ptdata1);
 
-            if((ptdata2 = (hsize_t *) HDmalloc((size_t )alloc_size)) == NULL) {
+            if ((ptdata2 = (hsize_t *)HDmalloc((size_t)alloc_size)) == NULL) {
                 opts->err_stat = H5DIFF_ERR;
                 H5TOOLS_INFO("Buffer allocation failed");
             }
             else {
                 H5_CHECK_OVERFLOW(npoints1, hssize_t, hsize_t);
-                H5Sget_select_elem_pointlist(region2_id, (hsize_t) 0, (hsize_t) npoints2, ptdata2);
+                H5Sget_select_elem_pointlist(region2_id, (hsize_t)0, (hsize_t)npoints2, ptdata2);
 
                 for (i = 0; i < npoints1; i++) {
                     hsize_t pt1, pt2;
@@ -2437,11 +1516,11 @@ static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t
                     }
                 }
 
-                if (nfound_p && opts->m_verbose) {
+                if (nfound_p && opts->mode_verbose) {
                     parallel_print("Region points\n");
                     for (i = 0; i < npoints1; i++) {
                         hsize_t pt1, pt2;
-                        int diff_data = 0;
+                        int     diff_data = 0;
 
                         for (j = 0; j < ndims1; j++) {
                             pt1 = ptdata1[i * ndims1 + j];
@@ -2462,9 +1541,9 @@ static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t
                 HDfree(ptdata2);
             } /* else ptdata2 */
 
-#if defined (H5DIFF_DEBUG)
+#if defined(H5DIFF_DEBUG)
             for (i = 0; i < npoints1; i++) {
-                parallel_print("%sPt%lu: " , i ? "," : "", (unsigned long)i);
+                parallel_print("%sPt%lu: ", i ? "," : "", (unsigned long)i);
 
                 for (j = 0; j < ndims1; j++)
                     parallel_print("%s%lu", j ? "," : "(", (unsigned long)(ptdata1[i * ndims1 + j]));
@@ -2478,8 +1557,8 @@ static hsize_t diff_region(hid_t obj1_id, hid_t obj2_id, hid_t region1_id, hid_t
         } /* else ptdata1 */
     }
 
-    nfound_b = nfound_b / (unsigned) ndims1;
-    nfound_p = nfound_p / (unsigned) ndims1;
+    nfound_b = nfound_b / (unsigned)ndims1;
+    nfound_p = nfound_p / (unsigned)ndims1;
 
     ret_value = nfound_p + nfound_b;
 
@@ -2497,8 +1576,8 @@ done:
  *-------------------------------------------------------------------------
  */
 
-static hsize_t character_compare(char *mem1, char *mem2, hsize_t i, size_t u,
-        int rank, hsize_t *dims, hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1, const char *obj2, int *ph)
+static hsize_t
+character_compare(char *mem1, char *mem2, hsize_t elemtno, size_t u, diff_opt_t *opts)
 {
     hsize_t nfound = 0; /* differences found */
     char    temp1_uchar;
@@ -2506,12 +1585,14 @@ static hsize_t character_compare(char *mem1, char *mem2, hsize_t i, size_t u,
 
     HDmemcpy(&temp1_uchar, mem1, sizeof(unsigned char));
     HDmemcpy(&temp2_uchar, mem2, sizeof(unsigned char));
-    H5TOOLS_START_DEBUG(" %d=%d",temp1_uchar,temp2_uchar);
+    H5TOOLS_START_DEBUG(" %d=%d", temp1_uchar, temp2_uchar);
 
     if (temp1_uchar != temp2_uchar) {
         if (print_data(opts)) {
-            print_char_pos(ph, 0, i, u, acc, pos, rank, dims, obj1, obj2);
-            parallel_print("            ");
+            opts->print_percentage = 0;
+            opts->print_dims       = 1;
+            print_pos(opts, elemtno, u);
+            parallel_print("  ");
             h5diff_print_char(temp1_uchar);
             parallel_print("            ");
             h5diff_print_char(temp2_uchar);
@@ -2532,1953 +1613,1496 @@ static hsize_t character_compare(char *mem1, char *mem2, hsize_t i, size_t u,
  *-------------------------------------------------------------------------
  */
 
-static hsize_t character_compare_opt(unsigned char *mem1, unsigned char *mem2,
-        hsize_t i, int rank, hsize_t *dims, hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1, const char *obj2, int *ph)
+static hsize_t
+character_compare_opt(unsigned char *mem1, unsigned char *mem2, hsize_t elemtno, diff_opt_t *opts)
 {
     hsize_t       nfound = 0; /* differences found */
     unsigned char temp1_uchar;
     unsigned char temp2_uchar;
+    hbool_t       both_zero = FALSE;
     double        per;
-    hbool_t       both_zero;
 
     HDmemcpy(&temp1_uchar, mem1, sizeof(unsigned char));
     HDmemcpy(&temp2_uchar, mem2, sizeof(unsigned char));
+    H5TOOLS_START_DEBUG(" %d=%d", temp1_uchar, temp2_uchar);
 
     /* -d and !-p */
 
-    if (opts->d && !opts->p) {
-        if (PDIFF(temp1_uchar,temp2_uchar) > opts->delta) {
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (PDIFF(temp1_uchar, temp2_uchar) > opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elemtno, 0);
             if (print_data(opts)) {
-                print_pos(ph, 0, i, acc, pos, rank, dims, obj1, obj2);
-                parallel_print(SPACES);
                 parallel_print(I_FORMAT, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
             }
             nfound++;
         }
     }
     /* !-d and -p */
-    else if (!opts->d && opts->p) {
+    else if (!opts->delta_bool && opts->percent_bool) {
         PER_UNSIGN(signed char, temp1_uchar, temp2_uchar);
         if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elemtno, 0);
             if (print_data(opts)) {
-                print_pos(ph, 1, i, acc, pos, rank, dims, obj1, obj2);
-                parallel_print(SPACES);
                 parallel_print(I_FORMAT_P, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar), per);
             }
             nfound++;
         }
     }
     /* -d and -p */
-    else if (opts->d && opts->p) {
+    else if (opts->delta_bool && opts->percent_bool) {
         PER_UNSIGN(signed char, temp1_uchar, temp2_uchar);
-        if (per > opts->percent && PDIFF(temp1_uchar,temp2_uchar) > opts->delta) {
+        if (per > opts->percent && PDIFF(temp1_uchar, temp2_uchar) > opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elemtno, 0);
             if (print_data(opts)) {
-                print_pos(ph, 1, i, acc, pos, rank, dims, obj1, obj2);
-                parallel_print(SPACES);
                 parallel_print(I_FORMAT_P, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar), per);
             }
             nfound++;
         }
     }
     else if (temp1_uchar != temp2_uchar) {
+        opts->print_percentage = 0;
+        print_pos(opts, elemtno, 0);
         if (print_data(opts)) {
-            print_pos(ph, 0, i, acc, pos, rank, dims, obj1, obj2);
-            parallel_print(SPACES);
             parallel_print(I_FORMAT, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
         }
         nfound++;
     }
 
+    H5TOOLS_ENDDEBUG(": %d zero:%d", nfound, both_zero);
     return nfound;
 }
 
 /*-------------------------------------------------------------------------
- * Function: diff_float
+ * Function: diff_float_element
  *
- * Purpose:  diff a H5T_NATIVE_FLOAT type
+ * Purpose:  diff a single H5T_NATIVE_FLOAT type
  *
  * Return:   number of differences found
-*
+ *
  *-------------------------------------------------------------------------
  */
-static hsize_t diff_float(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims, hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
-
+static hsize_t
+diff_float_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
 {
     hsize_t nfound = 0; /* number of differences found */
     float   temp1_float;
     float   temp2_float;
-    hsize_t i;
     double  per;
-    hbool_t both_zero;
-    hbool_t isnan1 = FALSE;
-    hbool_t isnan2 = FALSE;
+    hbool_t both_zero = FALSE;
+    hbool_t isnan1    = FALSE;
+    hbool_t isnan2    = FALSE;
+
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_float, mem1, sizeof(float));
+    HDmemcpy(&temp2_float, mem2, sizeof(float));
+
+    /* logic for detecting NaNs is different with opts -d, -p and no opts */
 
     /*-------------------------------------------------------------------------
      * -d and !-p
      *-------------------------------------------------------------------------
      */
+    if (opts->delta_bool && !opts->percent_bool) {
+        /*-------------------------------------------------------------------------
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
+        if (opts->do_nans) {
+            isnan1 = HDisnan(temp1_float);
+            isnan2 = HDisnan(temp2_float);
+        }
 
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_float, mem1, sizeof(float));
-            HDmemcpy(&temp2_float, mem2, sizeof(float));
-
-            /*-------------------------------------------------------------------------
-             * detect NaNs
-             *-------------------------------------------------------------------------
-             */
-            if (opts->do_nans) {
-                isnan1 = HDisnan(temp1_float);
-                isnan2 = HDisnan(temp2_float);
-            }
-
-            /* both not NaN, do the comparison */
-            if (!isnan1 && !isnan2) {
-                if ((double) ABS(temp1_float - temp2_float) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                    }
-                    nfound++;
-                }
-            }
-            /* only one is NaN, assume difference */
-            else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+        /* both not NaN, do the comparison */
+        if (!isnan1 && !isnan2) {
+            if ((double)ABS(temp1_float - temp2_float) > opts->delta) {
+                opts->print_percentage = 0;
+                print_pos(opts, elem_idx, 0);
                 if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
+                    parallel_print(F_FORMAT, (double)temp1_float, (double)temp2_float,
+                                   (double)ABS(temp1_float - temp2_float));
                 }
                 nfound++;
-
             }
-            mem1 += sizeof(float);
-            mem2 += sizeof(float);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* i */
+        }
+        /* only one is NaN, assume difference */
+        else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, (double)temp1_float, (double)temp2_float,
+                               (double)ABS(temp1_float - temp2_float));
+            }
+            nfound++;
+        }
     }
     /*-------------------------------------------------------------------------
      * !-d and -p
      *-------------------------------------------------------------------------
      */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_float, mem1, sizeof(float));
-            HDmemcpy(&temp2_float, mem2, sizeof(float));
+    else if (!opts->delta_bool && opts->percent_bool) {
+        /*-------------------------------------------------------------------------
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
+        if (opts->do_nans) {
+            isnan1 = HDisnan(temp1_float);
+            isnan2 = HDisnan(temp2_float);
+        }
+        /* both not NaN, do the comparison */
+        if ((!isnan1 && !isnan2)) {
+            PER(temp1_float, temp2_float);
 
-            /*-------------------------------------------------------------------------
-             * detect NaNs
-             *-------------------------------------------------------------------------
-             */
-            if (opts->do_nans) {
-                isnan1 = HDisnan(temp1_float);
-                isnan2 = HDisnan(temp2_float);
-            }
-            /* both not NaN, do the comparison */
-            if ((!isnan1 && !isnan2)) {
-                PER(temp1_float, temp2_float);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P_NOTCOMP, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P, (double) temp1_float, (double) temp2_float,
-                                (double) ABS(temp1_float - temp2_float), (double) ABS(1 - temp2_float / temp1_float));
-                    }
-                    nfound++;
-                }
-            }
-            /* only one is NaN, assume difference */
-            else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            if (not_comparable && !both_zero) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
                 if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
+                    parallel_print(F_FORMAT_P_NOTCOMP, (double)temp1_float, (double)temp2_float,
+                                   (double)ABS(temp1_float - temp2_float));
                 }
                 nfound++;
-
             }
-            mem1 += sizeof(float);
-            mem2 += sizeof(float);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* i */
+            else if (per > opts->percent) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
+                if (print_data(opts)) {
+                    parallel_print(F_FORMAT_P, (double)temp1_float, (double)temp2_float,
+                                   (double)ABS(temp1_float - temp2_float),
+                                   (double)ABS(1 - temp2_float / temp1_float));
+                }
+                nfound++;
+            }
+        }
+        /* only one is NaN, assume difference */
+        else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, (double)temp1_float, (double)temp2_float,
+                               (double)ABS(temp1_float - temp2_float));
+            }
+            nfound++;
+        }
     }
     /*-------------------------------------------------------------------------
      * -d and -p
      *-------------------------------------------------------------------------
      */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_float, mem1, sizeof(float));
-            HDmemcpy(&temp2_float, mem2, sizeof(float));
+    else if (opts->delta_bool && opts->percent_bool) {
+        /*-------------------------------------------------------------------------
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
+        if (opts->do_nans) {
+            isnan1 = HDisnan(temp1_float);
+            isnan2 = HDisnan(temp2_float);
+        }
 
-            /*-------------------------------------------------------------------------
-             * detect NaNs
-             *-------------------------------------------------------------------------
-             */
-            if (opts->do_nans) {
-                isnan1 = HDisnan(temp1_float);
-                isnan2 = HDisnan(temp2_float);
-            }
+        /* both not NaN, do the comparison */
+        if (!isnan1 && !isnan2) {
+            PER(temp1_float, temp2_float);
 
-            /* both not NaN, do the comparison */
-            if (!isnan1 && !isnan2) {
-                PER(temp1_float, temp2_float);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P_NOTCOMP, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && (double) ABS(temp1_float - temp2_float) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P, (double) temp1_float, (double) temp2_float,
-                                (double) ABS(temp1_float - temp2_float), (double) ABS(1 - temp2_float / temp1_float));
-                    }
-                    nfound++;
-                }
-
-            }
-            /* only one is NaN, assume difference */
-            else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            if (not_comparable && !both_zero) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
                 if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
+                    parallel_print(F_FORMAT_P_NOTCOMP, (double)temp1_float, (double)temp2_float,
+                                   (double)ABS(temp1_float - temp2_float));
                 }
                 nfound++;
-
             }
-            mem1 += sizeof(float);
-            mem2 += sizeof(float);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* i */
+            else if (per > opts->percent && (double)ABS(temp1_float - temp2_float) > opts->delta) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
+                if (print_data(opts)) {
+                    parallel_print(F_FORMAT_P, (double)temp1_float, (double)temp2_float,
+                                   (double)ABS(temp1_float - temp2_float),
+                                   (double)ABS(1 - temp2_float / temp1_float));
+                }
+                nfound++;
+            }
+        }
+        /* only one is NaN, assume difference */
+        else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, (double)temp1_float, (double)temp2_float,
+                               (double)ABS(temp1_float - temp2_float));
+            }
+            nfound++;
+        }
     }
-
     /*-------------------------------------------------------------------------
      * no -d and -p
      *-------------------------------------------------------------------------
      */
     else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_float, mem1, sizeof(float));
-            HDmemcpy(&temp2_float, mem2, sizeof(float));
-
-            if (equal_float(temp1_float, temp2_float, opts) == FALSE) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, (double) temp1_float, (double) temp2_float, (double) ABS(temp1_float - temp2_float));
-                }
-                nfound++;
+        if (equal_float(temp1_float, temp2_float, opts) == FALSE) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, (double)temp1_float, (double)temp2_float,
+                               (double)ABS(temp1_float - temp2_float));
             }
-
-            mem1 += sizeof(float);
-            mem2 += sizeof(float);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
+            nfound++;
+        }
     }
 
+    H5TOOLS_ENDDEBUG(": %d zero:%d", nfound, both_zero);
     return nfound;
 }
 
 /*-------------------------------------------------------------------------
- * Function: diff_double
+ * Function: diff_double_element
  *
- * Purpose:  diff a H5T_NATIVE_DOUBLE type
+ * Purpose:  diff a single H5T_NATIVE_DOUBLE type
  *
  * Return:   number of differences found
  *-------------------------------------------------------------------------
  */
-static hsize_t diff_double(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
-
+static hsize_t
+diff_double_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
 {
     hsize_t nfound = 0; /* number of differences found */
     double  temp1_double;
     double  temp2_double;
-    hsize_t i;
     double  per;
-    hbool_t both_zero;
-    hbool_t isnan1 = FALSE;
-    hbool_t isnan2 = FALSE;
+    hbool_t both_zero = FALSE;
+    hbool_t isnan1    = FALSE;
+    hbool_t isnan2    = FALSE;
+
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_double, mem1, sizeof(double));
+    HDmemcpy(&temp2_double, mem2, sizeof(double));
 
     /*-------------------------------------------------------------------------
      * -d and !-p
      *-------------------------------------------------------------------------
      */
+    if (opts->delta_bool && !opts->percent_bool) {
+        /*-------------------------------------------------------------------------
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
+        if (opts->do_nans) {
+            isnan1 = HDisnan(temp1_double);
+            isnan2 = HDisnan(temp2_double);
+        }
 
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_double, mem1, sizeof(double));
-            HDmemcpy(&temp2_double, mem2, sizeof(double));
-
-            /*-------------------------------------------------------------------------
-             * detect NaNs
-             *-------------------------------------------------------------------------
-             */
-            if (opts->do_nans) {
-                isnan1 = HDisnan(temp1_double);
-                isnan2 = HDisnan(temp2_double);
-            }
-
-            /* both not NaN, do the comparison */
-            if (!isnan1 && !isnan2) {
-                if (ABS(temp1_double-temp2_double) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
-            }
-            /* only one is NaN, assume difference */
-            else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+        /* both not NaN, do the comparison */
+        if (!isnan1 && !isnan2) {
+            if (ABS(temp1_double - temp2_double) > opts->delta) {
+                opts->print_percentage = 0;
+                print_pos(opts, elem_idx, 0);
                 if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
                     parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
                 }
                 nfound++;
-
             }
-            mem1 += sizeof(double);
-            mem2 += sizeof(double);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* i */
+        }
+        /* only one is NaN, assume difference */
+        else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+            }
+            nfound++;
+        }
     }
 
     /*-------------------------------------------------------------------------
      * !-d and -p
      *-------------------------------------------------------------------------
      */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_double, mem1, sizeof(double));
-            HDmemcpy(&temp2_double, mem2, sizeof(double));
+    else if (!opts->delta_bool && opts->percent_bool) {
+        /*-------------------------------------------------------------------------
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
+        if (opts->do_nans) {
+            isnan1 = HDisnan(temp1_double);
+            isnan2 = HDisnan(temp2_double);
+        }
+        /* both not NaN, do the comparison */
+        if (!isnan1 && !isnan2) {
+            PER(temp1_double, temp2_double);
 
-            /*-------------------------------------------------------------------------
-             * detect NaNs
-             *-------------------------------------------------------------------------
-             */
-            if (opts->do_nans) {
-                isnan1 = HDisnan(temp1_double);
-                isnan2 = HDisnan(temp2_double);
-            }
-            /* both not NaN, do the comparison */
-            if (!isnan1 && !isnan2) {
-                PER(temp1_double, temp2_double);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P_NOTCOMP, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P, temp1_double, temp2_double,
-                                ABS(temp1_double - temp2_double), ABS(1 - temp2_double / temp1_double));
-                    }
-                    nfound++;
-                }
-            }
-            /* only one is NaN, assume difference */
-            else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            if (not_comparable && !both_zero) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
                 if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+                    parallel_print(F_FORMAT_P_NOTCOMP, temp1_double, temp2_double,
+                                   ABS(temp1_double - temp2_double));
                 }
                 nfound++;
-
             }
-            mem1 += sizeof(double);
-            mem2 += sizeof(double);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* i */
+            else if (per > opts->percent) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
+                if (print_data(opts)) {
+                    parallel_print(F_FORMAT_P, temp1_double, temp2_double, ABS(temp1_double - temp2_double),
+                                   ABS(1 - temp2_double / temp1_double));
+                }
+                nfound++;
+            }
+        }
+        /* only one is NaN, assume difference */
+        else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+            }
+            nfound++;
+        }
     }
     /*-------------------------------------------------------------------------
      * -d and -p
      *-------------------------------------------------------------------------
      */
-    else if (opts->d && opts->p) {
+    else if (opts->delta_bool && opts->percent_bool) {
+        /*-------------------------------------------------------------------------
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
+        if (opts->do_nans) {
+            isnan1 = HDisnan(temp1_double);
+            isnan2 = HDisnan(temp2_double);
+        }
 
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_double, mem1, sizeof(double));
-            HDmemcpy(&temp2_double, mem2, sizeof(double));
+        /* both not NaN, do the comparison */
+        if (!isnan1 && !isnan2) {
+            PER(temp1_double, temp2_double);
 
-            /*-------------------------------------------------------------------------
-             * detect NaNs
-             *-------------------------------------------------------------------------
-             */
-            if (opts->do_nans) {
-                isnan1 = HDisnan(temp1_double);
-                isnan2 = HDisnan(temp2_double);
-            }
-
-            /* both not NaN, do the comparison */
-            if (!isnan1 && !isnan2) {
-                PER(temp1_double, temp2_double);
-
-                if (not_comparable && !both_zero)  {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P_NOTCOMP, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && ABS(temp1_double-temp2_double) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P, temp1_double, temp2_double,
-                                ABS(temp1_double - temp2_double), ABS(1 - temp2_double / temp1_double));
-                    }
-                    nfound++;
-                }
-            }
-            /* only one is NaN, assume difference */
-            else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            if (not_comparable && !both_zero) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
                 if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+                    parallel_print(F_FORMAT_P_NOTCOMP, temp1_double, temp2_double,
+                                   ABS(temp1_double - temp2_double));
                 }
                 nfound++;
             }
-            mem1 += sizeof(double);
-            mem2 += sizeof(double);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* i */
+            else if (per > opts->percent && ABS(temp1_double - temp2_double) > opts->delta) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
+                if (print_data(opts)) {
+                    parallel_print(F_FORMAT_P, temp1_double, temp2_double, ABS(temp1_double - temp2_double),
+                                   ABS(1 - temp2_double / temp1_double));
+                }
+                nfound++;
+            }
+        }
+        /* only one is NaN, assume difference */
+        else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+            }
+            nfound++;
+        }
     }
     /*-------------------------------------------------------------------------
      * no -d and -p
      *-------------------------------------------------------------------------
      */
     else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_double, mem1, sizeof(double));
-            HDmemcpy(&temp2_double, mem2, sizeof(double));
-
-            if (equal_double(temp1_double, temp2_double, opts) == FALSE) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                }
-                nfound++;
+        if (equal_double(temp1_double, temp2_double, opts) == FALSE) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
             }
-
-            mem1 += sizeof(double);
-            mem2 += sizeof(double);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
+            nfound++;
+        }
     }
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
 
     return nfound;
 }
 
 /*-------------------------------------------------------------------------
- * Function: diff_ldouble
+ * Function: diff_ldouble_element
  *
- * Purpose:  diff a H5T_NATIVE_LDOUBLE type
+ * Purpose:  diff a single H5T_NATIVE_LDOUBLE type
  *
  * Return:   number of differences found
  *-------------------------------------------------------------------------
  */
-#if H5_SIZEOF_LONG_DOUBLE !=0
+#if H5_SIZEOF_LONG_DOUBLE != 0
 
-static hsize_t diff_ldouble(unsigned char *mem1,
-        unsigned char *mem2,
-        hsize_t nelmts,
-        hsize_t hyper_start,
-        int rank,
-        hsize_t *dims,
-        hsize_t *acc,
-        hsize_t *pos,
-        diff_opt_t *opts,
-        const char *obj1,
-        const char *obj2,
-        int *ph)
-
+static hsize_t
+diff_ldouble_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
 {
     hsize_t     nfound = 0; /* number of differences found */
     long double temp1_double;
     long double temp2_double;
-    hsize_t     i;
     double      per;
-    hbool_t     both_zero;
-    hbool_t     isnan1 = FALSE;
-    hbool_t     isnan2 = FALSE;
+    hbool_t     both_zero = FALSE;
+    hbool_t     isnan1    = FALSE;
+    hbool_t     isnan2    = FALSE;
+
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_double, mem1, sizeof(long double));
+    HDmemcpy(&temp2_double, mem2, sizeof(long double));
+
+    /* logic for detecting NaNs is different with options -d, -p and no options */
 
     /*-------------------------------------------------------------------------
      * -d and !-p
      *-------------------------------------------------------------------------
      */
+    if (opts->delta_bool && !opts->percent_bool) {
+        /*-------------------------------------------------------------------------
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
+        if (opts->do_nans) {
+            isnan1 = HDisnan(temp1_double);
+            isnan2 = HDisnan(temp2_double);
+        }
 
-    if (opts->d && !opts->p) {
-        for ( i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_double, mem1, sizeof(long double));
-            HDmemcpy(&temp2_double, mem2, sizeof(long double));
-
-            /*-------------------------------------------------------------------------
-             * detect NaNs
-             *-------------------------------------------------------------------------
-             */
-            if (opts->do_nans) {
-                isnan1 = HDisnan(temp1_double);
-                isnan2 = HDisnan(temp2_double);
-            }
-
-            /* both not NaN, do the comparison */
-            if (!isnan1 && !isnan2) {
-                if (ABS(temp1_double-temp2_double) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
-            }
-            /* only one is NaN, assume difference */
-            else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+        /* both not NaN, do the comparison */
+        if (!isnan1 && !isnan2) {
+            if (ABS(temp1_double - temp2_double) > opts->delta) {
+                opts->print_percentage = 0;
+                print_pos(opts, elem_idx, 0);
                 if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+                    parallel_print(LD_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
                 }
                 nfound++;
-
             }
-            mem1 += sizeof(long double);
-            mem2 += sizeof(long double);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* i */
+        } /* NaN */
+        /* only one is NaN, assume difference */
+        else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+            }
+            nfound++;
+        }
     }
-
     /*-------------------------------------------------------------------------
      * !-d and -p
      *-------------------------------------------------------------------------
      */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_double, mem1, sizeof(long double));
-            HDmemcpy(&temp2_double, mem2, sizeof(long double));
+    else if (!opts->delta_bool && opts->percent_bool) {
+        /*-------------------------------------------------------------------------
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
+        if (opts->do_nans) {
+            isnan1 = HDisnan(temp1_double);
+            isnan2 = HDisnan(temp2_double);
+        }
 
-            /*-------------------------------------------------------------------------
-             * detect NaNs
-             *-------------------------------------------------------------------------
-             */
-            if (opts->do_nans) {
-                isnan1 = HDisnan(temp1_double);
-                isnan2 = HDisnan(temp2_double);
-            }
-            /* both not NaN, do the comparison */
-            if (!isnan1 && !isnan2) {
-                PER(temp1_double, temp2_double);
+        /* both not NaN, do the comparison */
+        if (!isnan1 && !isnan2) {
+            PER(temp1_double, temp2_double);
 
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P_NOTCOMP, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P, temp1_double, temp2_double,
-                                ABS(temp1_double - temp2_double), ABS(1-temp2_double / temp1_double));
-                    }
-                    nfound++;
-                }
-            }
-            /* only one is NaN, assume difference */
-            else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            if (not_comparable && !both_zero) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
                 if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start+i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+                    parallel_print(LD_FORMAT_P_NOTCOMP, temp1_double, temp2_double,
+                                   ABS(temp1_double - temp2_double));
                 }
                 nfound++;
             }
-            mem1 += sizeof(long double);
-            mem2 += sizeof(long double);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* i */
+            else if (per > opts->percent) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
+                if (print_data(opts)) {
+                    parallel_print(LD_FORMAT_P, temp1_double, temp2_double, ABS(temp1_double - temp2_double),
+                                   ABS(1 - temp2_double / temp1_double));
+                }
+                nfound++;
+            }
+        } /* NaN */
+        /* only one is NaN, assume difference */
+        else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+            }
+            nfound++;
+        }
     }
     /*-------------------------------------------------------------------------
      * -d and -p
      *-------------------------------------------------------------------------
      */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_double, mem1, sizeof(long double));
-            HDmemcpy(&temp2_double, mem2, sizeof(long double));
+    else if (opts->delta_bool && opts->percent_bool) {
+        /*-------------------------------------------------------------------------
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
+        if (opts->do_nans) {
+            isnan1 = HDisnan(temp1_double);
+            isnan2 = HDisnan(temp2_double);
+        }
 
-            /*-------------------------------------------------------------------------
-             * detect NaNs
-             *-------------------------------------------------------------------------
-             */
-            if (opts->do_nans) {
-                isnan1 = HDisnan(temp1_double);
-                isnan2 = HDisnan(temp2_double);
-            }
+        /* both not NaN, do the comparison */
+        if (!isnan1 && !isnan2) {
+            PER(temp1_double, temp2_double);
 
-            /* both not NaN, do the comparison */
-            if (!isnan1 && !isnan2) {
-                PER(temp1_double, temp2_double);
-
-                if (not_comparable && !both_zero) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P_NOTCOMP, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                    }
-                    nfound++;
-                }
-                else if (per > opts->percent && ABS(temp1_double - temp2_double) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(F_FORMAT_P, temp1_double, temp2_double, ABS(temp1_double - temp2_double), ABS(1-temp2_double / temp1_double));
-                    }
-                    nfound++;
-                }
-            }
-            /* only one is NaN, assume difference */
-            else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
-                if (print_data(opts))  {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+            if (not_comparable && !both_zero) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
+                if (print_data(opts)) {
+                    parallel_print(LD_FORMAT_P_NOTCOMP, temp1_double, temp2_double,
+                                   ABS(temp1_double - temp2_double));
                 }
                 nfound++;
             }
-            mem1 += sizeof(long double);
-            mem2 += sizeof(long double);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* i */
+            else if (per > opts->percent && ABS(temp1_double - temp2_double) > opts->delta) {
+                opts->print_percentage = 1;
+                print_pos(opts, elem_idx, 0);
+                if (print_data(opts)) {
+                    parallel_print(LD_FORMAT_P, temp1_double, temp2_double, ABS(temp1_double - temp2_double),
+                                   ABS(1 - temp2_double / temp1_double));
+                }
+                nfound++;
+            }
+        } /* NaN */
+        /* only one is NaN, assume difference */
+        else if ((isnan1 && !isnan2) || (!isnan1 && isnan2)) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+            }
+            nfound++;
+        }
     }
     /*-------------------------------------------------------------------------
      * no -d and -p
      *-------------------------------------------------------------------------
      */
-    else {
-        for (i = 0; i < nelmts; i++)  {
-            HDmemcpy(&temp1_double, mem1, sizeof(long double));
-            HDmemcpy(&temp2_double, mem2, sizeof(long double));
-
-            if (equal_ldouble(temp1_double, temp2_double, opts) == FALSE) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(F_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
-                }
-                nfound++;
-            }
-            mem1 += sizeof(long double);
-            mem2 += sizeof(long double);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
+    else if (equal_ldouble(temp1_double, temp2_double, opts) == FALSE) {
+        opts->print_percentage = 0;
+        print_pos(opts, elem_idx, 0);
+        if (print_data(opts)) {
+            parallel_print(LD_FORMAT, temp1_double, temp2_double, ABS(temp1_double - temp2_double));
+        }
+        nfound++;
     }
+
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
 
     return nfound;
 }
 #endif /* H5_SIZEOF_LONG_DOUBLE */
 
 /*-------------------------------------------------------------------------
- * Function: diff_schar
+ * Function: diff_schar_element
  *
- * Purpose:  diff a H5T_NATIVE_SCHAR type
+ * Purpose:  diff a single H5T_NATIVE_SCHAR type
  *
  * Return:   number of differences found
  *-------------------------------------------------------------------------
  */
-static hsize_t diff_schar(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
-
+static hsize_t
+diff_schar_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
 {
     hsize_t nfound = 0; /* number of differences found */
     char    temp1_char;
     char    temp2_char;
-    hsize_t i;
     double  per;
-    hbool_t both_zero;
+    hbool_t both_zero = FALSE;
+
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+    HDmemcpy(&temp1_char, mem1, sizeof(char));
+    HDmemcpy(&temp2_char, mem2, sizeof(char));
 
     /* -d and !-p */
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_char, mem1, sizeof(char));
-            HDmemcpy(&temp2_char, mem2, sizeof(char));
-
-            if (ABS(temp1_char-temp2_char) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
-                }
-                nfound++;
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (ABS(temp1_char - temp2_char) > opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
             }
-            mem1 += sizeof(char);
-            mem2 += sizeof(char);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
     /* !-d and -p */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_char, mem1, sizeof(char));
-            HDmemcpy(&temp2_char, mem2, sizeof(char));
+    else if (!opts->delta_bool && opts->percent_bool) {
+        PER(temp1_char, temp2_char);
 
-            PER(temp1_char, temp2_char);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
-                }
-                nfound++;
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P_NOTCOMP, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
             }
-            else if (per > opts->percent) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_char, temp2_char, ABS(temp1_char - temp2_char), per);
-                }
-                nfound++;
+            nfound++;
+        }
+        else if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P, temp1_char, temp2_char, ABS(temp1_char - temp2_char), per);
             }
-            mem1 += sizeof(char);
-            mem2 += sizeof(char);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
     /* -d and -p */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_char, mem1, sizeof(char));
-            HDmemcpy(&temp2_char, mem2, sizeof(char));
+    else if (opts->delta_bool && opts->percent_bool) {
+        PER(temp1_char, temp2_char);
 
-            PER(temp1_char, temp2_char);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
-                }
-                nfound++;
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P_NOTCOMP, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
             }
-            else if (per > opts->percent && ABS(temp1_char-temp2_char) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_char, temp2_char, ABS(temp1_char - temp2_char), per);
-                }
-                nfound++;
+            nfound++;
+        }
+        else if (per > opts->percent && ABS(temp1_char - temp2_char) > opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P, temp1_char, temp2_char, ABS(temp1_char - temp2_char), per);
             }
-            mem1 += sizeof(char);
-            mem2 += sizeof(char);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
-    else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_char, mem1, sizeof(char));
-            HDmemcpy(&temp2_char, mem2, sizeof(char));
-
-            if (temp1_char != temp2_char) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
-                }
-                nfound++;
-            }
-
-            mem1 += sizeof(char);
-            mem2 += sizeof(char);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
+    else if (temp1_char != temp2_char) {
+        opts->print_percentage = 0;
+        print_pos(opts, elem_idx, 0);
+        if (print_data(opts)) {
+            parallel_print(I_FORMAT, temp1_char, temp2_char, ABS(temp1_char - temp2_char));
+        }
+        nfound++;
     }
+
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
 
     return nfound;
 }
 
 /*-------------------------------------------------------------------------
- * Function: diff_uchar
+ * Function: diff_uchar_element
  *
- * Purpose:  diff a H5T_NATIVE_UCHAR type
+ * Purpose:  diff a single H5T_NATIVE_UCHAR type
  *
  * Return:   number of differences found
  *-------------------------------------------------------------------------
  */
-static hsize_t diff_uchar(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
+static hsize_t
+diff_uchar_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
 {
     hsize_t       nfound = 0; /* number of differences found */
     unsigned char temp1_uchar;
     unsigned char temp2_uchar;
-    hsize_t       i;
     double        per;
-    hbool_t       both_zero;
+    hbool_t       both_zero = FALSE;
 
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_uchar, mem1, sizeof(unsigned char));
+    HDmemcpy(&temp2_uchar, mem2, sizeof(unsigned char));
     /* -d and !-p */
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_uchar, mem1, sizeof(unsigned char));
-            HDmemcpy(&temp2_uchar, mem2, sizeof(unsigned char));
-
-            if (PDIFF(temp1_uchar,temp2_uchar) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
-                }
-                nfound++;
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (PDIFF(temp1_uchar, temp2_uchar) > opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
             }
-            mem1 += sizeof(unsigned char);
-            mem2 += sizeof(unsigned char);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
     /* !-d and -p */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_uchar, mem1, sizeof(unsigned char));
-            HDmemcpy(&temp2_uchar, mem2, sizeof(unsigned char));
+    else if (!opts->delta_bool && opts->percent_bool) {
+        PER_UNSIGN(signed char, temp1_uchar, temp2_uchar);
 
-            PER_UNSIGN(signed char, temp1_uchar, temp2_uchar);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
-                }
-                nfound++;
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P_NOTCOMP, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
             }
-            else if (per > opts->percent) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar), per);
-                }
-                nfound++;
+            nfound++;
+        }
+        else if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar), per);
             }
-            mem1 += sizeof(unsigned char);
-            mem2 += sizeof(unsigned char);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
     /* -d and -p */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_uchar, mem1, sizeof(unsigned char));
-            HDmemcpy(&temp2_uchar, mem2, sizeof(unsigned char));
+    else if (opts->delta_bool && opts->percent_bool) {
+        PER_UNSIGN(signed char, temp1_uchar, temp2_uchar);
 
-            PER_UNSIGN(signed char, temp1_uchar, temp2_uchar);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
-                }
-                nfound++;
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P_NOTCOMP, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
             }
-            else if (per > opts->percent && PDIFF(temp1_uchar,temp2_uchar) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar), per);
-                }
-                nfound++;
+            nfound++;
+        }
+        else if (per > opts->percent && PDIFF(temp1_uchar, temp2_uchar) > opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar), per);
             }
-            mem1 += sizeof(unsigned char);
-            mem2 += sizeof(unsigned char);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
-    else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_uchar, mem1, sizeof(unsigned char));
-            HDmemcpy(&temp2_uchar, mem2, sizeof(unsigned char));
-
-            if (temp1_uchar != temp2_uchar) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
-                }
-                nfound++;
-            }
-
-            mem1 += sizeof(unsigned char);
-            mem2 += sizeof(unsigned char);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
+    else if (temp1_uchar != temp2_uchar) {
+        opts->print_percentage = 0;
+        print_pos(opts, elem_idx, 0);
+        if (print_data(opts)) {
+            parallel_print(I_FORMAT, temp1_uchar, temp2_uchar, PDIFF(temp1_uchar, temp2_uchar));
+        }
+        nfound++;
     }
+
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
 
     return nfound;
 }
 
 /*-------------------------------------------------------------------------
- * Function: diff_short
+ * Function: diff_short_element
  *
  * Purpose:  diff a H5T_NATIVE_SHORT type
  *
  * Return:   number of differences found
  *-------------------------------------------------------------------------
  */
-static hsize_t diff_short(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
+static hsize_t
+diff_short_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
 {
     hsize_t nfound = 0; /* number of differences found */
     short   temp1_short;
     short   temp2_short;
-    hsize_t i;
     double  per;
-    hbool_t both_zero;
+    hbool_t both_zero = FALSE;
 
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_short, mem1, sizeof(short));
+    HDmemcpy(&temp2_short, mem2, sizeof(short));
     /* -d and !-p */
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_short, mem1, sizeof(short));
-            HDmemcpy(&temp2_short, mem2, sizeof(short));
-
-            if (ABS(temp1_short-temp2_short) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
-                }
-                nfound++;
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (ABS(temp1_short - temp2_short) > opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
             }
-            mem1 += sizeof(short);
-            mem2 += sizeof(short);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
     /* !-d and -p */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_short, mem1, sizeof(short));
-            HDmemcpy(&temp2_short, mem2, sizeof(short));
+    else if (!opts->delta_bool && opts->percent_bool) {
+        PER(temp1_short, temp2_short);
 
-            PER(temp1_short, temp2_short);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_short, temp2_short, ABS(temp1_short - temp2_short), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(short);
-            mem2 += sizeof(short);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    /* -d and -p */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_short, mem1, sizeof(short));
-            HDmemcpy(&temp2_short, mem2, sizeof(short));
-
-            PER(temp1_short, temp2_short);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent && ABS(temp1_short-temp2_short) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_short, temp2_short, ABS(temp1_short - temp2_short), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(short);
-            mem2 += sizeof(short);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_short, mem1, sizeof(short));
-            HDmemcpy(&temp2_short, mem2, sizeof(short));
-
-            if (temp1_short != temp2_short) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
-                }
-                nfound++;
-            }
-
-            mem1 += sizeof(short);
-            mem2 += sizeof(short);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
-    }
-
-    return nfound;
-}
-
-/*-------------------------------------------------------------------------
- * Function: diff_ushort
- *
- * Purpose:  diff a H5T_NATIVE_USHORT type
- *
- * Return:   number of differences found
- *-------------------------------------------------------------------------
- */
-static hsize_t diff_ushort(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
-
-{
-    hsize_t        nfound = 0; /* number of differences found */
-    unsigned short temp1_ushort;
-    unsigned short temp2_ushort;
-    hsize_t        i;
-    double         per;
-    hbool_t        both_zero;
-
-    /* -d and !-p */
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ushort, mem1, sizeof(unsigned short));
-            HDmemcpy(&temp2_ushort, mem2, sizeof(unsigned short));
-
-            if (PDIFF(temp1_ushort,temp2_ushort) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort));
-                }
-                nfound++;
-            }
-            mem1 += sizeof(unsigned short);
-            mem2 += sizeof(unsigned short);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    /* !-d and -p */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ushort, mem1, sizeof(unsigned short));
-            HDmemcpy(&temp2_ushort, mem2, sizeof(unsigned short));
-
-            PER_UNSIGN(signed short, temp1_ushort, temp2_ushort);
-
-            if (not_comparable && !both_zero)  {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(unsigned short);
-            mem2 += sizeof(unsigned short);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    /* -d and -p */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ushort, mem1, sizeof(unsigned short));
-            HDmemcpy(&temp2_ushort, mem2, sizeof(unsigned short));
-
-            PER_UNSIGN(signed short, temp1_ushort, temp2_ushort);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent && PDIFF(temp1_ushort,temp2_ushort) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(unsigned short);
-            mem2 += sizeof(unsigned short);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ushort, mem1, sizeof(unsigned short));
-            HDmemcpy(&temp2_ushort, mem2, sizeof(unsigned short));
-
-            if (temp1_ushort != temp2_ushort) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort));
-                }
-                nfound++;
-            }
-
-            mem1 += sizeof(unsigned short);
-            mem2 += sizeof(unsigned short);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
-    }
-
-    return nfound;
-}
-
-/*-------------------------------------------------------------------------
- * Function:  diff_int
- *
- * Purpose:   diff a H5T_NATIVE_INT type
- *
- * Return:    number of differences found
-  *-------------------------------------------------------------------------
- */
-static hsize_t diff_int(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
-{
-    hsize_t nfound = 0; /* number of differences found */
-    int     temp1_int;
-    int     temp2_int;
-    hsize_t i;
-    double  per;
-    hbool_t both_zero;
-
-    /* -d and !-p */
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_int, mem1, sizeof(int));
-            HDmemcpy(&temp2_int, mem2, sizeof(int));
-
-            if (ABS(temp1_int-temp2_int) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
-                }
-                nfound++;
-            }
-            mem1 += sizeof(int);
-            mem2 += sizeof(int);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    /* !-d and -p */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_int, mem1, sizeof(int));
-            HDmemcpy(&temp2_int, mem2, sizeof(int));
-
-            PER(temp1_int, temp2_int);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_int, temp2_int, ABS(temp1_int - temp2_int), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(int);
-            mem2 += sizeof(int);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    /* -d and -p */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_int, mem1, sizeof(int));
-            HDmemcpy(&temp2_int, mem2, sizeof(int));
-
-            PER(temp1_int, temp2_int);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent && ABS(temp1_int-temp2_int) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_int, temp2_int, ABS(temp1_int - temp2_int), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(int);
-            mem2 += sizeof(int);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_int, mem1, sizeof(int));
-            HDmemcpy(&temp2_int, mem2, sizeof(int));
-
-            if (temp1_int != temp2_int) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
-                }
-                nfound++;
-            }
-
-            mem1 += sizeof(int);
-            mem2 += sizeof(int);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
-
-    }
-    return nfound;
-}
-
-/*-------------------------------------------------------------------------
- * Function: diff_uint
- *
- * Purpose:  diff a H5T_NATIVE_UINT type
- *
- * Return:  number of differences found
- *-------------------------------------------------------------------------
- */
-static hsize_t diff_uint(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
-{
-    hsize_t nfound = 0; /* number of differences found */
-    unsigned int temp1_uint;
-    unsigned int temp2_uint;
-    hsize_t i;
-    double per;
-    hbool_t both_zero;
-
-    /* -d and !-p */
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_uint, mem1, sizeof(unsigned int));
-            HDmemcpy(&temp2_uint, mem2, sizeof(unsigned int));
-
-            if (PDIFF(temp1_uint,temp2_uint) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
-                }
-                nfound++;
-            }
-            mem1 += sizeof(unsigned int);
-            mem2 += sizeof(unsigned int);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    /* !-d and -p */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_uint, mem1, sizeof(unsigned int));
-            HDmemcpy(&temp2_uint, mem2, sizeof(unsigned int));
-
-            PER_UNSIGN(signed int, temp1_uint, temp2_uint);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(unsigned int);
-            mem2 += sizeof(unsigned int);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    /* -d and -p */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_uint, mem1, sizeof(unsigned int));
-            HDmemcpy(&temp2_uint, mem2, sizeof(unsigned int));
-
-            PER_UNSIGN(signed int, temp1_uint, temp2_uint);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P_NOTCOMP, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent
-                    && PDIFF(temp1_uint,temp2_uint) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT_P, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(unsigned int);
-            mem2 += sizeof(unsigned int);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_uint, mem1, sizeof(unsigned int));
-            HDmemcpy(&temp2_uint, mem2, sizeof(unsigned int));
-
-            if (temp1_uint != temp2_uint) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(I_FORMAT, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
-                }
-                nfound++;
-            }
-
-            mem1 += sizeof(unsigned int);
-            mem2 += sizeof(unsigned int);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
-    }
-
-    return nfound;
-}
-
-/*-------------------------------------------------------------------------
- * Function: diff_long
- *
- * Purpose:  diff a H5T_NATIVE_LONG type
- *
- * Return:   number of differences found
- *-------------------------------------------------------------------------
- */
-static hsize_t diff_long(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
-{
-    hsize_t nfound = 0; /* number of differences found */
-    long temp1_long;
-    long temp2_long;
-    hsize_t i;
-    double per;
-    hbool_t both_zero;
-
-    /* -d and !-p */
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            for (i = 0; i < nelmts; i++) {
-                HDmemcpy(&temp1_long, mem1, sizeof(long));
-                HDmemcpy(&temp2_long, mem2, sizeof(long));
-
-                if (ABS(temp1_long-temp2_long) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(LI_FORMAT, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
-                    }
-                    nfound++;
-                }
-                mem1 += sizeof(long);
-                mem2 += sizeof(long);
-                if (opts->n && nfound >= opts->count)
-                    return nfound;
-            }
-        }
-    }
-    /* !-d and -p */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_long, mem1, sizeof(long));
-            HDmemcpy(&temp2_long, mem2, sizeof(long));
-
-            PER(temp1_long, temp2_long);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LI_FORMAT_P_NOTCOMP, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LI_FORMAT_P, temp1_long, temp2_long, ABS(temp1_long - temp2_long), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(long);
-            mem2 += sizeof(long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    /* -d and -p */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_long, mem1, sizeof(long));
-            HDmemcpy(&temp2_long, mem2, sizeof(long));
-
-            PER(temp1_long, temp2_long);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LI_FORMAT_P_NOTCOMP, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent && ABS(temp1_long-temp2_long) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LI_FORMAT_P, temp1_long, temp2_long, ABS(temp1_long - temp2_long), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(long);
-            mem2 += sizeof(long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_long, mem1, sizeof(long));
-            HDmemcpy(&temp2_long, mem2, sizeof(long));
-
-            if (temp1_long != temp2_long) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LI_FORMAT, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
-                }
-                nfound++;
-            }
-
-            mem1 += sizeof(long);
-            mem2 += sizeof(long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
-    }
-
-    return nfound;
-}
-
-/*-------------------------------------------------------------------------
- * Function: diff_ulong
- *
- * Purpose:  diff a H5T_NATIVE_ULONG type
- *
- * Return:   number of differences found
- *-------------------------------------------------------------------------
- */
-static hsize_t diff_ulong(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
-{
-    hsize_t       nfound = 0; /* number of differences found */
-    unsigned long temp1_ulong;
-    unsigned long temp2_ulong;
-    hsize_t       i;
-    double        per;
-    hbool_t       both_zero;
-
-    /* -d and !-p */
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            for (i = 0; i < nelmts; i++) {
-                HDmemcpy(&temp1_ulong, mem1, sizeof(unsigned long));
-                HDmemcpy(&temp2_ulong, mem2, sizeof(unsigned long));
-
-                if (PDIFF(temp1_ulong,temp2_ulong) > opts->delta) {
-                    if (print_data(opts)) {
-                        print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                        parallel_print(SPACES);
-                        parallel_print(LI_FORMAT, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong));
-                    }
-                    nfound++;
-                }
-                mem1 += sizeof(unsigned long);
-                mem2 += sizeof(unsigned long);
-                if (opts->n && nfound >= opts->count)
-                    return nfound;
-            }
-        }
-    }
-    /* !-d and -p */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ulong, mem1, sizeof(unsigned long));
-            HDmemcpy(&temp2_ulong, mem2, sizeof(unsigned long));
-
-            PER_UNSIGN(signed long, temp1_ulong, temp2_ulong);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(ULI_FORMAT_P_NOTCOMP, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LI_FORMAT_P, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(unsigned long);
-            mem2 += sizeof(unsigned long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    /* -d and -p */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ulong, mem1, sizeof(unsigned long));
-            HDmemcpy(&temp2_ulong, mem2, sizeof(unsigned long));
-
-            PER_UNSIGN(signed long, temp1_ulong, temp2_ulong);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(ULI_FORMAT_P_NOTCOMP, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong));
-                }
-                nfound++;
-            }
-            else if (per > opts->percent
-                    && PDIFF(temp1_ulong,temp2_ulong) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LI_FORMAT_P, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong), per);
-                }
-                nfound++;
-            }
-            mem1 += sizeof(unsigned long);
-            mem2 += sizeof(unsigned long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ulong, mem1, sizeof(unsigned long));
-            HDmemcpy(&temp2_ulong, mem2, sizeof(unsigned long));
-
-            if (temp1_ulong != temp2_ulong) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LI_FORMAT, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong));
-                }
-                nfound++;
-            }
-
-            mem1 += sizeof(unsigned long);
-            mem2 += sizeof(unsigned long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
-    }
-
-    return nfound;
-}
-
-/*-------------------------------------------------------------------------
- * Function: diff_llong
- *
- * Purpose:  diff a H5T_NATIVE_LLONG type
- *
- * Return:   number of differences found
- *-------------------------------------------------------------------------
- */
-static hsize_t diff_llong(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims,
-        hsize_t *acc, hsize_t *pos, diff_opt_t *opts, const char *obj1,
-        const char *obj2, int *ph)
-{
-    hsize_t   nfound = 0; /* number of differences found */
-    long long temp1_llong;
-    long long temp2_llong;
-    hsize_t   i;
-    double    per;
-    hbool_t   both_zero;
-
-    /* -d and !-p */
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_llong, mem1, sizeof(long long));
-            HDmemcpy(&temp2_llong, mem2, sizeof(long long));
-
-            if (ABS( temp1_llong-temp2_llong) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LLI_FORMAT, temp1_llong, temp2_llong, ABS(temp1_llong - temp2_llong));
-                }
-                nfound++;
-            }
-            mem1 += sizeof(long long);
-            mem2 += sizeof(long long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        }
-    }
-    /* !-d and -p */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_llong, mem1, sizeof(long long));
-            HDmemcpy(&temp2_llong, mem2, sizeof(long long));
-
-            PER(temp1_llong, temp2_llong);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                parallel_print(LLI_FORMAT_P_NOTCOMP, temp1_llong, temp2_llong, ABS(temp1_llong - temp2_llong));
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P_NOTCOMP, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
             }
             nfound++;
         }
         else if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
             if (print_data(opts)) {
-                print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                parallel_print(SPACES);
-                parallel_print(LLI_FORMAT_P, temp1_llong, temp2_llong, ABS(temp1_llong - temp2_llong),per);
+                parallel_print(I_FORMAT_P, temp1_short, temp2_short, ABS(temp1_short - temp2_short), per);
             }
             nfound++;
         }
-        mem1 += sizeof(long long);
-        mem2 += sizeof(long long);
-        if (opts->n && nfound >= opts->count)
-            return nfound;
-        }
     }
     /* -d and -p */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_llong, mem1, sizeof(long long));
-            HDmemcpy(&temp2_llong, mem2, sizeof(long long));
+    else if (opts->delta_bool && opts->percent_bool) {
+        PER(temp1_short, temp2_short);
 
-            PER(temp1_llong, temp2_llong);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LLI_FORMAT_P_NOTCOMP, temp1_llong, temp2_llong, ABS(temp1_llong - temp2_llong));
-                }
-                nfound++;
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P_NOTCOMP, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
             }
-            else if (per > opts->percent
-                    && ABS(temp1_llong-temp2_llong) > opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LLI_FORMAT_P, temp1_llong, temp2_llong, ABS(temp1_llong - temp2_llong),per);
-                }
-                nfound++;
+            nfound++;
+        }
+        else if (per > opts->percent && ABS(temp1_short - temp2_short) > opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P, temp1_short, temp2_short, ABS(temp1_short - temp2_short), per);
             }
-            mem1 += sizeof(long long);
-            mem2 += sizeof(long long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
-    else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_llong, mem1, sizeof(long long));
-            HDmemcpy(&temp2_llong, mem2, sizeof(long long));
-
-            if (temp1_llong != temp2_llong) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(LLI_FORMAT, temp1_llong, temp2_llong, ABS(temp1_llong - temp2_llong));
-                }
-                nfound++;
-            }
-
-            mem1 += sizeof(long long);
-            mem2 += sizeof(long long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
+    else if (temp1_short != temp2_short) {
+        opts->print_percentage = 0;
+        print_pos(opts, elem_idx, 0);
+        if (print_data(opts)) {
+            parallel_print(I_FORMAT, temp1_short, temp2_short, ABS(temp1_short - temp2_short));
+        }
+        nfound++;
     }
+
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
 
     return nfound;
 }
 
 /*-------------------------------------------------------------------------
- * Function: diff_ullong
+ * Function: diff_ushort_element
  *
- * Purpose:  diff a H5T_NATIVE_ULLONG type
+ * Purpose:  diff a single H5T_NATIVE_USHORT type
  *
  * Return:   number of differences found
  *-------------------------------------------------------------------------
  */
-static hsize_t diff_ullong(unsigned char *mem1, unsigned char *mem2,
-        hsize_t nelmts, hsize_t hyper_start, int rank, hsize_t *dims, hsize_t *acc,
-        hsize_t *pos, diff_opt_t *opts, const char *obj1, const char *obj2, int *ph)
+static hsize_t
+diff_ushort_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
+{
+    hsize_t        nfound = 0; /* number of differences found */
+    unsigned short temp1_ushort;
+    unsigned short temp2_ushort;
+    double         per;
+    hbool_t        both_zero = FALSE;
 
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_ushort, mem1, sizeof(unsigned short));
+    HDmemcpy(&temp2_ushort, mem2, sizeof(unsigned short));
+    /* -d and !-p */
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (PDIFF(temp1_ushort, temp2_ushort) > opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort));
+            }
+            nfound++;
+        }
+    }
+    /* !-d and -p */
+    else if (!opts->delta_bool && opts->percent_bool) {
+        PER_UNSIGN(signed short, temp1_ushort, temp2_ushort);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P_NOTCOMP, temp1_ushort, temp2_ushort,
+                               PDIFF(temp1_ushort, temp2_ushort));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort),
+                               per);
+            }
+            nfound++;
+        }
+    }
+    /* -d and -p */
+    else if (opts->delta_bool && opts->percent_bool) {
+        PER_UNSIGN(signed short, temp1_ushort, temp2_ushort);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P_NOTCOMP, temp1_ushort, temp2_ushort,
+                               PDIFF(temp1_ushort, temp2_ushort));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent && PDIFF(temp1_ushort, temp2_ushort) > opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort),
+                               per);
+            }
+            nfound++;
+        }
+    }
+    else if (temp1_ushort != temp2_ushort) {
+        opts->print_percentage = 0;
+        print_pos(opts, elem_idx, 0);
+        if (print_data(opts)) {
+            parallel_print(I_FORMAT, temp1_ushort, temp2_ushort, PDIFF(temp1_ushort, temp2_ushort));
+        }
+        nfound++;
+    }
+
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
+
+    return nfound;
+}
+
+/*-------------------------------------------------------------------------
+ * Function:  diff_int_element
+ *
+ * Purpose:   diff a single H5T_NATIVE_INT type
+ *
+ * Return:    number of differences found
+ *-------------------------------------------------------------------------
+ */
+static hsize_t
+diff_int_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
+{
+    hsize_t nfound = 0; /* number of differences found */
+    int     temp1_int;
+    int     temp2_int;
+    double  per;
+    hbool_t both_zero = FALSE;
+
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_int, mem1, sizeof(int));
+    HDmemcpy(&temp2_int, mem2, sizeof(int));
+    /* -d and !-p */
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (ABS(temp1_int - temp2_int) > opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
+            }
+            nfound++;
+        }
+    }
+    /* !-d and -p */
+    else if (!opts->delta_bool && opts->percent_bool) {
+        PER(temp1_int, temp2_int);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P_NOTCOMP, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P, temp1_int, temp2_int, ABS(temp1_int - temp2_int), per);
+            }
+            nfound++;
+        }
+    }
+    /* -d and -p */
+    else if (opts->delta_bool && opts->percent_bool) {
+        PER(temp1_int, temp2_int);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P_NOTCOMP, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent && ABS(temp1_int - temp2_int) > opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(I_FORMAT_P, temp1_int, temp2_int, ABS(temp1_int - temp2_int), per);
+            }
+            nfound++;
+        }
+    }
+    else if (temp1_int != temp2_int) {
+        opts->print_percentage = 0;
+        print_pos(opts, elem_idx, 0);
+        if (print_data(opts)) {
+            parallel_print(I_FORMAT, temp1_int, temp2_int, ABS(temp1_int - temp2_int));
+        }
+        nfound++;
+    }
+
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
+
+    return nfound;
+}
+
+/*-------------------------------------------------------------------------
+ * Function: diff_uint_element
+ *
+ * Purpose:  diff a single H5T_NATIVE_UINT type
+ *
+ * Return:  number of differences found
+ *-------------------------------------------------------------------------
+ */
+static hsize_t
+diff_uint_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
+{
+    hsize_t      nfound = 0; /* number of differences found */
+    unsigned int temp1_uint;
+    unsigned int temp2_uint;
+    double       per;
+    hbool_t      both_zero = FALSE;
+
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_uint, mem1, sizeof(unsigned int));
+    HDmemcpy(&temp2_uint, mem2, sizeof(unsigned int));
+    /* -d and !-p */
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (PDIFF(temp1_uint, temp2_uint) > opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(UI_FORMAT, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
+            }
+            nfound++;
+        }
+    }
+    /* !-d and -p */
+    else if (!opts->delta_bool && opts->percent_bool) {
+        PER_UNSIGN(signed int, temp1_uint, temp2_uint);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(UI_FORMAT_P_NOTCOMP, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(UI_FORMAT_P, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint), per);
+            }
+            nfound++;
+        }
+    }
+    /* -d and -p */
+    else if (opts->delta_bool && opts->percent_bool) {
+        PER_UNSIGN(signed int, temp1_uint, temp2_uint);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(UI_FORMAT_P_NOTCOMP, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent && PDIFF(temp1_uint, temp2_uint) > opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(UI_FORMAT_P, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint), per);
+            }
+            nfound++;
+        }
+    }
+    else if (temp1_uint != temp2_uint) {
+        opts->print_percentage = 0;
+        print_pos(opts, elem_idx, 0);
+        if (print_data(opts)) {
+            parallel_print(UI_FORMAT, temp1_uint, temp2_uint, PDIFF(temp1_uint, temp2_uint));
+        }
+        nfound++;
+    }
+
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
+
+    return nfound;
+}
+
+/*-------------------------------------------------------------------------
+ * Function: diff_long_element
+ *
+ * Purpose:  diff a single H5T_NATIVE_LONG type
+ *
+ * Return:   number of differences found
+ *-------------------------------------------------------------------------
+ */
+static hsize_t
+diff_long_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
+{
+    hsize_t nfound = 0; /* number of differences found */
+    long    temp1_long;
+    long    temp2_long;
+    double  per;
+    hbool_t both_zero = FALSE;
+
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_long, mem1, sizeof(long));
+    HDmemcpy(&temp2_long, mem2, sizeof(long));
+    /* -d and !-p */
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (ABS(temp1_long - temp2_long) > opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LI_FORMAT, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
+            }
+            nfound++;
+        }
+    }
+    /* !-d and -p */
+    else if (!opts->delta_bool && opts->percent_bool) {
+        PER(temp1_long, temp2_long);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LI_FORMAT_P_NOTCOMP, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LI_FORMAT_P, temp1_long, temp2_long, ABS(temp1_long - temp2_long), per);
+            }
+            nfound++;
+        }
+    }
+    /* -d and -p */
+    else if (opts->delta_bool && opts->percent_bool) {
+        PER(temp1_long, temp2_long);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LI_FORMAT_P_NOTCOMP, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent && ABS(temp1_long - temp2_long) > opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LI_FORMAT_P, temp1_long, temp2_long, ABS(temp1_long - temp2_long), per);
+            }
+            nfound++;
+        }
+    }
+    else if (temp1_long != temp2_long) {
+        opts->print_percentage = 0;
+        print_pos(opts, elem_idx, 0);
+        if (print_data(opts)) {
+            parallel_print(LI_FORMAT, temp1_long, temp2_long, ABS(temp1_long - temp2_long));
+        }
+        nfound++;
+    }
+
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
+
+    return nfound;
+}
+
+/*-------------------------------------------------------------------------
+ * Function: diff_ulong_element
+ *
+ * Purpose:  diff a single H5T_NATIVE_ULONG type
+ *
+ * Return:   number of differences found
+ *-------------------------------------------------------------------------
+ */
+static hsize_t
+diff_ulong_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
+{
+    hsize_t       nfound = 0; /* number of differences found */
+    unsigned long temp1_ulong;
+    unsigned long temp2_ulong;
+    double        per;
+    hbool_t       both_zero = FALSE;
+
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_ulong, mem1, sizeof(unsigned long));
+    HDmemcpy(&temp2_ulong, mem2, sizeof(unsigned long));
+    /* -d and !-p */
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (PDIFF(temp1_ulong, temp2_ulong) > opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULI_FORMAT, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong));
+            }
+            nfound++;
+        }
+    }
+    /* !-d and -p */
+    else if (!opts->delta_bool && opts->percent_bool) {
+        PER_UNSIGN(signed long, temp1_ulong, temp2_ulong);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULI_FORMAT_P_NOTCOMP, temp1_ulong, temp2_ulong,
+                               PDIFF(temp1_ulong, temp2_ulong));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULI_FORMAT_P, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong), per);
+            }
+            nfound++;
+        }
+    }
+    /* -d and -p */
+    else if (opts->delta_bool && opts->percent_bool) {
+        PER_UNSIGN(signed long, temp1_ulong, temp2_ulong);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULI_FORMAT_P_NOTCOMP, temp1_ulong, temp2_ulong,
+                               PDIFF(temp1_ulong, temp2_ulong));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent && PDIFF(temp1_ulong, temp2_ulong) > opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULI_FORMAT_P, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong), per);
+            }
+            nfound++;
+        }
+    }
+    else if (temp1_ulong != temp2_ulong) {
+        opts->print_percentage = 0;
+        print_pos(opts, elem_idx, 0);
+        if (print_data(opts)) {
+            parallel_print(ULI_FORMAT, temp1_ulong, temp2_ulong, PDIFF(temp1_ulong, temp2_ulong));
+        }
+        nfound++;
+    }
+
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
+
+    return nfound;
+}
+
+/*-------------------------------------------------------------------------
+ * Function: diff_llong_element
+ *
+ * Purpose:  diff a single H5T_NATIVE_LLONG type
+ *
+ * Return:   number of differences found
+ *-------------------------------------------------------------------------
+ */
+static hsize_t
+diff_llong_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
+{
+    hsize_t   nfound = 0; /* number of differences found */
+    long long temp1_llong;
+    long long temp2_llong;
+    double    per;
+    hbool_t   both_zero = FALSE;
+
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_llong, mem1, sizeof(long long));
+    HDmemcpy(&temp2_llong, mem2, sizeof(long long));
+
+    /* -d and !-p */
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (ABS(temp1_llong - temp2_llong) > opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LLI_FORMAT, temp1_llong, temp2_llong, ABS(temp1_llong - temp2_llong));
+            }
+            nfound++;
+        }
+    }
+    /* !-d and -p */
+    else if (!opts->delta_bool && opts->percent_bool) {
+        PER(temp1_llong, temp2_llong);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LLI_FORMAT_P_NOTCOMP, temp1_llong, temp2_llong,
+                               ABS(temp1_llong - temp2_llong));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LLI_FORMAT_P, temp1_llong, temp2_llong, ABS(temp1_llong - temp2_llong), per);
+            }
+            nfound++;
+        }
+    }
+    /* -d and -p */
+    else if (opts->delta_bool && opts->percent_bool) {
+        PER(temp1_llong, temp2_llong);
+
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LLI_FORMAT_P_NOTCOMP, temp1_llong, temp2_llong,
+                               ABS(temp1_llong - temp2_llong));
+            }
+            nfound++;
+        }
+        else if (per > opts->percent && ABS(temp1_llong - temp2_llong) > opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LLI_FORMAT_P, temp1_llong, temp2_llong, ABS(temp1_llong - temp2_llong), per);
+            }
+            nfound++;
+        }
+    }
+    else {
+        if (temp1_llong != temp2_llong) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(LLI_FORMAT, temp1_llong, temp2_llong, ABS(temp1_llong - temp2_llong));
+            }
+            nfound++;
+        }
+    }
+
+    H5TOOLS_ENDDEBUG(":%d - errstat:%d", nfound, opts->err_stat);
+
+    return nfound;
+}
+
+/*-------------------------------------------------------------------------
+ * Function: diff_ullong_element
+ *
+ * Purpose:  diff a single H5T_NATIVE_ULLONG type
+ *
+ * Return:   number of differences found
+ *-------------------------------------------------------------------------
+ */
+static hsize_t
+diff_ullong_element(unsigned char *mem1, unsigned char *mem2, hsize_t elem_idx, diff_opt_t *opts)
 {
     hsize_t            nfound = 0; /* number of differences found */
     unsigned long long temp1_ullong;
     unsigned long long temp2_ullong;
-    hsize_t            i;
     float              f1, f2;
     double             per;
-    hbool_t            both_zero;
+    hbool_t            both_zero = FALSE;
+
+    H5TOOLS_START_DEBUG("delta_bool:%d - percent_bool:%d", opts->delta_bool, opts->percent_bool);
+
+    HDmemcpy(&temp1_ullong, mem1, sizeof(unsigned long long));
+    HDmemcpy(&temp2_ullong, mem2, sizeof(unsigned long long));
 
     /* -d and !-p */
-    if (opts->d && !opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ullong, mem1, sizeof(unsigned long long));
-            HDmemcpy(&temp2_ullong, mem2, sizeof(unsigned long long));
-
-            if (PDIFF(temp1_ullong,temp2_ullong) > (unsigned long long) opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(ULLI_FORMAT,temp1_ullong,temp2_ullong,PDIFF(temp1_ullong,temp2_ullong));
-                }
-                nfound++;
+    if (opts->delta_bool && !opts->percent_bool) {
+        if (PDIFF(temp1_ullong, temp2_ullong) > (unsigned long long)opts->delta) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULLI_FORMAT, temp1_ullong, temp2_ullong, PDIFF(temp1_ullong, temp2_ullong));
             }
-            mem1 += sizeof(unsigned long long);
-            mem2 += sizeof(unsigned long long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
     /* !-d and -p */
-    else if (!opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ullong, mem1, sizeof(unsigned long long));
-            HDmemcpy(&temp2_ullong, mem2, sizeof(unsigned long long));
+    else if (!opts->delta_bool && opts->percent_bool) {
+        ull2float(temp1_ullong, &f1);
+        ull2float(temp2_ullong, &f2);
+        PER(f1, f2);
 
-            ull2float(temp1_ullong, &f1);
-            ull2float(temp2_ullong, &f2);
-            PER(f1, f2);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(ULLI_FORMAT_P_NOTCOMP,temp1_ullong,temp2_ullong,PDIFF(temp1_ullong,temp2_ullong));
-                }
-                nfound++;
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULLI_FORMAT_P_NOTCOMP, temp1_ullong, temp2_ullong,
+                               PDIFF(temp1_ullong, temp2_ullong));
             }
-            else if (per > opts->percent) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(ULLI_FORMAT_P,temp1_ullong,temp2_ullong,PDIFF(temp1_ullong,temp2_ullong),per);
-                }
-                nfound++;
+            nfound++;
+        }
+        else if (per > opts->percent) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULLI_FORMAT_P, temp1_ullong, temp2_ullong, PDIFF(temp1_ullong, temp2_ullong),
+                               per);
             }
-            mem1 += sizeof(unsigned long long);
-            mem2 += sizeof(unsigned long long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
     /* -d and -p */
-    else if (opts->d && opts->p) {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ullong, mem1, sizeof(unsigned long long));
-            HDmemcpy(&temp2_ullong, mem2, sizeof(unsigned long long));
+    else if (opts->delta_bool && opts->percent_bool) {
+        ull2float(temp1_ullong, &f1);
+        ull2float(temp2_ullong, &f2);
+        PER(f1, f2);
 
-            ull2float(temp1_ullong, &f1);
-            ull2float(temp2_ullong, &f2);
-            PER(f1, f2);
-
-            if (not_comparable && !both_zero) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(ULLI_FORMAT_P_NOTCOMP,temp1_ullong,temp2_ullong,PDIFF(temp1_ullong,temp2_ullong));
-                }
-                nfound++;
+        if (not_comparable && !both_zero) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULLI_FORMAT_P_NOTCOMP, temp1_ullong, temp2_ullong,
+                               PDIFF(temp1_ullong, temp2_ullong));
             }
-            else if (per > opts->percent
-                    && PDIFF(temp1_ullong,temp2_ullong) > (unsigned long long) opts->delta) {
-                if (print_data(opts)) {
-                    print_pos(ph, 1, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(ULLI_FORMAT_P,temp1_ullong,temp2_ullong,PDIFF(temp1_ullong,temp2_ullong),per);
-                }
-                nfound++;
+            nfound++;
+        }
+        else if (per > opts->percent && PDIFF(temp1_ullong, temp2_ullong) > (unsigned long long)opts->delta) {
+            opts->print_percentage = 1;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULLI_FORMAT_P, temp1_ullong, temp2_ullong, PDIFF(temp1_ullong, temp2_ullong),
+                               per);
             }
-            mem1 += sizeof(unsigned long long);
-            mem2 += sizeof(unsigned long long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
+            nfound++;
         }
     }
     else {
-        for (i = 0; i < nelmts; i++) {
-            HDmemcpy(&temp1_ullong, mem1, sizeof(unsigned long long));
-            HDmemcpy(&temp2_ullong, mem2, sizeof(unsigned long long));
-
-            if (temp1_ullong != temp2_ullong) {
-                if (print_data(opts)) {
-                    print_pos(ph, 0, hyper_start + i, acc, pos, rank, dims, obj1, obj2);
-                    parallel_print(SPACES);
-                    parallel_print(ULLI_FORMAT,temp1_ullong,temp2_ullong,PDIFF(temp1_ullong,temp2_ullong));
-                }
-                nfound++;
+        if (temp1_ullong != temp2_ullong) {
+            opts->print_percentage = 0;
+            print_pos(opts, elem_idx, 0);
+            if (print_data(opts)) {
+                parallel_print(ULLI_FORMAT, temp1_ullong, temp2_ullong, PDIFF(temp1_ullong, temp2_ullong));
             }
-
-            mem1 += sizeof(unsigned long long);
-            mem2 += sizeof(unsigned long long);
-            if (opts->n && nfound >= opts->count)
-                return nfound;
-        } /* nelmts */
+            nfound++;
+        }
     }
 
+    H5TOOLS_ENDDEBUG(": %d zero:%d", nfound, both_zero);
     return nfound;
 }
 
@@ -4488,11 +3112,11 @@ static hsize_t diff_ullong(unsigned char *mem1, unsigned char *mem2,
  * Purpose:     convert unsigned long long to float
  *-------------------------------------------------------------------------
  */
-static
-int ull2float(unsigned long long ull_value, float *f_value)
+static int
+ull2float(unsigned long long ull_value, float *f_value)
 {
     hid_t          dxpl_id = H5I_INVALID_HID;
-    unsigned char *buf = NULL;
+    unsigned char *buf     = NULL;
     size_t         src_size;
     size_t         dst_size;
     int            ret_value = 0;
@@ -4503,21 +3127,20 @@ int ull2float(unsigned long long ull_value, float *f_value)
 
     src_size = H5Tget_size(H5T_NATIVE_ULLONG);
     dst_size = H5Tget_size(H5T_NATIVE_FLOAT);
-    if((buf = (unsigned char*) HDcalloc((size_t )1, MAX(src_size, dst_size))) == NULL)
+    if ((buf = (unsigned char *)HDcalloc((size_t)1, MAX(src_size, dst_size))) == NULL)
         H5TOOLS_GOTO_ERROR(FAIL, "Could not allocate buffer for dims");
 
     HDmemcpy(buf, &ull_value, src_size);
 
     /* do conversion */
-    if (H5Tconvert(H5T_NATIVE_ULLONG, H5T_NATIVE_FLOAT, (size_t) 1, buf, NULL, dxpl_id) < 0)
+    if (H5Tconvert(H5T_NATIVE_ULLONG, H5T_NATIVE_FLOAT, (size_t)1, buf, NULL, dxpl_id) < 0)
         H5TOOLS_GOTO_ERROR(FAIL, "H5Tconvert failed");
 
     HDmemcpy(f_value, buf, dst_size);
 
 done:
-    H5E_BEGIN_TRY {
-        H5Pclose(dxpl_id);
-    } H5E_END_TRY;
+    H5E_BEGIN_TRY { H5Pclose(dxpl_id); }
+    H5E_END_TRY;
 
     if (buf)
         HDfree(buf);
@@ -4532,26 +3155,28 @@ done:
  * Purpose:     use a absolute error formula to deal with floating point uncertainty
  *-------------------------------------------------------------------------
  */
-static hbool_t equal_double(double value, double expected, diff_opt_t *opts) {
+static hbool_t
+equal_double(double value, double expected, diff_opt_t *opts)
+{
     if (opts->do_nans) {
         /*-------------------------------------------------------------------------
-        * detect NaNs
-        *-------------------------------------------------------------------------
-        */
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
         hbool_t isnan1 = HDisnan(value);
         hbool_t isnan2 = HDisnan(expected);
 
         /*-------------------------------------------------------------------------
-        * we consider NaN == NaN to be true
-        *-------------------------------------------------------------------------
-        */
+         * we consider NaN == NaN to be true
+         *-------------------------------------------------------------------------
+         */
         if (isnan1 && isnan2)
             return TRUE;
 
         /*-------------------------------------------------------------------------
-        * one is a NaN, do not compare but assume difference
-        *-------------------------------------------------------------------------
-        */
+         * one is a NaN, do not compare but assume difference
+         *-------------------------------------------------------------------------
+         */
         if ((isnan1 && !isnan2) || (!isnan1 && isnan2))
             return FALSE;
     }
@@ -4577,9 +3202,9 @@ static hbool_t equal_double(double value, double expected, diff_opt_t *opts) {
  *-------------------------------------------------------------------------
  */
 
-#if H5_SIZEOF_LONG_DOUBLE !=0
-static
-hbool_t equal_ldouble(long double value, long double expected, diff_opt_t *opts)
+#if H5_SIZEOF_LONG_DOUBLE != 0
+static hbool_t
+equal_ldouble(long double value, long double expected, diff_opt_t *opts)
 {
     if (opts->do_nans) {
         /*-------------------------------------------------------------------------
@@ -4626,12 +3251,14 @@ hbool_t equal_ldouble(long double value, long double expected, diff_opt_t *opts)
  * Purpose:     use a absolute error formula to deal with floating point uncertainty
  *-------------------------------------------------------------------------
  */
-static hbool_t equal_float(float value, float expected, diff_opt_t *opts) {
+static hbool_t
+equal_float(float value, float expected, diff_opt_t *opts)
+{
     if (opts->do_nans) {
         /*-------------------------------------------------------------------------
-        * detect NaNs
-        *-------------------------------------------------------------------------
-        */
+         * detect NaNs
+         *-------------------------------------------------------------------------
+         */
         hbool_t isnan1 = HDisnan(value);
         hbool_t isnan2 = HDisnan(expected);
 
@@ -4664,7 +3291,6 @@ static hbool_t equal_float(float value, float expected, diff_opt_t *opts) {
     return FALSE;
 }
 
-
 /*-------------------------------------------------------------------------
  *
  * Local functions
@@ -4678,10 +3304,10 @@ static hbool_t equal_float(float value, float expected, diff_opt_t *opts) {
  * Purpose:  print data only in report or verbose modes, and do not print in quiet mode
  *-------------------------------------------------------------------------
  */
-static
-int print_data(diff_opt_t *opts)
+static int
+print_data(diff_opt_t *opts)
 {
-    return ((opts->m_report || opts->m_verbose) && !opts->m_quiet) ? 1 : 0;
+    return ((opts->mode_report || opts->mode_verbose) && !opts->mode_quiet) ? 1 : 0;
 }
 
 /*-------------------------------------------------------------------------
@@ -4690,28 +3316,25 @@ int print_data(diff_opt_t *opts)
  * Purpose:  print header for difference
  *-------------------------------------------------------------------------
  */
-static
-void print_header(int pp, /* print percentage */
-        int rank, hsize_t *dims, const char *obj1, const char *obj2)
+static void
+print_header(diff_opt_t *opts)
 {
     /* print header */
     parallel_print("%-16s", "size:");
-    print_dimensions(rank, dims);
+    print_dimensions(opts->rank, opts->dims);
     parallel_print("%-11s", "");
-    print_dimensions(rank, dims);
+    print_dimensions(opts->rank, opts->dims);
     parallel_print("\n");
 
-    if (pp) {
-        parallel_print("%-15s %-15s %-15s %-15s %-15s\n", "position",
-                (obj1 != NULL) ? obj1 : " ", (obj2 != NULL) ? obj2 : " ", "difference", "relative");
-        parallel_print(
-                "------------------------------------------------------------------------\n");
+    if (opts->print_percentage) {
+        parallel_print("%-15s %-15s %-15s %-15s %-15s\n", "position", opts->obj_name[0], opts->obj_name[1],
+                       "difference", "relative");
+        parallel_print("------------------------------------------------------------------------\n");
     }
     else {
-        parallel_print("%-15s %-15s %-15s %-20s\n", "position",
-                (obj1 != NULL) ? obj1 : " ", (obj2 != NULL) ? obj2 : " ", "difference");
-        parallel_print(
-                "------------------------------------------------------------\n");
+        parallel_print("%-15s %-15s %-15s %-20s\n", "position", opts->obj_name[0], opts->obj_name[1],
+                       "difference");
+        parallel_print("------------------------------------------------------------\n");
     }
 }
 
@@ -4721,78 +3344,101 @@ void print_header(int pp, /* print percentage */
  * Purpose:  print in matrix notation, converting from an array index position
  *-------------------------------------------------------------------------
  */
-static
-void print_pos(int *ph, /* print header */
-        int pp, /* print percentage */
-        hsize_t curr_pos, hsize_t *acc, hsize_t *pos, int rank, hsize_t *dims,
-        const char *obj1, const char *obj2)
+static void
+print_pos(diff_opt_t *opts, hsize_t idx, size_t u)
 {
-    int i;
+    int i, j;
 
-    /* print header */
-    if (*ph == 1) {
-        *ph = 0;
+    H5TOOLS_START_DEBUG(" -- idx:%ld", idx);
 
-        print_header(pp, rank, dims, obj1, obj2);
-    } /* end print header */
+    if (print_data(opts)) {
+        /* print header */
+        if (opts->print_header == 1) {
+            opts->print_header = 0;
 
-    for (i = 0; i < rank; i++) {
-        pos[i] = curr_pos / acc[i];
-        curr_pos -= acc[i] * pos[i];
-    }
-    HDassert(curr_pos == 0);
+            print_header(opts);
+        } /* end print header */
 
-    if (rank > 0) {
-        parallel_print("[ ");
-        for (i = 0; i < rank; i++) {
-            parallel_print(HSIZE_T_FORMAT, (unsigned long long)pos[i]);
-            parallel_print(" ");
+        H5TOOLS_DEBUG("rank=%d", opts->rank);
+        if (opts->rank > 0) {
+            hsize_t curr_pos = idx;
+
+            parallel_print("[ ");
+            H5TOOLS_DEBUG("do calc_acc_pos[%ld] nelmts:%d - errstat:%d", i, opts->hs_nelmts, opts->err_stat);
+
+            if (opts->sset[0] != NULL) {
+                /* Subsetting is used - calculate total position */
+                hsize_t elmnt_cnt = 1;
+                hsize_t dim_cnt   = 0;   /* previous dim size */
+                hsize_t str_cnt   = 0;   /* previous dim stride */
+                hsize_t curr_idx  = idx; /* calculated running position */
+                hsize_t str_idx   = 0;
+                hsize_t blk_idx   = 0;
+                hsize_t cnt_idx   = 0;
+                hsize_t hs_idx    = 0;
+                j                 = opts->rank - 1;
+                do {
+                    cnt_idx = opts->sset[0]->count.data[j]; /* Count value for current dim */
+                    H5TOOLS_DEBUG("... sset loop:%d with curr_pos:%ld (curr_idx:%ld) - count:%ld", j,
+                                  curr_pos, curr_idx, cnt_idx);
+                    blk_idx = opts->sset[0]->block.data[j]; /* Block value for current dim */
+                    H5TOOLS_DEBUG("... sset loop:%d with curr_pos:%ld (curr_idx:%ld) - block:%ld", j,
+                                  curr_pos, curr_idx, blk_idx);
+                    hs_idx = cnt_idx * blk_idx; /* hyperslab area value for current dim */
+                    H5TOOLS_DEBUG("... sset loop:%d with curr_pos:%ld (curr_idx:%ld) - hs:%ld", j, curr_pos,
+                                  curr_idx, hs_idx);
+                    str_idx = opts->sset[0]->stride.data[j]; /* Stride value for current dim */
+                    H5TOOLS_DEBUG("... sset loop:%d with curr_pos:%ld (curr_idx:%ld) - stride:%ld", j,
+                                  curr_pos, curr_idx, str_idx);
+                    elmnt_cnt *= opts->dims[j]; /* Total number of elements in dimension */
+                    H5TOOLS_DEBUG("... sset loop:%d with elmnt_cnt:%ld", j, elmnt_cnt);
+                    if (str_idx > blk_idx)
+                        curr_idx += dim_cnt * (str_idx - blk_idx); /* */
+                    else if (curr_idx >= hs_idx)
+                        curr_idx += dim_cnt * str_cnt;
+                    H5TOOLS_DEBUG("... sset loop:%d with idx:%ld (curr_idx:%ld) - stride:%ld", j, idx,
+                                  curr_idx, str_idx);
+                    dim_cnt = elmnt_cnt; /* */
+                    if (str_idx > blk_idx)
+                        str_cnt = str_idx - blk_idx; /* */
+                    else
+                        str_cnt = str_idx; /* */
+                    H5TOOLS_DEBUG("... sset loop:%d with dim_cnt:%ld - str_cnt:%ld", j, dim_cnt, str_cnt);
+                    j--;
+                } while (curr_idx >= elmnt_cnt && j >= 0);
+                curr_pos = curr_idx; /* New current position */
+                H5TOOLS_DEBUG("pos loop:%d,%d with  elmnt_cnt:%ld - curr_pos:%ld", i, j, elmnt_cnt, curr_pos);
+            } /* if (opts->sset[0] != NULL) */
+            /*
+             * Calculate the number of elements represented by a unit change in a
+             * certain index position.
+             */
+            calc_acc_pos((unsigned)opts->rank, curr_pos, opts->acc, opts->pos);
+
+            for (i = 0; i < opts->rank; i++) {
+                H5TOOLS_DEBUG("pos loop:%d with opts->pos=%ld opts->sm_pos=%ld", i, opts->pos[i],
+                              opts->sm_pos[i]);
+                opts->pos[i] += (unsigned long)opts->sm_pos[i];
+                H5TOOLS_DEBUG("pos loop:%d with opts->pos=%ld", i, opts->pos[i]);
+                parallel_print(HSIZE_T_FORMAT, (unsigned long long)opts->pos[i]);
+                parallel_print(" ");
+            }
+            parallel_print("]");
         }
-        parallel_print("]");
-    }
-    else
-        parallel_print("      ");
-}
-
-/*-------------------------------------------------------------------------
- * Function: print_char_pos
- *
- * Purpose:  print character position in string
- *-------------------------------------------------------------------------
- */
-static
-void print_char_pos(int *ph, /* print header */
-        int pp, /* print percentage */
-        hsize_t curr_pos, size_t u, hsize_t *acc, hsize_t *pos, int rank, hsize_t *dims,
-        const char *obj1, const char *obj2)
-{
-    int i;
-
-    /* print header */
-    if (*ph == 1) {
-        *ph = 0;
-
-        print_header(pp, rank, dims, obj1, obj2);
-    } /* end print header */
-
-    for (i = 0; i < rank; i++) {
-        pos[i] = curr_pos / acc[i];
-        curr_pos -= acc[i] * pos[i];
-    }
-    HDassert(curr_pos == 0);
-
-    parallel_print("[ ");
-    if (rank > 0) {
-        for (i = 0; i < rank; i++) {
-            parallel_print(HSIZE_T_FORMAT, (unsigned long long)pos[i]);
-            parallel_print(" ");
+        else {
+            if (opts->print_dims) {
+                parallel_print("[ ");
+                parallel_print("%zu", u);
+                parallel_print("]");
+                opts->print_dims = 0;
+            }
+            else
+                parallel_print("      ");
         }
-
+        parallel_print(SPACES);
     }
-    else
-        parallel_print("%zu", u);
 
-    parallel_print("]");
+    H5TOOLS_ENDDEBUG("");
 }
 
 /*-------------------------------------------------------------------------
@@ -4801,36 +3447,37 @@ void print_char_pos(int *ph, /* print header */
  * Purpose:  Print a char
  *-------------------------------------------------------------------------
  */
-static void h5diff_print_char(char ch)
+static void
+h5diff_print_char(char ch)
 {
     switch (ch) {
-    case '"':
-        parallel_print("\\\"");
-        break;
-    case '\\':
-        parallel_print("\\\\");
-        break;
-    case '\b':
-        parallel_print("\\b");
-        break;
-    case '\f':
-        parallel_print("\\f");
-        break;
-    case '\n':
-        parallel_print("\\n");
-        break;
-    case '\r':
-        parallel_print("\\r");
-        break;
-    case '\t':
-        parallel_print("\\t");
-        break;
-    default:
-        if (isprint(ch))
-            parallel_print("%c", ch);
-        else
-            parallel_print("\\%03o", ch);
-        break;
+        case '"':
+            parallel_print("\\\"");
+            break;
+        case '\\':
+            parallel_print("\\\\");
+            break;
+        case '\b':
+            parallel_print("\\b");
+            break;
+        case '\f':
+            parallel_print("\\f");
+            break;
+        case '\n':
+            parallel_print("\\n");
+            break;
+        case '\r':
+            parallel_print("\\r");
+            break;
+        case '\t':
+            parallel_print("\\t");
+            break;
+        default:
+            if (isprint(ch))
+                parallel_print("%c", ch);
+            else
+                parallel_print("\\%03o", ch);
+            break;
     }
 }
 
@@ -4839,7 +3486,8 @@ static void h5diff_print_char(char ch)
  * set up compound datatype structures.
  *-------------------------------------------------------------------------
  */
-static void get_member_types(hid_t tid, mcomp_t *members)
+static void
+get_member_types(hid_t tid, mcomp_t *members)
 {
     int      tclass;
     unsigned u;
@@ -4858,16 +3506,16 @@ static void get_member_types(hid_t tid, mcomp_t *members)
 
         if ((nmembs = H5Tget_nmembers(tid)) <= 0)
             return;
-        members->n = (unsigned) nmembs;
+        members->n = (unsigned)nmembs;
 
-        members->ids = (hid_t *) HDcalloc((size_t )members->n, sizeof(hid_t));
-        members->offsets = (size_t *) HDcalloc((size_t )members->n, sizeof(size_t));
-        members->m = (mcomp_t **) HDcalloc((size_t )members->n, sizeof(mcomp_t *));
+        members->ids     = (hid_t *)HDcalloc((size_t)members->n, sizeof(hid_t));
+        members->offsets = (size_t *)HDcalloc((size_t)members->n, sizeof(size_t));
+        members->m       = (mcomp_t **)HDcalloc((size_t)members->n, sizeof(mcomp_t *));
 
         for (u = 0; u < members->n; u++) {
-            members->ids[u] = H5Tget_member_type(tid, u);
+            members->ids[u]     = H5Tget_member_type(tid, u);
             members->offsets[u] = H5Tget_member_offset(tid, u);
-            members->m[u] = (mcomp_t *) HDmalloc(sizeof(mcomp_t));
+            members->m[u]       = (mcomp_t *)HDmalloc(sizeof(mcomp_t));
             HDmemset(members->m[u], 0, sizeof(mcomp_t));
             get_member_types(members->ids[u], members->m[u]);
         }
@@ -4881,7 +3529,8 @@ static void get_member_types(hid_t tid, mcomp_t *members)
  * clean and close compound members.
  *-------------------------------------------------------------------------
  */
-static void close_member_types(mcomp_t *members)
+static void
+close_member_types(mcomp_t *members)
 {
     unsigned u;
 
@@ -4900,4 +3549,3 @@ static void close_member_types(mcomp_t *members)
     HDfree(members->ids);
     HDfree(members->offsets);
 }
-

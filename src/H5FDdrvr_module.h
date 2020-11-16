@@ -11,7 +11,7 @@
  * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /*
- * Programmer:	Quincey Koziol <koziol@hdfgroup.org>
+ * Programmer:	Quincey Koziol
  *		Saturday, September 12, 2015
  *
  * Purpose:	This file contains declarations which define macros for the
@@ -24,10 +24,9 @@
 /* Define the proper control macros for the generic FUNC_ENTER/LEAVE and error
  *      reporting macros.
  */
-#define H5_MY_PKG       H5FD
-#define H5_MY_PKG_ERR   H5E_FILE
-#define H5_MY_PKG_INIT  YES
+#define H5_MY_PKG      H5FD
+#define H5_MY_PKG_ERR  H5E_FILE
+#define H5_MY_PKG_INIT YES
 #define H5_PKG_SINGLE_SOURCE
 
 #endif /* _H5FDdrvr_module_H */
-

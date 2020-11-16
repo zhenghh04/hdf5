@@ -296,7 +296,7 @@ AC_MSG_CHECKING([for clang sanitizer checks])
 AC_ARG_ENABLE([sanitize-checks],
               [AS_HELP_STRING([--enable-sanitize-checks=address],
                               [(clang/clang++ compilers only) Enable sanitize checks.
-                               Address is useful for detecting issues dealing with 
+                               Address is useful for detecting issues dealing with
                                memory. See AddressSanitizer in config/sanitizer/README.md
                                for more information.
                                [default=none]
@@ -311,7 +311,7 @@ fi
 if test "X$CC_BASENAME" = "Xclang"; then
   AC_SUBST([CLANG_SANITIZE_CHECKS])
 
-  # There are several sanitizer tools.  At present we are testing 
+  # There are several sanitizer tools.  At present we are testing
   # and describing only -fsanitizer=address with autotools.
   case "X-$CLANG_SANITIZE_CHECKS" in
     X-no|X-none)
@@ -328,8 +328,8 @@ if test "X$CC_BASENAME" = "Xclang"; then
   # The clang compiler doesn't support some of them; they should be
   # checked before adding them to the list in the help message.
   # The sanitizers/sanitizers.cmake file lists these options:
-  # address, memory, memoryWithOrigins, undefined, thread, leak, 
-  # 'address;undefined'.  Which and which combinations of these are 
+  # address, memory, memoryWithOrigins, undefined, thread, leak,
+  # 'address;undefined'.  Which and which combinations of these are
   #  supported varies by compiler version, but unsupported options
   # or combinations will result in configure errors reported in config.log.
   # Comma separated lists of sanitize options wil be entered intact in
@@ -1024,7 +1024,10 @@ AC_ARG_ENABLE([tests],
               [HDF5_TESTS=$enableval])
 
 if test "X$HDF5_TESTS" = "Xno"; then
+  AC_MSG_RESULT([yes])
   echo "Building HDF5 tests is disabled"
+else
+  AC_MSG_RESULT([no])
 fi
 
 ## ----------------------------------------------------------------------
@@ -1045,8 +1048,69 @@ AC_ARG_ENABLE([tools],
               [HDF5_TOOLS=$enableval])
 
 if test "X$HDF5_TOOLS" = "Xno"; then
+  AC_MSG_RESULT([yes])
   echo "Building HDF5 tools is disabled"
+else
+  AC_MSG_RESULT([no])
 fi
+
+## ----------------------------------------------------------------------
+## Check if they would like to enable building doxygen files
+##
+
+## This needs to be exposed for the library info file.
+AC_SUBST([HDF5_DOXYGEN])
+
+## Default is to not build DOXYGEN
+HDF5_DOXYGEN=no
+
+AC_MSG_CHECKING([if building doxygen is enabled])
+
+AC_ARG_ENABLE([doxygen],
+              [AS_HELP_STRING([--enable-doxygen],
+                              [Compile the HDF5 doxygen files [default=no]])],
+              [HDF5_DOXYGEN=$enableval])
+
+if test "X$HDF5_DOXYGEN" = "Xyes"; then
+  AC_MSG_RESULT([yes])
+  DX_DOXYGEN_FEATURE(ON)
+  DX_DOT_FEATURE(OFF)
+  DX_HTML_FEATURE(ON)
+  DX_CHM_FEATURE(OFF)
+  DX_CHI_FEATURE(OFF)
+  DX_MAN_FEATURE(ON)
+  DX_RTF_FEATURE(OFF)
+  DX_XML_FEATURE(OFF)
+  DX_PDF_FEATURE(OFF)
+  DX_PS_FEATURE(OFF)
+
+  AC_SUBST([DOXYGEN_PACKAGE])
+  AC_SUBST([DOXYGEN_VERSION_STRING])
+  AC_SUBST([DOXYGEN_INCLUDE_ALIASES])
+  AC_SUBST([DOXYGEN_PROJECT_LOGO])
+  AC_SUBST([DOXYGEN_PROJECT_BRIEF])
+  AC_SUBST([DOXYGEN_INPUT_DIRECTORY])
+  AC_SUBST([DOXYGEN_OPTIMIZE_OUTPUT_FOR_C])
+  AC_SUBST([DOXYGEN_MACRO_EXPANSION])
+  AC_SUBST([DOXYGEN_OUTPUT_DIRECTORY])
+
+  DOXYGEN_PACKAGE=${PACKAGE_NAME}
+  DOXYGEN_VERSION_STRING=${PACKAGE_VERSION}
+  DOXYGEN_INCLUDE_ALIASES='$(SRCDIR)/doxygen/aliases'
+  DOXYGEN_PROJECT_LOGO='$(SRCDIR)/doxygen/img/HDFG-logo.png'
+  DOXYGEN_PROJECT_BRIEF="C-API Reference"
+  DOXYGEN_INPUT_DIRECTORY='$(SRCDIR) $(SRCDIR)/doxygen/dox'
+  DOXYGEN_OPTIMIZE_OUTPUT_FOR_C=YES
+  DOXYGEN_MACRO_EXPANSION=YES
+  DOXYGEN_OUTPUT_DIRECTORY=hdf5lib_docs
+
+  DX_INIT_DOXYGEN([HDF5], [../doxygen/Doxyfile], [hdf5lib_docs])
+
+else
+  AC_MSG_RESULT([no])
+  echo "Doxygen support is disabled"
+fi
+
 
 ## ----------------------------------------------------------------------
 ## Create libtool.  If shared/static libraries are going to be enabled
@@ -1249,6 +1313,7 @@ case "$host_cpu-$host_vendor-$host_os" in
     ## VFD on Linux systems.
     H5_CPPFLAGS="-D_GNU_SOURCE $H5_CPPFLAGS"
     ;;
+
 esac
 
 ## Need to add the AM_ and H5_ into CFLAGS/CPPFLAGS to make them visible
@@ -1593,18 +1658,21 @@ case "X-$withval" in
       AM_CPPFLAGS="$AM_CPPFLAGS -I$szlib_inc"
     fi
 
-    AC_CHECK_HEADERS([szlib.h],
-                     [HAVE_SZLIB_H="yes"],
-                     [CPPFLAGS="$saved_CPPFLAGS"; AM_CPPFLAGS="$saved_AM_CPPFLAGS"] [unset HAVE_SZLIB])
-
     if test -n "$szlib_lib"; then
       LDFLAGS="$LDFLAGS -L$szlib_lib"
       AM_LDFLAGS="$AM_LDFLAGS -L$szlib_lib"
     fi
 
-    if test "x$HAVE_SZLIB" = "xyes" -a "x$HAVE_SZLIB_H" = "xyes"; then
+    if test "x$HAVE_SZLIB" = "xyes"; then
       AC_CHECK_LIB([sz], [SZ_BufftoBuffCompress],,
-                   [LDFLAGS="$saved_LDFLAGS"; AM_LDFLAGS="$saved_AM_LDFLAGS"; unset HAVE_SZLIB])
+                   [CPPFLAGS="$saved_CPPFLAGS"; AM_CPPFLAGS="$saved_AM_CPPFLAGS"; LDFLAGS="$saved_LDFLAGS"; AM_LDFLAGS="$saved_AM_LDFLAGS"; unset HAVE_SZLIB])
+      if test -n "$HAVE_SZLIB"; then
+        AC_CHECK_HEADERS([szlib.h],
+                         [HAVE_SZLIB_H="yes"],
+                         [CPPFLAGS="$saved_CPPFLAGS"; AM_CPPFLAGS="$saved_AM_CPPFLAGS"] [unset HAVE_SZLIB])
+      else
+        AC_MSG_RESULT([Using SZ_BufftoBuffCompress from libsz in $szlib_lib failed.  Szip not enabled.])
+      fi
     fi
 
     if test -z "$HAVE_SZLIB" -a -n "$HDF5_CONFIG_ABORT"; then
@@ -2033,7 +2101,7 @@ AC_COMPILE_IFELSE([AC_LANG_PROGRAM([[]], [[
 AC_MSG_CHECKING([how to print long long])
 AC_CACHE_VAL([hdf5_cv_printf_ll], [
 
-for hdf5_cv_printf_ll in l ll L q unknown; do
+for hdf5_cv_printf_ll in ll l L q unknown; do
    AC_RUN_IFELSE(
         [AC_LANG_PROGRAM([
             #include <stdio.h>
@@ -2310,6 +2378,56 @@ case "X-$OPTIMIZATION" in
     AC_MSG_RESULT([$OPTIMIZATION])
     ;;
 esac
+
+## ----------------------------------------------------------------------
+## Check if file locking should be used
+##
+AC_MSG_CHECKING([enable file locking])
+AC_ARG_ENABLE([file-locking],
+              [AS_HELP_STRING([--enable-file-locking=(yes|no|best-effort)],
+                              [Sets the default for whether or not to use file
+                               locking when opening files. Can be overridden
+                               with the HDF5_USE_FILE_LOCKING environment variable
+                               and the H5Pset_file_locking() API call.
+                               best-effort attempts to use file locking but does
+                               not fail when file locks have been disabled on
+                               the file system (useful with Lustre).
+                               [default=best-effort]
+                               ])],
+              [DESIRED_FILE_LOCKING=$enableval])
+
+## Set defaults
+if test "X-$DESIRED_FILE_LOCKING" = X- ; then
+  DESIRED_FILE_LOCKING=best-effort
+fi
+
+## Allow this variable to be substituted in
+## other files (src/libhdf5.settings.in, etc.)
+AC_SUBST([DESIRED_FILE_LOCKING])
+AC_SUBST([USE_FILE_LOCKING])
+AC_SUBST([IGNORE_DISABLED_FILE_LOCKS])
+
+case "X-$DESIRED_FILE_LOCKING" in
+  X-best-effort)
+      AC_MSG_RESULT([best-effort])
+      AC_DEFINE([USE_FILE_LOCKING], [1],
+                [Define if the library will use file locking])
+      AC_DEFINE([IGNORE_DISABLED_FILE_LOCKS], [1],
+                [Define if the library will ignore file locks when disabled])
+    ;;
+  X-yes)
+      AC_MSG_RESULT([yes])
+      AC_DEFINE([USE_FILE_LOCKING], [1],
+                [Define if the library will use file locking])
+    ;;
+  X-no)
+      AC_MSG_RESULT([no])
+    ;;
+  *)
+      AC_MSG_ERROR([Unrecognized value: $USE_FILE_LOCKING])
+    ;;
+esac
+
 
 ## ----------------------------------------------------------------------
 ## Enable/disable internal package-level debugging output
@@ -3070,6 +3188,9 @@ if test "x$HAVE_LIBHDFS" = "xyes"; then
             [Proceed to build with libhdfs])
 fi
 
+## Read-only HDFS files are not built if not required.
+AM_CONDITIONAL([HDFS_VFD_CONDITIONAL], [test "X$HAVE_LIBHDFS" = "Xyes"])
+
 ## Checkpoint the cache
 AC_CACHE_SAVE
 
@@ -3704,6 +3825,7 @@ AM_CONDITIONAL([BUILD_HDF5_HL_CONDITIONAL], [test "X$HDF5_HL" = "Xyes"])
 AM_CONDITIONAL([BUILD_TESTS_CONDITIONAL], [test "X$HDF5_TESTS" = "Xyes"])
 AM_CONDITIONAL([BUILD_TESTS_PARALLEL_CONDITIONAL], [test -n "$TESTPARALLEL"])
 AM_CONDITIONAL([BUILD_TOOLS_CONDITIONAL], [test "X$HDF5_TOOLS" = "Xyes"])
+AM_CONDITIONAL([BUILD_DOXYGEN_CONDITIONAL], [test "X$HDF5_DOXYGEN" = "Xyes"])
 
 ## ----------------------------------------------------------------------
 ## Build the Makefiles.
@@ -3809,6 +3931,7 @@ AM_CONDITIONAL([HAVE_SHARED_CONDITIONAL], [test "X$enable_shared" = "Xyes"])
 
 AC_CONFIG_FILES([src/libhdf5.settings
                  Makefile
+                 doxygen/Doxyfile
                  src/Makefile
                  test/Makefile
                  test/H5srcdir_str.h

@@ -17,7 +17,6 @@
 #include "h5tools.h"
 #include "h5tools_utils.h"
 
-
 /*-------------------------------------------------------------------------
  * Function: main
  *
@@ -26,7 +25,7 @@
  * Return: An  exit status of 0 means no differences were found, 1 means some
  *   differences were found.
  *
- * Programmer: Pedro Vicente, pvn@ncsa.uiuc.edu
+ * Programmer: Pedro Vicente
  *
  * Date: May 9, 2003
  *
@@ -65,60 +64,47 @@
  *-------------------------------------------------------------------------
  */
 
-
-int main(int argc, const char *argv[])
+int
+main(int argc, const char *argv[])
 {
-    int        ret;
-    H5E_auto2_t         func;
-    H5E_auto2_t         tools_func;
-    void               *edata;
-    void               *tools_edata;
-    const char *fname1 = NULL;
-    const char *fname2 = NULL;
-    const char *objname1  = NULL;
-    const char *objname2  = NULL;
-    hsize_t    nfound=0;
-    diff_opt_t opts;
+    int         ret;
+    int         i;
+    const char *fname1   = NULL;
+    const char *fname2   = NULL;
+    const char *objname1 = NULL;
+    const char *objname2 = NULL;
+    hsize_t     nfound   = 0;
+    diff_opt_t  opts;
 
     h5tools_setprogname(PROGRAMNAME);
     h5tools_setstatus(EXIT_SUCCESS);
 
-    /* Disable error reporting */
-    H5Eget_auto2(H5E_DEFAULT, &func, &edata);
-    H5Eset_auto2(H5E_DEFAULT, NULL, NULL);
-
     /* Initialize h5tools lib */
     h5tools_init();
 
-    /* Disable tools error reporting */
-    H5Eget_auto2(H5tools_ERR_STACK_g, &tools_func, &tools_edata);
-    H5Eset_auto2(H5tools_ERR_STACK_g, NULL, NULL);
-
     /*-------------------------------------------------------------------------
-    * process the command-line
-    *-------------------------------------------------------------------------
-    */
+     * process the command-line
+     *-------------------------------------------------------------------------
+     */
     parse_command_line(argc, argv, &fname1, &fname2, &objname1, &objname2, &opts);
 
-    if (enable_error_stack > 0) {
-        H5Eset_auto2(H5E_DEFAULT, func, edata);
-        H5Eset_auto2(H5tools_ERR_STACK_g, tools_func, tools_edata);
-    }
+    /* enable error reporting if command line option */
+    h5tools_error_report();
 
     /*-------------------------------------------------------------------------
-    * do the diff
-    *-------------------------------------------------------------------------
-    */
+     * do the diff
+     *-------------------------------------------------------------------------
+     */
 
     nfound = h5diff(fname1, fname2, objname1, objname2, &opts);
 
     print_info(&opts);
 
-   /*-------------------------------------------------------------------------
-    * exit code
-    *   1 if differences, 0 if no differences, 2 if error
-    *-------------------------------------------------------------------------
-    */
+    /*-------------------------------------------------------------------------
+     * exit code
+     *   1 if differences, 0 if no differences, 2 if error
+     *-------------------------------------------------------------------------
+     */
 
     ret = (nfound == 0 ? 0 : 1);
 
@@ -129,6 +115,23 @@ int main(int argc, const char *argv[])
     /* and return 2 for error */
     if (opts.err_stat)
         ret = 2;
+
+    /* free any buffers */
+    for (i = 0; i < 2; i++) {
+        if (opts.sset[i]) {
+            if (opts.sset[i]->start.data)
+                HDfree(opts.sset[i]->start.data);
+            if (opts.sset[i]->stride.data)
+                HDfree(opts.sset[i]->stride.data);
+            if (opts.sset[i]->count.data)
+                HDfree(opts.sset[i]->count.data);
+            if (opts.sset[i]->block.data)
+                HDfree(opts.sset[i]->block.data);
+
+            HDfree(opts.sset[i]);
+            opts.sset[i] = NULL;
+        }
+    }
 
     h5diff_exit(ret);
 }
@@ -156,4 +159,3 @@ h5diff_exit(int status)
 
     HDexit(status);
 }
-

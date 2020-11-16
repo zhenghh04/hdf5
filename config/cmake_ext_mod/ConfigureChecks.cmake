@@ -69,6 +69,7 @@ if (MINGW)
   set (WINDOWS 1) # MinGW tries to imitate Windows
   set (CMAKE_REQUIRED_FLAGS "-DWIN32_LEAN_AND_MEAN=1 -DNOGDI=1")
   set (${HDF_PREFIX}_HAVE_WINSOCK2_H 1)
+  set (__USE_MINGW_ANSI_STDIO 1)
 endif ()
 
 if (WIN32 AND NOT MINGW)
@@ -679,4 +680,3 @@ endif ()
 # the cache value is set in it's config file)
 #
 set (${HDF_PREFIX}_CONVERT_DENORMAL_FLOAT 1)
-
