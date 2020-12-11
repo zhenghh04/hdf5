@@ -208,7 +208,8 @@ static herr_t H5VL_nonblock_object_optional(void *obj, H5VL_object_optional_t op
 /* Container/connector introspection callbacks */
 static herr_t H5VL_nonblock_introspect_get_conn_cls(void *obj, H5VL_get_conn_lvl_t lvl,
                                                     const H5VL_class_t **conn_cls);
-static herr_t H5VL_nonblock_introspect_opt_query(void *obj, H5VL_subclass_t cls, int opt_type, uint64_t *flags);
+static herr_t H5VL_nonblock_introspect_opt_query(void *obj, H5VL_subclass_t cls, int opt_type,
+                                                 uint64_t *flags);
 
 /* Async request callbacks */
 static herr_t H5VL_nonblock_request_wait(void *req, uint64_t timeout, H5VL_request_status_t *status);
@@ -2572,7 +2573,7 @@ H5VL_nonblock_object_optional(void *obj, H5VL_object_optional_t opt_type, hid_t 
 } /* end H5VL_nonblock_object_optional() */
 
 /*-------------------------------------------------------------------------
- * Function:    H5VL_nonblock_introspect_get_conn_clss
+ * Function:    H5VL_nonblock_introspect_get_conn_cls
  *
  * Purpose:     Query the connector class.
  *
@@ -2580,7 +2581,7 @@ H5VL_nonblock_object_optional(void *obj, H5VL_object_optional_t opt_type, hid_t 
  *
  *-------------------------------------------------------------------------
  */
-herr_t
+static herr_t
 H5VL_nonblock_introspect_get_conn_cls(void *obj, H5VL_get_conn_lvl_t lvl, const H5VL_class_t **conn_cls)
 {
     H5VL_nonblock_t *o = (H5VL_nonblock_t *)obj;
@@ -2610,7 +2611,7 @@ H5VL_nonblock_introspect_get_conn_cls(void *obj, H5VL_get_conn_lvl_t lvl, const 
  *
  *-------------------------------------------------------------------------
  */
-herr_t
+static herr_t
 H5VL_nonblock_introspect_opt_query(void *obj, H5VL_subclass_t cls, int opt_type, uint64_t *flags)
 {
     H5VL_nonblock_t *o = (H5VL_nonblock_t *)obj;
@@ -2797,7 +2798,7 @@ H5VL_nonblock_request_specific(void *obj, H5VL_request_specific_t specific_type,
 
             /* Release requests that have completed */
             if (H5VL_REQUEST_WAITANY == specific_type) {
-                size_t *       idx;    /* Pointer to the index of completed request */
+                size_t *               idx;    /* Pointer to the index of completed request */
                 H5VL_request_status_t *status; /* Pointer to the request's status */
 
                 /* Retrieve the remaining arguments */
@@ -2819,8 +2820,8 @@ H5VL_nonblock_request_specific(void *obj, H5VL_request_specific_t specific_type,
                 } /* end if */
             }     /* end if */
             else if (H5VL_REQUEST_WAITSOME == specific_type) {
-                size_t *       outcount;          /* # of completed requests */
-                unsigned *     array_of_indices;  /* Array of indices for completed requests */
+                size_t *               outcount;          /* # of completed requests */
+                unsigned *             array_of_indices;  /* Array of indices for completed requests */
                 H5VL_request_status_t *array_of_statuses; /* Array of statuses for completed requests */
 
                 /* Retrieve the remaining arguments */
@@ -2847,10 +2848,10 @@ H5VL_nonblock_request_specific(void *obj, H5VL_request_specific_t specific_type,
 
                         tmp_o = (H5VL_nonblock_t *)req_array[idx_array[u]];
                         H5VL_nonblock_free_obj(tmp_o);
-                    }                             /* end for */
-                }                                 /* end if */
-            }                                     /* end else-if */
-            else {                                /* H5VL_REQUEST_WAITALL == specific_type */
+                    }                                     /* end for */
+                }                                         /* end if */
+            }                                             /* end else-if */
+            else {                                        /* H5VL_REQUEST_WAITALL == specific_type */
                 H5VL_request_status_t *array_of_statuses; /* Array of statuses for completed requests */
 
                 /* Retrieve the remaining arguments */
@@ -2950,7 +2951,7 @@ H5VL_nonblock_request_free(void *obj)
  *
  *-------------------------------------------------------------------------
  */
-herr_t
+static herr_t
 H5VL_nonblock_blob_put(void *obj, const void *buf, size_t size, void *blob_id, void *ctx)
 {
     H5VL_nonblock_t *o = (H5VL_nonblock_t *)obj;
@@ -2974,7 +2975,7 @@ H5VL_nonblock_blob_put(void *obj, const void *buf, size_t size, void *blob_id, v
  *
  *-------------------------------------------------------------------------
  */
-herr_t
+static herr_t
 H5VL_nonblock_blob_get(void *obj, const void *blob_id, void *buf, size_t size, void *ctx)
 {
     H5VL_nonblock_t *o = (H5VL_nonblock_t *)obj;
@@ -2998,7 +2999,7 @@ H5VL_nonblock_blob_get(void *obj, const void *blob_id, void *buf, size_t size, v
  *
  *-------------------------------------------------------------------------
  */
-herr_t
+static herr_t
 H5VL_nonblock_blob_specific(void *obj, void *blob_id, H5VL_blob_specific_t specific_type, va_list arguments)
 {
     H5VL_nonblock_t *o = (H5VL_nonblock_t *)obj;
@@ -3022,7 +3023,7 @@ H5VL_nonblock_blob_specific(void *obj, void *blob_id, H5VL_blob_specific_t speci
  *
  *-------------------------------------------------------------------------
  */
-herr_t
+static herr_t
 H5VL_nonblock_blob_optional(void *obj, void *blob_id, H5VL_blob_optional_t opt_type, va_list arguments)
 {
     H5VL_nonblock_t *o = (H5VL_nonblock_t *)obj;
@@ -3138,7 +3139,7 @@ H5VL_nonblock_token_from_str(void *obj, H5I_type_t obj_type, const char *token_s
  *
  *-------------------------------------------------------------------------
  */
-herr_t
+static herr_t
 H5VL_nonblock_optional(void *obj, int op_type, hid_t dxpl_id, void **req, va_list arguments)
 {
     H5VL_nonblock_t *o = (H5VL_nonblock_t *)obj;

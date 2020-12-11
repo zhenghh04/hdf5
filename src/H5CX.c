@@ -370,9 +370,9 @@ typedef struct H5CX_dxpl_cache_t {
     uint32_t mpio_global_no_coll_cause;       /* Global reason for breaking collective I/O
                                                  (H5D_MPIO_GLOBAL_NO_COLLECTIVE_CAUSE_NAME) */
     H5FD_mpio_chunk_opt_t
-             mpio_chunk_opt_mode;  /* Collective chunk option (H5D_XFER_MPIO_CHUNK_OPT_HARD_NAME) */
-    unsigned mpio_chunk_opt_num;   /* Collective chunk thrreshold (H5D_XFER_MPIO_CHUNK_OPT_NUM_NAME) */
-    unsigned mpio_chunk_opt_ratio; /* Collective chunk ratio (H5D_XFER_MPIO_CHUNK_OPT_RATIO_NAME) */
+             mpio_chunk_opt_mode;         /* Collective chunk option (H5D_XFER_MPIO_CHUNK_OPT_HARD_NAME) */
+    unsigned mpio_chunk_opt_num;          /* Collective chunk thrreshold (H5D_XFER_MPIO_CHUNK_OPT_NUM_NAME) */
+    unsigned mpio_chunk_opt_ratio;        /* Collective chunk ratio (H5D_XFER_MPIO_CHUNK_OPT_RATIO_NAME) */
 #endif /* H5_HAVE_PARALLEL */
     H5Z_EDC_t             err_detect;     /* Error detection info (H5D_XFER_EDC_NAME) */
     H5Z_cb_t              filter_cb;      /* Filter callback function (H5D_XFER_FILTER_CB_NAME) */
@@ -1024,7 +1024,7 @@ H5CX_restore_state(const H5CX_state_t *api_state)
     (*head)->ctx.lcpl    = NULL;
 
     /* Restore the VOL wrapper context */
-    (*head)->ctx.vol_wrap_ctx       = api_state->vol_wrap_ctx;
+    (*head)->ctx.vol_wrap_ctx = api_state->vol_wrap_ctx;
     if (NULL != (*head)->ctx.vol_wrap_ctx)
         (*head)->ctx.vol_wrap_ctx_valid = TRUE;
 
@@ -1371,7 +1371,7 @@ H5CX_set_apl(hid_t *acspl_id, const H5P_libclass_t *libclass,
 
             /* Get the plist structure for the access property list */
             if (NULL == (plist = (H5P_genplist_t *)H5I_object(*acspl_id)))
-                HGOTO_ERROR(H5E_CONTEXT, H5E_BADATOM, FAIL, "can't find object for ID")
+                HGOTO_ERROR(H5E_CONTEXT, H5E_BADID, FAIL, "can't find object for ID")
 
             /* Get the collective metadata read flag */
             if (H5P_peek(plist, H5_COLL_MD_READ_FLAG_NAME, &md_coll_read) < 0)

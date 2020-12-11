@@ -46,9 +46,9 @@
 
 /* Node for list of 'atclose' routines to invoke at library shutdown */
 typedef struct H5_atclose_node_t {
-    H5_atclose_func_t func;     /* Function to invoke */
-    void *ctx;                  /* Context to pass to function */
-    struct H5_atclose_node_t *next;     /* Pointer to next node in list */
+    H5_atclose_func_t         func; /* Function to invoke */
+    void *                    ctx;  /* Context to pass to function */
+    struct H5_atclose_node_t *next; /* Pointer to next node in list */
 } H5_atclose_node_t;
 
 /********************/
@@ -114,12 +114,12 @@ DESCRIPTION
 herr_t
 H5__init_package(void)
 {
-    herr_t          ret_value = SUCCEED; /* Return value */
+    herr_t ret_value = SUCCEED; /* Return value */
 
     FUNC_ENTER_NOAPI_NOINIT
 
     /* Run the library initialization routine, if it hasn't already ran */
-    if (!H5_INIT_GLOBAL && !H5_TERM_GLOBAL) {                                                                \
+    if (!H5_INIT_GLOBAL && !H5_TERM_GLOBAL) {
         if (H5_init_library() < 0)
             HGOTO_ERROR(H5E_LIB, H5E_CANTINIT, FAIL, "unable to initialize library")
     } /* end if */
@@ -150,7 +150,7 @@ H5_init_library(void)
     /* Set the 'library initialized' flag as early as possible, to avoid
      * possible re-entrancy.
      */
-    H5_INIT_GLOBAL = TRUE;                                                                               \
+    H5_INIT_GLOBAL = TRUE;
 
     FUNC_ENTER_NOAPI(FAIL)
 
@@ -254,6 +254,8 @@ H5_init_library(void)
      *   It might not be initialized during normal file open.
      *   When the application does not close the file, routines in the module might
      *   be called via H5_term_library() when shutting down the file.
+     * The dataspace interface needs to be initialized so that future IDs for
+     *   dataspaces work.
      */
     if (H5E_init() < 0)
         HGOTO_ERROR(H5E_FUNC, H5E_CANTINIT, FAIL, "unable to initialize error interface")
@@ -267,6 +269,8 @@ H5_init_library(void)
         HGOTO_ERROR(H5E_FUNC, H5E_CANTINIT, FAIL, "unable to initialize link interface")
     if (H5FS_init() < 0)
         HGOTO_ERROR(H5E_FUNC, H5E_CANTINIT, FAIL, "unable to initialize FS interface")
+    if (H5S_init() < 0)
+        HGOTO_ERROR(H5E_VOL, H5E_CANTINIT, FAIL, "unable to initialize dataspace interface")
 
     /* Finish initializing interfaces that depend on the interfaces above */
     if (H5VL_init_phase2() < 0)
@@ -319,22 +323,25 @@ H5_term_library(void)
     (void)H5Eget_auto2(H5E_DEFAULT, &func, NULL);
 
     /* Iterate over the list of 'atclose' callbacks that have been registered */
-    if(H5_atclose_head) {
-        H5_atclose_node_t *curr_atclose;        /* Current 'atclose' node */
+    if (H5_atclose_head) {
+        H5_atclose_node_t *curr_atclose; /* Current 'atclose' node */
 
         /* Iterate over all 'atclose' nodes, making callbacks */
         curr_atclose = H5_atclose_head;
-        while(curr_atclose) {
-            H5_atclose_node_t *tmp_atclose;     /* Temporary pointer to 'atclose' node */
+        while (curr_atclose) {
+            H5_atclose_node_t *tmp_atclose; /* Temporary pointer to 'atclose' node */
 
             /* Invoke callback, providing context */
             (*curr_atclose->func)(curr_atclose->ctx);
 
             /* Advance to next node and free this one */
-            tmp_atclose = curr_atclose;
+            tmp_atclose  = curr_atclose;
             curr_atclose = curr_atclose->next;
             H5FL_FREE(H5_atclose_node_t, tmp_atclose);
         } /* end while */
+
+        /* Reset list head, in case library is re-initialized */
+        H5_atclose_head = NULL;
     } /* end if */
 
     /*
@@ -1025,14 +1032,14 @@ done:
 herr_t
 H5atclose(H5_atclose_func_t func, void *ctx)
 {
-    H5_atclose_node_t *new_atclose;     /* New 'atclose' node */
-    herr_t ret_value = SUCCEED; /* Return value */
+    H5_atclose_node_t *new_atclose;         /* New 'atclose' node */
+    herr_t             ret_value = SUCCEED; /* Return value */
 
     FUNC_ENTER_API(FAIL)
     H5TRACE2("e", "Hc*x", func, ctx);
 
     /* Check arguments */
-    if(NULL == func)
+    if (NULL == func)
         HGOTO_ERROR(H5E_ARGS, H5E_BADVALUE, FAIL, "NULL func pointer")
 
     /* Allocate space for the 'atclose' node */
@@ -1041,11 +1048,11 @@ H5atclose(H5_atclose_func_t func, void *ctx)
 
     /* Set up 'atclose' node */
     new_atclose->func = func;
-    new_atclose->ctx = ctx;
+    new_atclose->ctx  = ctx;
 
     /* Connector to linked-list of 'atclose' nodes */
     new_atclose->next = H5_atclose_head;
-    H5_atclose_head = new_atclose;
+    H5_atclose_head   = new_atclose;
 
 done:
     FUNC_LEAVE_API(ret_value)
@@ -1188,21 +1195,24 @@ H5free_memory(void *mem)
  *-------------------------------------------------------------------------
  */
 herr_t
-H5is_library_threadsafe(hbool_t *is_ts)
+H5is_library_threadsafe(hbool_t *is_ts /*out*/)
 {
+    herr_t ret_value = SUCCEED;         /* Return value */
+
     FUNC_ENTER_API_NOINIT
-    H5TRACE1("e", "*b", is_ts);
+    H5TRACE1("e", "x", is_ts);
 
-    HDassert(is_ts);
-
-    /* At this time, it is impossible for this to fail. */
+    if(is_ts) {
 #ifdef H5_HAVE_THREADSAFE
-    *is_ts = TRUE;
+        *is_ts = TRUE;
 #else /* H5_HAVE_THREADSAFE */
-    *is_ts = FALSE;
+        *is_ts = FALSE;
 #endif /* H5_HAVE_THREADSAFE */
+    }
+    else
+        ret_value = FAIL;
 
-    FUNC_LEAVE_API_NOINIT(SUCCEED)
+    FUNC_LEAVE_API_NOINIT(ret_value)
 } /* end H5is_library_threadsafe() */
 
 /*-------------------------------------------------------------------------
@@ -1220,22 +1230,25 @@ H5is_library_threadsafe(hbool_t *is_ts)
  *-------------------------------------------------------------------------
  */
 herr_t
-H5is_library_terminating(hbool_t *is_terminating)
+H5is_library_terminating(hbool_t *is_terminating /*out*/)
 {
+    herr_t ret_value = SUCCEED;         /* Return value */
+
     FUNC_ENTER_API_NOINIT
-    H5TRACE1("e", "*b", is_terminating);
+    H5TRACE1("e", "x", is_terminating);
 
     HDassert(is_terminating);
 
-    /* At this time, it is impossible for this to fail. */
-    *is_terminating = H5_TERM_GLOBAL;
+    if(is_terminating)
+        *is_terminating = H5_TERM_GLOBAL;
+    else
+        ret_value = FAIL;
 
-    FUNC_LEAVE_API_NOINIT(SUCCEED)
+    FUNC_LEAVE_API_NOINIT(ret_value)
 } /* end H5is_library_terminating() */
 
 #if defined(H5_HAVE_THREADSAFE) && defined(H5_BUILT_AS_DYNAMIC_LIB) && defined(H5_HAVE_WIN32_API) &&         \
     defined(H5_HAVE_WIN_THREADS)
-
 /*-------------------------------------------------------------------------
  * Function:    DllMain
  *

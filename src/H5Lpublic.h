@@ -70,11 +70,11 @@ extern "C" {
  * in HDF5 files.
  */
 typedef enum {
-    H5L_TYPE_ERROR = (-1),      /**< Invalid link type id         */
-    H5L_TYPE_HARD = 0,          /**< Hard link id                 */
-    H5L_TYPE_SOFT = 1,          /**< Soft link id                 */
-    H5L_TYPE_EXTERNAL = 64,     /**< External link id             */
-    H5L_TYPE_MAX = 255	        /**< Maximum link type id         */
+    H5L_TYPE_ERROR    = (-1), /**< Invalid link type id         */
+    H5L_TYPE_HARD     = 0,    /**< Hard link id                 */
+    H5L_TYPE_SOFT     = 1,    /**< Soft link id                 */
+    H5L_TYPE_EXTERNAL = 64,   /**< External link id             */
+    H5L_TYPE_MAX      = 255   /**< Maximum link type id         */
 } H5L_type_t;
 /**
  * \brief  Maximum value link value for "built-in" link types
@@ -83,24 +83,24 @@ typedef enum {
 /**
  * \brief Link ids at or above this value are "user-defined" link types.
  */
-#define H5L_TYPE_UD_MIN      H5L_TYPE_EXTERNAL
+#define H5L_TYPE_UD_MIN H5L_TYPE_EXTERNAL
 /**
  * \brief Maximum link id value for "user-defined" link types.
  */
-#define H5L_TYPE_UD_MAX      H5L_TYPE_MAX
+#define H5L_TYPE_UD_MAX H5L_TYPE_MAX
 
 /**
  * \brief Information struct for links
  */
 //! [H5L_info2_t_snip]
 typedef struct {
-    H5L_type_t          type;         /**< Type of link                   */
-    hbool_t             corder_valid; /**< Indicate if creation order is valid */
-    int64_t             corder;       /**< Creation order                 */
-    H5T_cset_t          cset;         /**< Character set of link name     */
+    H5L_type_t type;         /**< Type of link                   */
+    hbool_t    corder_valid; /**< Indicate if creation order is valid */
+    int64_t    corder;       /**< Creation order                 */
+    H5T_cset_t cset;         /**< Character set of link name     */
     union {
-        H5O_token_t     token;        /**< Token of location that hard link points to */
-        size_t          val_size;     /**< Size of a soft link or user-defined link value */
+        H5O_token_t token;    /**< Token of location that hard link points to */
+        size_t      val_size; /**< Size of a soft link or user-defined link value */
     } u;
 } H5L_info2_t;
 //! [H5L_info2_t_snip]
@@ -113,35 +113,35 @@ typedef struct {
 /**
  * \brief Link creation callback
  */
-typedef herr_t (*H5L_create_func_t)(const char *link_name, hid_t loc_group,
-    const void *lnkdata, size_t lnkdata_size, hid_t lcpl_id);
+typedef herr_t (*H5L_create_func_t)(const char *link_name, hid_t loc_group, const void *lnkdata,
+                                    size_t lnkdata_size, hid_t lcpl_id);
 /**
  * \brief Callback for link move
  */
-typedef herr_t (*H5L_move_func_t)(const char *new_name, hid_t new_loc,
-    const void *lnkdata, size_t lnkdata_size);
+typedef herr_t (*H5L_move_func_t)(const char *new_name, hid_t new_loc, const void *lnkdata,
+                                  size_t lnkdata_size);
 /**
  * \brief Callback for link copy
  */
-typedef herr_t (*H5L_copy_func_t)(const char *new_name, hid_t new_loc,
-    const void *lnkdata, size_t lnkdata_size);
+typedef herr_t (*H5L_copy_func_t)(const char *new_name, hid_t new_loc, const void *lnkdata,
+                                  size_t lnkdata_size);
 /**
  * \brief Callback during link traversal
  */
-typedef hid_t (*H5L_traverse_func_t)(const char *link_name, hid_t cur_group,
-    const void *lnkdata, size_t lnkdata_size, hid_t lapl_id, hid_t dxpl_id);
+typedef hid_t (*H5L_traverse_func_t)(const char *link_name, hid_t cur_group, const void *lnkdata,
+                                     size_t lnkdata_size, hid_t lapl_id, hid_t dxpl_id);
 /**
  * \brief Callback for link deletion
  */
-typedef herr_t (*H5L_delete_func_t)(const char *link_name, hid_t file,
-    const void *lnkdata, size_t lnkdata_size);
+typedef herr_t (*H5L_delete_func_t)(const char *link_name, hid_t file, const void *lnkdata,
+                                    size_t lnkdata_size);
 /**
  * \brief Callback for querying the link.
  *
  * Returns the size of the buffer needed.
  */
-typedef ssize_t (*H5L_query_func_t)(const char *link_name, const void *lnkdata,
-    size_t lnkdata_size, void *buf /*out*/, size_t buf_size);
+typedef ssize_t (*H5L_query_func_t)(const char *link_name, const void *lnkdata, size_t lnkdata_size,
+                                    void *buf /*out*/, size_t buf_size);
 
 /**
  * \brief Link prototype
@@ -152,15 +152,15 @@ typedef ssize_t (*H5L_query_func_t)(const char *link_name, const void *lnkdata,
  */
 //! [H5L_class_t_snip]
 typedef struct {
-    int version;                    /**< Version number of this struct       */
-    H5L_type_t id;                  /**< Link type ID                        */
-    const char *comment;            /**< Comment for debugging               */
-    H5L_create_func_t create_func;  /**< Callback during link creation       */
-    H5L_move_func_t move_func;      /**< Callback after moving link          */
-    H5L_copy_func_t copy_func;      /**< Callback after copying link         */
-    H5L_traverse_func_t trav_func;  /**< Callback during link traversal      */
-    H5L_delete_func_t del_func;     /**< Callback for link deletion          */
-    H5L_query_func_t query_func;    /**< Callback for queries                */
+    int                 version;     /**< Version number of this struct       */
+    H5L_type_t          id;          /**< Link type ID                        */
+    const char *        comment;     /**< Comment for debugging               */
+    H5L_create_func_t   create_func; /**< Callback during link creation       */
+    H5L_move_func_t     move_func;   /**< Callback after moving link          */
+    H5L_copy_func_t     copy_func;   /**< Callback after copying link         */
+    H5L_traverse_func_t trav_func;   /**< Callback during link traversal      */
+    H5L_delete_func_t   del_func;    /**< Callback for link deletion          */
+    H5L_query_func_t    query_func;  /**< Callback for queries                */
 } H5L_class_t;
 //! [H5L_class_t_snip]
 
@@ -170,17 +170,15 @@ typedef struct {
  * The H5O_token_t version is used in the VOL layer and future public API calls.
  */
 //! [H5L_iterate2_t_snip]
-typedef herr_t (*H5L_iterate2_t)(hid_t group, const char *name, const H5L_info2_t *info,
-    void *op_data);
+typedef herr_t (*H5L_iterate2_t)(hid_t group, const char *name, const H5L_info2_t *info, void *op_data);
 //! [H5L_iterate2_t_snip]
 
 /**
  * \brief Callback for external link traversal
  */
-typedef herr_t (*H5L_elink_traverse_t)(const char *parent_file_name,
-    const char *parent_group_name, const char *child_file_name,
-    const char *child_object_name, unsigned *acc_flags, hid_t fapl_id,
-    void *op_data);
+typedef herr_t (*H5L_elink_traverse_t)(const char *parent_file_name, const char *parent_group_name,
+                                       const char *child_file_name, const char *child_object_name,
+                                       unsigned *acc_flags, hid_t fapl_id, void *op_data);
 
 /********************/
 /* Public Variables */
@@ -362,7 +360,6 @@ H5_DLL herr_t H5Lcreate_hard(hid_t cur_loc, const char *cur_name, hid_t dst_loc,
 H5_DLL herr_t H5Lcreate_hard_async(const char *app_file, const char *app_func, unsigned app_line,
                                    hid_t cur_loc_id, const char *cur_name, hid_t new_loc_id,
                                    const char *new_name, hid_t lcpl_id, hid_t lapl_id, hid_t es_id);
-
 /**
  * \ingroup H5L
  *
@@ -432,7 +429,6 @@ H5_DLL herr_t H5Lcreate_soft(const char *link_target, hid_t link_loc_id, const c
 H5_DLL herr_t H5Lcreate_soft_async(const char *app_file, const char *app_func, unsigned app_line,
                                    const char *link_target, hid_t link_loc_id, const char *link_name,
                                    hid_t lcpl_id, hid_t lapl_id, hid_t es_id);
-
 /**
  * \ingroup H5L
  *
@@ -474,7 +470,6 @@ H5_DLL herr_t H5Lcreate_soft_async(const char *app_file, const char *app_func, u
 H5_DLL herr_t H5Ldelete(hid_t loc_id, const char *name, hid_t lapl_id);
 H5_DLL herr_t H5Ldelete_async(const char *app_file, const char *app_func, unsigned app_line, hid_t loc_id,
                               const char *name, hid_t lapl_id, hid_t es_id);
-
 /**
  * \ingroup H5L
  *
@@ -508,7 +503,6 @@ H5_DLL herr_t H5Ldelete_by_idx(hid_t loc_id, const char *group_name, H5_index_t 
 H5_DLL herr_t H5Ldelete_by_idx_async(const char *app_file, const char *app_func, unsigned app_line,
                                      hid_t loc_id, const char *group_name, H5_index_t idx_type,
                                      H5_iter_order_t order, hsize_t n, hid_t lapl_id, hid_t es_id);
-
 /**
  * \ingroup H5L
  *
@@ -625,7 +619,6 @@ H5_DLL herr_t H5Lget_val(hid_t loc_id, const char *name, void *buf /*out*/, size
 H5_DLL herr_t H5Lget_val_by_idx(hid_t loc_id, const char *group_name, H5_index_t idx_type,
                                 H5_iter_order_t order, hsize_t n, void *buf /*out*/, size_t size,
                                 hid_t lapl_id);
-
 /**
  * \ingroup H5L
  *
@@ -714,8 +707,8 @@ H5_DLL herr_t H5Lget_val_by_idx(hid_t loc_id, const char *group_name, H5_index_t
  *
  */
 H5_DLL htri_t H5Lexists(hid_t loc_id, const char *name, hid_t lapl_id);
-H5_DLL htri_t H5Lexists_async(const char *app_file, const char *app_func, unsigned app_line, hid_t loc_id,
-                              const char *name, hid_t lapl_id, hid_t es_id);
+H5_DLL herr_t H5Lexists_async(const char *app_file, const char *app_func, unsigned app_line, hid_t loc_id,
+                              const char *name, hbool_t *exists, hid_t lapl_id, hid_t es_id);
 /**
  * \ingroup H5L
  *
@@ -841,8 +834,7 @@ H5_DLL herr_t H5Lget_info2(hid_t loc_id, const char *name, H5L_info2_t *linfo, h
  *
  */
 H5_DLL herr_t H5Lget_info_by_idx2(hid_t loc_id, const char *group_name, H5_index_t idx_type,
-                                  H5_iter_order_t order, hsize_t n, H5L_info2_t *linfo,
-                                  hid_t lapl_id);
+                                  H5_iter_order_t order, hsize_t n, H5L_info2_t *linfo, hid_t lapl_id);
 /**
  * \ingroup H5L
  *
@@ -963,11 +955,11 @@ H5_DLL ssize_t H5Lget_name_by_idx(hid_t loc_id, const char *group_name, H5_index
  * \see H5Literate_by_name2(), H5Lvisit2(), H5Lvisit_by_name2()
  *
  */
-H5_DLL herr_t  H5Literate2(hid_t grp_id, H5_index_t idx_type, H5_iter_order_t order, hsize_t *idx,
-                           H5L_iterate2_t op, void *op_data);
-H5_DLL herr_t  H5Literate_async(const char *app_file, const char *app_func, unsigned app_line, hid_t group_id,
-                                H5_index_t idx_type, H5_iter_order_t order, hsize_t *idx_p, H5L_iterate2_t op,
-                                void *op_data, hid_t es_id);
+H5_DLL herr_t H5Literate2(hid_t grp_id, H5_index_t idx_type, H5_iter_order_t order, hsize_t *idx,
+                          H5L_iterate2_t op, void *op_data);
+H5_DLL herr_t H5Literate_async(const char *app_file, const char *app_func, unsigned app_line, hid_t group_id,
+                              H5_index_t idx_type, H5_iter_order_t order, hsize_t *idx_p, H5L_iterate2_t op,
+                              void *op_data, hid_t es_id);
 /**
  * \ingroup TRAV
  *
@@ -1032,9 +1024,9 @@ H5_DLL herr_t  H5Literate_async(const char *app_file, const char *app_func, unsi
  * \see H5Literate(), H5Lvisit()
  *
  */
-H5_DLL herr_t  H5Literate_by_name2(hid_t loc_id, const char *group_name, H5_index_t idx_type,
-                                   H5_iter_order_t order, hsize_t *idx, H5L_iterate2_t op, void *op_data,
-                                   hid_t lapl_id);
+H5_DLL herr_t H5Literate_by_name2(hid_t loc_id, const char *group_name, H5_index_t idx_type,
+                                  H5_iter_order_t order, hsize_t *idx, H5L_iterate2_t op, void *op_data,
+                                  hid_t lapl_id);
 /**
  * \ingroup TRAV
  *
@@ -1116,8 +1108,8 @@ H5_DLL herr_t  H5Literate_by_name2(hid_t loc_id, const char *group_name, H5_inde
  * \see H5Literate()
  *
  */
-H5_DLL herr_t  H5Lvisit2(hid_t grp_id, H5_index_t idx_type, H5_iter_order_t order, H5L_iterate2_t op,
-                         void *op_data);
+H5_DLL herr_t H5Lvisit2(hid_t grp_id, H5_index_t idx_type, H5_iter_order_t order, H5L_iterate2_t op,
+                        void *op_data);
 /**
  * \ingroup TRAV
  *
@@ -1199,8 +1191,8 @@ H5_DLL herr_t  H5Lvisit2(hid_t grp_id, H5_index_t idx_type, H5_iter_order_t orde
  * \since 1.12.0
  *
  */
-H5_DLL herr_t  H5Lvisit_by_name2(hid_t loc_id, const char *group_name, H5_index_t idx_type,
-                                 H5_iter_order_t order, H5L_iterate2_t op, void *op_data, hid_t lapl_id);
+H5_DLL herr_t H5Lvisit_by_name2(hid_t loc_id, const char *group_name, H5_index_t idx_type,
+                                H5_iter_order_t order, H5L_iterate2_t op, void *op_data, hid_t lapl_id);
 /* UD link functions */
 /**
  * \ingroup H5L
@@ -1625,6 +1617,16 @@ H5_DLL herr_t H5Lcreate_external(const char *file_name, const char *obj_name, hi
 #define H5Ldelete_by_idx_async(...) H5Ldelete_by_idx_async(__FILE__, __func__, __LINE__, __VA_ARGS__)
 #define H5Lexists_async(...)        H5Lexists_async(__FILE__, __func__, __LINE__, __VA_ARGS__)
 #define H5Literate_async(...)       H5Literate_async(__FILE__, __func__, __LINE__, __VA_ARGS__)
+
+/* Define "wrapper" versions of function calls, to allow compile-time values to
+ *      be passed in by language wrapper or library layer on top of HDF5.
+ */
+#define H5Lcreate_hard_async_wrap       H5_NO_EXPAND(H5Lcreate_hard_async)
+#define H5Lcreate_soft_async_wrap       H5_NO_EXPAND(H5Lcreate_soft_async)
+#define H5Ldelete_async_wrap            H5_NO_EXPAND(H5Ldelete_async)
+#define H5Ldelete_by_idx_async_wrap     H5_NO_EXPAND(H5Ldelete_by_idx_async)
+#define H5Lexists_async_wrap            H5_NO_EXPAND(H5Lexists_async)
+#define H5Literate_async_wrap           H5_NO_EXPAND(H5Literate_async)
 #endif /* H5L_MODULE */
 
 /* Symbols defined for compatibility with previous versions of the HDF5 API.
@@ -1643,13 +1645,13 @@ H5_DLL herr_t H5Lcreate_external(const char *file_name, const char *obj_name, hi
 /* Information struct for link (for H5Lget_info1/H5Lget_info_by_idx1) */
 //! [H5L_info1_t_snip]
 typedef struct {
-    H5L_type_t          type;           /**< Type of link                   */
-    hbool_t             corder_valid;   /**< Indicate if creation order is valid */
-    int64_t             corder;         /**< Creation order                 */
-    H5T_cset_t          cset;           /**< Character set of link name     */
+    H5L_type_t type;         /**< Type of link                   */
+    hbool_t    corder_valid; /**< Indicate if creation order is valid */
+    int64_t    corder;       /**< Creation order                 */
+    H5T_cset_t cset;         /**< Character set of link name     */
     union {
-        haddr_t         address;        /**< Address hard link points to    */
-        size_t          val_size;       /**< Size of a soft link or UD link value */
+        haddr_t address;  /**< Address hard link points to    */
+        size_t  val_size; /**< Size of a soft link or UD link value */
     } u;
 } H5L_info1_t;
 //! [H5L_info1_t_snip]
@@ -1660,21 +1662,20 @@ typedef hid_t (*H5L_traverse_0_func_t)(const char *link_name, hid_t cur_group, c
 
 /** User-defined link types */
 typedef struct {
-    int version;                    /**< Version number of this struct        */
-  H5L_type_t id;                    /**< Link type ID                         */
-    const char *comment;            /**< Comment for debugging                */
-    H5L_create_func_t create_func;  /**< Callback during link creation        */
-    H5L_move_func_t move_func;      /**< Callback after moving link           */
-    H5L_copy_func_t copy_func;      /**< Callback after copying link          */
-    H5L_traverse_0_func_t trav_func; /**< Callback during link traversal       */
-    H5L_delete_func_t del_func;     /**< Callback for link deletion           */
-    H5L_query_func_t query_func;    /**< Callback for queries                 */
+    int                   version;     /**< Version number of this struct        */
+    H5L_type_t            id;          /**< Link type ID                         */
+    const char *          comment;     /**< Comment for debugging                */
+    H5L_create_func_t     create_func; /**< Callback during link creation        */
+    H5L_move_func_t       move_func;   /**< Callback after moving link           */
+    H5L_copy_func_t       copy_func;   /**< Callback after copying link          */
+    H5L_traverse_0_func_t trav_func;   /**< Callback during link traversal       */
+    H5L_delete_func_t     del_func;    /**< Callback for link deletion           */
+    H5L_query_func_t      query_func;  /**< Callback for queries                 */
 } H5L_class_0_t;
 
 /** Prototype for H5Literate1() / H5Literate_by_name1() operator */
 //! [H5L_iterate1_t_snip]
-typedef herr_t (*H5L_iterate1_t)(hid_t group, const char *name, const H5L_info1_t *info,
-    void *op_data);
+typedef herr_t (*H5L_iterate1_t)(hid_t group, const char *name, const H5L_info1_t *info, void *op_data);
 //! [H5L_iterate1_t_snip]
 
 /* Function prototypes */

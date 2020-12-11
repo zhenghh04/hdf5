@@ -91,12 +91,15 @@ extern "C" {
 #define H5_GCC_DIAG_ON(x)
 #endif
 
+/* Macro to hide a symbol from further preprocessor substitutions */
+#define H5_NO_EXPAND(x)         (x)
+
 /* Version numbers */
-#define H5_VERS_MAJOR      1 /* For major interface/format changes       */
-#define H5_VERS_MINOR      13 /* For minor interface/format changes       */
-#define H5_VERS_RELEASE    0 /* For tweaks, bug-fixes, or development    */
-#define H5_VERS_SUBRELEASE "" /* For pre-releases like snap0          */
-/* Empty string for real releases.           */
+#define H5_VERS_MAJOR      1                        /* For major interface/format changes       */
+#define H5_VERS_MINOR      13                       /* For minor interface/format changes       */
+#define H5_VERS_RELEASE    0                        /* For tweaks, bug-fixes, or development    */
+#define H5_VERS_SUBRELEASE ""                       /* For pre-releases like snap0          */
+                                                    /* Empty string for real releases.           */
 #define H5_VERS_INFO "HDF5 library version: 1.13.0" /* Full version string */
 
 #define H5check() H5check_version(H5_VERS_MAJOR, H5_VERS_MINOR, H5_VERS_RELEASE)
@@ -386,7 +389,9 @@ typedef struct H5_alloc_stats_t {
     size_t             peak_alloc_blocks_count;  /**< Peak # of blocks allocated */
 } H5_alloc_stats_t;
 
-/* Library shutdown callback */
+/**
+ * Library shutdown callback, used by H5atclose().
+ */
 typedef void (*H5_atclose_func_t)(void *ctx);
 
 /* Functions in H5.c */
@@ -414,11 +419,18 @@ H5_DLL herr_t H5open(void);
  * \return \herr_t
  *
  * \details H5atclose() registers a callback that the HDF5 library will invoke
- *          when closing.   Registered callbacks are invoked in LIFO order,
- *          similar to the Standard C 'atexit' routine.  For example, if 'func1'
- *          registered, then 'func2', when the library is closing 'func2' will
- *          be invoked first, then 'func1'.   The \p ctx pointer will be passed
- *          to \p func when it's invoked.  NULL is allowed for \p ctx.
+ *          when closing.  The full capabilities of the HDF5 library are
+ *          available to callbacks invoked through this mechanism, library
+ *          shutdown will only begin in earnest when all callbacks have been
+ *          invoked and have returned.
+ *
+ *          Registered callbacks are invoked in LIFO order, similar to the
+ *          Standard C 'atexit' routine.  For example, if 'func1' is registered,
+ *          then 'func2', when the library is closing 'func2' will
+ *          be invoked first, then 'func1'.
+ *
+ *          The \p ctx pointer will be passed to \p func when it's invoked.
+ *          NULL is allowed for \p ctx.
  *
  *          If the HDF5 library is initialized and closed more than once, the
  *          \p func callback must be registered within each open/close cycle.
@@ -634,6 +646,21 @@ H5_DLL herr_t H5get_libversion(unsigned *majnum, unsigned *minnum, unsigned *rel
  *
  */
 H5_DLL herr_t H5check_version(unsigned majnum, unsigned minnum, unsigned relnum);
+/**
+ * \ingroup H5
+ * \brief Checks whether the HDF5 library is closing.
+ * \param[out] is_terminating Flag indicating whether library is shutting down
+ * \return \herr_t
+ *
+ * \details H5is_library_terminating() queries whether the HDF5 library is in
+ *          the process of shutting down.  The \p is_terminating flag will only
+ *          be set to TRUE after shutdown starts, it will be FALSE before the
+ *          library has been initialized, while the library is initialized, and
+ *          after it has been closed.  The value of \p is_terminating is
+ *          undefined if this routine fails.
+ *
+ * \since 1.12.1
+ */
 H5_DLL herr_t H5is_library_terminating(hbool_t *is_terminating);
 /**
  * \ingroup H5
@@ -743,7 +770,7 @@ H5_DLL herr_t H5free_memory(void *mem);
  * \since 1.8.15
  *
  */
-H5_DLL void * H5allocate_memory(size_t size, hbool_t clear);
+H5_DLL void *H5allocate_memory(size_t size, hbool_t clear);
 /**
  * \ingroup H5
  * \brief Resizes and, if required, re-allocates memory that will later be
@@ -817,7 +844,7 @@ H5_DLL void * H5allocate_memory(size_t size, hbool_t clear);
  * \since 1.8.15
  *
  */
-H5_DLL void * H5resize_memory(void *mem, size_t size);
+H5_DLL void *H5resize_memory(void *mem, size_t size);
 
 #ifdef __cplusplus
 }

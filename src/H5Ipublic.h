@@ -33,25 +33,25 @@
  *           work correctly with it. \endinternal
  */
 typedef enum H5I_type_t {
-    H5I_UNINIT      = (-2),     /**< uninitialized type                        */
-    H5I_BADID       = (-1),     /**< invalid Type                              */
-    H5I_FILE        = 1,        /**< type ID for File objects                  */
-    H5I_GROUP,                  /**< type ID for Group objects                 */
-    H5I_DATATYPE,               /**< type ID for Datatype objects              */
-    H5I_DATASPACE,              /**< type ID for Dataspace objects             */
-    H5I_DATASET,                /**< type ID for Dataset objects               */
-    H5I_MAP,                    /**< type ID for Map objects                   */
-    H5I_ATTR,                   /**< type ID for Attribute objects             */
-    H5I_VFL,                    /**< type ID for virtual file layer            */
-    H5I_VOL,                    /**< type ID for virtual object layer          */
-    H5I_GENPROP_CLS,            /**< type ID for generic property list classes */
-    H5I_GENPROP_LST,            /**< type ID for generic property lists        */
-    H5I_ERROR_CLASS,            /**< type ID for error classes                 */
-    H5I_ERROR_MSG,              /**< type ID for error messages                */
-    H5I_ERROR_STACK,            /**< type ID for error stacks                  */
-    H5I_SPACE_SEL_ITER,         /**< type ID for dataspace selection iterator  */
-    H5I_EVENTSET,               /**< type ID for event sets                    */
-    H5I_NTYPES                  /**< number of library types, MUST BE LAST!    */
+    H5I_UNINIT = (-2),  /**< uninitialized type                        */
+    H5I_BADID  = (-1),  /**< invalid Type                              */
+    H5I_FILE   = 1,     /**< type ID for File objects                  */
+    H5I_GROUP,          /**< type ID for Group objects                 */
+    H5I_DATATYPE,       /**< type ID for Datatype objects              */
+    H5I_DATASPACE,      /**< type ID for Dataspace objects             */
+    H5I_DATASET,        /**< type ID for Dataset objects               */
+    H5I_MAP,            /**< type ID for Map objects                   */
+    H5I_ATTR,           /**< type ID for Attribute objects             */
+    H5I_VFL,            /**< type ID for virtual file layer            */
+    H5I_VOL,            /**< type ID for virtual object layer          */
+    H5I_GENPROP_CLS,    /**< type ID for generic property list classes */
+    H5I_GENPROP_LST,    /**< type ID for generic property lists        */
+    H5I_ERROR_CLASS,    /**< type ID for error classes                 */
+    H5I_ERROR_MSG,      /**< type ID for error messages                */
+    H5I_ERROR_STACK,    /**< type ID for error stacks                  */
+    H5I_SPACE_SEL_ITER, /**< type ID for dataspace selection iterator  */
+    H5I_EVENTSET,       /**< type ID for event sets                    */
+    H5I_NTYPES          /**< number of library types, MUST BE LAST!    */
 } H5I_type_t;
 
 /**
@@ -67,12 +67,12 @@ typedef int64_t hid_t;
 /**
  * The size of identifiers
  */
-#define H5_SIZEOF_HID_T         H5_SIZEOF_INT64_T
+#define H5_SIZEOF_HID_T H5_SIZEOF_INT64_T
 
 /**
  * An invalid object ID. This is also negative for error return.
  */
-#define H5I_INVALID_HID         (-1)
+#define H5I_INVALID_HID (-1)
 
 /**
  * A function for freeing objects. This function will be called with an object
@@ -97,6 +97,20 @@ typedef int (*H5I_search_func_t)(void *obj, hid_t id, void *key);
 typedef herr_t (*H5I_iterate_func_t)(hid_t id, void *udata);
 //! [H5I_iterate_func_t_snip]
 
+/**
+ * The type of the realize_cb callback for H5Iregister_future
+ */
+//! [H5I_future_realize_func_t_snip]
+typedef herr_t (*H5I_future_realize_func_t)(void *future_object, hid_t *actual_object_id);
+//! [H5I_future_realize_func_t_snip]
+
+/**
+ * The type of the discard_cb callback for H5Iregister_future
+ */
+//! [H5I_future_discard_func_t_snip]
+typedef herr_t (*H5I_future_discard_func_t)(void *future_object);
+//! [H5I_future_discard_func_t_snip]
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -113,7 +127,7 @@ extern "C" {
  *
  * \return \hid_t{object}
  *
- * \details H5Iregister() allocates and returns a new ID for an object.
+ * \details H5Iregister() creates and returns a new ID for an object.
  *
  * \details The \p type parameter is the identifier for the ID type to which
  *          this new ID will belong. This identifier must have been created by
@@ -124,7 +138,84 @@ extern "C" {
  *          and returned via a call to H5Iobject_verify().
  *
  */
-H5_DLL hid_t      H5Iregister(H5I_type_t type, const void *object);
+H5_DLL hid_t H5Iregister(H5I_type_t type, const void *object);
+/**
+ * \ingroup H5I
+ *
+ * \brief Registers a "future" object under a type and returns an ID for it
+ *
+ * \param[in] type The identifier of the type of the new ID
+ * \param[in] object Pointer to "future" object for which a new ID is created
+ * \param[in] realize_cb Function pointer to realize a future object
+ * \param[in] discard_cb Function pointer to destroy a future object
+ *
+ * \return \hid_t{object}
+ *
+ * \details H5Iregister_future() creates and returns a new ID for a "future" object.
+ *          Future objects are a special kind of object and represent a
+ *          placeholder for an object that has not yet been created or opened.
+ *          The \p realize_cb will be invoked by the HDF5 library to 'realize'
+ *          the future object as an actual object.  A call to H5Iobject_verify()
+ *          will invoke the \p realize_cb callback and if it successfully
+ *          returns, will return the actual object, not the future object.
+ *
+ * \details The \p type parameter is the identifier for the ID type to which
+ *          this new future ID will belong. This identifier may have been created
+ *          by a call to H5Iregister_type() or may be one of the HDF5 pre-defined
+ *          ID classes (e.g. H5I_FILE, H5I_GROUP, H5I_DATASPACE, etc).
+ *
+ * \details The \p object parameter is a pointer to the memory which the new ID
+ *          will be a reference to. This pointer will be stored by the library,
+ *          but will not be returned to a call to H5Iobject_verify() until the
+ *          \p realize_cb callback has returned the actual pointer for the object.
+ *
+ *          A  NULL value for \p object is allowed.
+ *
+ * \details The \p realize_cb parameter is a function pointer that will be
+ *          invoked by the HDF5 library to convert a future object into an
+ *          actual object.   The \realize_cb function may be invoked by
+ *          H5Iobject_verify() to return the actual object for a user-defined
+ *          ID class (i.e. an ID class registered with H5Iregister_type()) or
+ *          internally by the HDF5 library in order to use or get information
+ *          from an HDF5 pre-defined ID type.  For example, the \p realize_cb
+ *          for a future dataspace object will be called during the process
+ *          of returning information from H5Sget_simple_extent_dims().
+ *
+ *          Note that although the \p realize_cb routine returns
+ *          an ID (as a parameter) for the actual object, the HDF5 library
+ *          will swap the actual object in that ID for the future object in
+ *          the future ID.  This ensures that the ID value for the object
+ *          doesn't change for the user when the object is realized.
+ *
+ *          Note that the \p realize_cb callback could receive a NULL value
+ *          for a future object pointer, if one was used when H5Iregister_future()
+ *          was initially called.  This is permitted as a means of allowing
+ *          the \p realize_cb to act as a generator of new objects, without
+ *          requiring creation of unnecessary future objects.
+ *
+ *          It is an error to pass NULL for \p realize_cb.
+ *
+ * \details The \p discard_cb parameter is a function pointer that will be
+ *          invoked by the HDF5 library to destroy a future object.  This
+ *          callback will always be invoked for _every_ future object, whether
+ *          the \p realize_cb is invoked on it or not.  It's possible that
+ *          the \p discard_cb is invoked on a future object without the
+ *          \p realize_cb being invoked, e.g. when a future ID is closed without
+ *          requiring the future object to be realized into an actual one.
+ *
+ *          Note that the \p discard_cb callback could receive a NULL value
+ *          for a future object pointer, if one was used when H5Iregister_future()
+ *          was initially called.
+ *
+ *          It is an error to pass NULL for \p discard_cb.
+ *
+ * \note The H5Iregister_future() function is primarily targeted at VOL connector
+ *          authors and is _not_ designed for general-purpose application use.
+ *
+ */
+H5_DLL hid_t H5Iregister_future(H5I_type_t type, const void *object,
+                                H5I_future_realize_func_t realize_cb,
+                                H5I_future_discard_func_t discard_cb);
 /**
  * \ingroup H5I
  *
@@ -147,7 +238,7 @@ H5_DLL hid_t      H5Iregister(H5I_type_t type, const void *object);
  * \see H5Iregister()
  *
  */
-H5_DLL void *     H5Iobject_verify(hid_t id, H5I_type_t type);
+H5_DLL void *H5Iobject_verify(hid_t id, H5I_type_t type);
 /**
  * \ingroup H5I
  *
@@ -177,7 +268,7 @@ H5_DLL void *     H5Iobject_verify(hid_t id, H5I_type_t type);
  *       to avoid memory leaks.
  *
  */
-H5_DLL void *     H5Iremove_verify(hid_t id, H5I_type_t type);
+H5_DLL void *H5Iremove_verify(hid_t id, H5I_type_t type);
 /**
  * \ingroup H5I
  *
@@ -230,7 +321,7 @@ H5_DLL H5I_type_t H5Iget_type(hid_t id);
  * \since 1.6.3
  *
  */
-H5_DLL hid_t      H5Iget_file_id(hid_t id);
+H5_DLL hid_t H5Iget_file_id(hid_t id);
 /**
  * \ingroup H5I
  *
@@ -272,7 +363,7 @@ H5_DLL hid_t      H5Iget_file_id(hid_t id);
  * \since 1.6.0
  *
  */
-H5_DLL ssize_t    H5Iget_name(hid_t id, char *name /*out*/, size_t size);
+H5_DLL ssize_t H5Iget_name(hid_t id, char *name /*out*/, size_t size);
 /**
  * \ingroup H5I
  *
@@ -317,7 +408,7 @@ H5_DLL ssize_t    H5Iget_name(hid_t id, char *name /*out*/, size_t size);
  * \since 1.6.2
  *
  */
-H5_DLL int        H5Iinc_ref(hid_t id);
+H5_DLL int H5Iinc_ref(hid_t id);
 /**
  * \ingroup H5I
  *
@@ -363,7 +454,7 @@ H5_DLL int        H5Iinc_ref(hid_t id);
  * \since 1.6.2
  *
  */
-H5_DLL int        H5Idec_ref(hid_t id);
+H5_DLL int H5Idec_ref(hid_t id);
 /**
  * \ingroup H5I
  *
@@ -387,7 +478,7 @@ H5_DLL int        H5Idec_ref(hid_t id);
  * \since 1.6.2
  *
  */
-H5_DLL int        H5Iget_ref(hid_t id);
+H5_DLL int H5Iget_ref(hid_t id);
 /**
  * \ingroup H5I
  *
@@ -443,7 +534,7 @@ H5_DLL H5I_type_t H5Iregister_type(size_t hash_size, unsigned reserved, H5I_free
  *          all identifiers of this type will be deleted.
  *
  */
-H5_DLL herr_t     H5Iclear_type(H5I_type_t type, hbool_t force);
+H5_DLL herr_t H5Iclear_type(H5I_type_t type, hbool_t force);
 /**
  * \ingroup H5I
  *
@@ -466,7 +557,7 @@ H5_DLL herr_t     H5Iclear_type(H5I_type_t type, hbool_t force);
  *          variable holding the value of the destroyed type to #H5I_UNINIT.
  *
  */
-H5_DLL herr_t     H5Idestroy_type(H5I_type_t type);
+H5_DLL herr_t H5Idestroy_type(H5I_type_t type);
 /**
  * \ingroup H5I
  *
@@ -485,7 +576,7 @@ H5_DLL herr_t     H5Idestroy_type(H5I_type_t type);
  *          been created by a call to H5Iregister_type().
  *
  */
-H5_DLL int        H5Iinc_type_ref(H5I_type_t type);
+H5_DLL int H5Iinc_type_ref(H5I_type_t type);
 /**
  * \ingroup H5I
  *
@@ -505,7 +596,7 @@ H5_DLL int        H5Iinc_type_ref(H5I_type_t type);
  *          been created by a call to H5Iregister_type().
  *
  */
-H5_DLL int        H5Idec_type_ref(H5I_type_t type);
+H5_DLL int H5Idec_type_ref(H5I_type_t type);
 /**
  * \ingroup H5I
  *
@@ -524,7 +615,7 @@ H5_DLL int        H5Idec_type_ref(H5I_type_t type);
  *          created by a call to H5Iregister_type().
  *
  */
-H5_DLL int        H5Iget_type_ref(H5I_type_t type);
+H5_DLL int H5Iget_type_ref(H5I_type_t type);
 /**
  * \ingroup H5I
  *
@@ -565,7 +656,7 @@ H5_DLL int        H5Iget_type_ref(H5I_type_t type);
  *          parameter. It can be used to further define the search at run-time.
  *
  */
-H5_DLL void *     H5Isearch(H5I_type_t type, H5I_search_func_t func, void *key);
+H5_DLL void *H5Isearch(H5I_type_t type, H5I_search_func_t func, void *key);
 /**
  * \ingroup H5I
  *
@@ -594,7 +685,7 @@ H5_DLL void *     H5Isearch(H5I_type_t type, H5I_search_func_t func, void *key);
  * \since 1.12.0
  *
  */
-H5_DLL herr_t     H5Iiterate(H5I_type_t type, H5I_iterate_func_t op, void *op_data);
+H5_DLL herr_t H5Iiterate(H5I_type_t type, H5I_iterate_func_t op, void *op_data);
 /**
  * \ingroup H5I
  *
@@ -614,7 +705,7 @@ H5_DLL herr_t     H5Iiterate(H5I_type_t type, H5I_iterate_func_t op, void *op_da
  *          the value 0.
  *
  */
-H5_DLL herr_t     H5Inmembers(H5I_type_t type, hsize_t *num_members);
+H5_DLL herr_t H5Inmembers(H5I_type_t type, hsize_t *num_members);
 /**
  * \ingroup H5I
  *
@@ -630,7 +721,7 @@ H5_DLL herr_t     H5Inmembers(H5I_type_t type, hsize_t *num_members);
  * \since 1.8.0
  *
  */
-H5_DLL htri_t     H5Itype_exists(H5I_type_t type);
+H5_DLL htri_t H5Itype_exists(H5I_type_t type);
 /**
  * \ingroup H5I
  *
@@ -658,7 +749,7 @@ H5_DLL htri_t     H5Itype_exists(H5I_type_t type);
  * \since 1.8.3
  *
  */
-H5_DLL htri_t     H5Iis_valid(hid_t id);
+H5_DLL htri_t H5Iis_valid(hid_t id);
 
 #ifdef __cplusplus
 }
